@@ -1,0 +1,3691 @@
+
+
+================================================================================
+// FILE_PATH: ./gameFramework/ba.java
+================================================================================
+
+package com.corrodinggames.rts.gameFramework;
+
+import android.content.Context;
+import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Iterator;
+
+/* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/ba.class */
+public class ba {
+    public static boolean b = true;
+    public static boolean c = true;
+    public static boolean d = false;
+    public static boolean e = true;
+    public static boolean f = false;
+    public boolean h;
+    int i;
+    int j;
+    boolean k;
+    int l;
+    boolean m;
+    public int o;
+    public int p;
+    public int q;
+    public String r;
+    boolean s;
+    private volatile boolean P;
+    String t;
+    boolean u;
+    bd w;
+    bd x;
+    int y;
+    int z;
+    int A;
+    int B;
+    InputStream C;
+    BufferedInputStream D;
+    DataInputStream E;
+    com.corrodinggames.rts.gameFramework.j.k F;
+    OutputStream G;
+    BufferedOutputStream H;
+    DataOutputStream I;
+    com.corrodinggames.rts.gameFramework.j.as J;
+    bb K;
+    Thread L;
+    public boolean O;
+
+    /* renamed from: a, reason: collision with root package name */
+    String f445a = "replays/";
+    public com.corrodinggames.rts.gameFramework.j.ak g = new com.corrodinggames.rts.gameFramework.j.ak();
+    public boolean n = false;
+    public int v = 1;
+    Object M = new Object();
+    public boolean N = false;
+
+    public static void a(String str) {
+        l.e("Replay: " + str);
+    }
+
+    public static void b(String str) {
+        l.b("Replay: " + str);
+    }
+
+    public static void a(String str, Exception exc) {
+        l.a("Replay: " + str, (Throwable) exc);
+    }
+
+    public File a(String str, boolean z) {
+        return com.corrodinggames.rts.gameFramework.e.a.a(str, this.f445a, z);
+    }
+
+    public void a(Context context) {
+    }
+
+    public void a() {
+        l lVarB = l.B();
+        if (lVarB.bt != 0.0f) {
+            lVarB.bt = 0.0f;
+        } else {
+            lVarB.bt = 1.0f;
+        }
+    }
+
+    public void b() {
+        l lVarB = l.B();
+        if (lVarB.bt == 1.0f) {
+            lVarB.bt = 2.0f;
+            return;
+        }
+        if (lVarB.bt == 2.0f) {
+            lVarB.bt = 4.0f;
+            return;
+        }
+        if (lVarB.bt == 4.0f) {
+            lVarB.bt = 8.0f;
+            return;
+        }
+        if (lVarB.bt == 8.0f) {
+            lVarB.bt = 16.0f;
+            return;
+        }
+        if (lVarB.bt == 16.0f) {
+            lVarB.bt = 32.0f;
+            return;
+        }
+        if (lVarB.bt == 32.0f) {
+            lVarB.bt = 64.0f;
+        } else if (lVarB.bt == 64.0f) {
+            lVarB.bt = 1.0f;
+        } else {
+            lVarB.bt = 1.0f;
+        }
+    }
+
+    public void a(int i, String str, String str2, int i2) {
+        bb bbVar = this.K;
+        if (this.P && !this.u) {
+            if (str2.startsWith("-t ")) {
+            }
+            bd bdVar = new bd();
+            bdVar.f448a = i2;
+            bdVar.g = new bc();
+            bdVar.g.f447a = i;
+            bdVar.g.b = str;
+            bdVar.g.c = str2;
+            if (bbVar == null) {
+                l.g("Failed to record chat message, replay might have already stopped");
+            } else {
+                bbVar.a(bdVar);
+            }
+        }
+    }
+
+    public void a(byte[] bArr, int i, int i2, int i3, float f2, float f3) {
+        bb bbVar = this.K;
+        if (this.P && !this.u) {
+            bd bdVar = new bd();
+            bdVar.f448a = i;
+            bdVar.f = bArr;
+            bdVar.h = i2;
+            bdVar.i = i3;
+            bdVar.j = f2;
+            bdVar.k = f3;
+            if (bbVar == null) {
+                l.g("Failed to save resync, replay might have already stopped");
+            } else {
+                bbVar.a(bdVar);
+            }
+        }
+    }
+
+    public void c() {
+        if (f) {
+            d();
+        }
+    }
+
+    public void a(e eVar, int i) {
+        bb bbVar = this.K;
+        if (this.P && !this.u) {
+            if (bbVar == null) {
+                l.g("Failed to record command, replay might have already stopped");
+                return;
+            }
+            bd bdVar = new bd();
+            bdVar.e = eVar.f();
+            bdVar.f448a = i;
+            bbVar.a(bdVar);
+            this.j++;
+            if (this.j > 5) {
+                this.j = 0;
+                l lVarB = l.B();
+                bd bdVar2 = new bd();
+                bdVar2.c = Long.valueOf(f());
+                bdVar2.f448a = lVarB.bx;
+                bbVar.a(bdVar2);
+            }
+        }
+    }
+
+    public void d() {
+        if (this.P && !this.u) {
+            this.g.b();
+            a(this.g, true);
+        }
+    }
+
+    public void a(com.corrodinggames.rts.gameFramework.j.ak akVar) {
+        a(akVar, false);
+    }
+
+    public void a(com.corrodinggames.rts.gameFramework.j.ak akVar, boolean z) {
+        if (this.P && !this.u) {
+            l lVarB = l.B();
+            bd bdVar = new bd();
+            com.corrodinggames.rts.gameFramework.j.as asVar = new com.corrodinggames.rts.gameFramework.j.as();
+            int i = 0;
+            if (z) {
+                try {
+                    i = 0 + 1;
+                } catch (IOException e2) {
+                    throw new RuntimeException(e2);
+                }
+            }
+            asVar.c(i);
+            asVar.a(akVar.b.size());
+            Iterator it = akVar.b.iterator();
+            while (it.hasNext()) {
+                asVar.a(((com.corrodinggames.rts.gameFramework.j.al) it.next()).b);
+            }
+            bdVar.d = asVar.d();
+            bdVar.f448a = lVarB.bx;
+            this.K.a(bdVar);
+        }
+    }
+
+    /* JADX WARN: Finally extract failed */
+    public void e() {
+        synchronized (this.M) {
+            try {
+                try {
+                    if (this.K != null) {
+                        this.K.a();
+                        try {
+                            this.L.join();
+                        } catch (InterruptedException e2) {
+                            e2.printStackTrace();
+                        }
+                        this.P = false;
+                        this.K = null;
+                        this.L = null;
+                    }
+                    if (this.G != null) {
+                        this.I.flush();
+                        this.I.close();
+                        this.H.flush();
+                        this.H.close();
+                        this.G.flush();
+                        this.G.close();
+                    }
+                    this.G = null;
+                    this.H = null;
+                    this.I = null;
+                    this.J = null;
+                } catch (IOException e3) {
+                    e3.printStackTrace();
+                    this.G = null;
+                    this.H = null;
+                    this.I = null;
+                    this.J = null;
+                }
+                this.s = false;
+                this.P = false;
+                this.u = false;
+                this.t = null;
+                this.i = 0;
+                this.j = 0;
+                this.k = false;
+                this.l = 0;
+                this.m = false;
+                this.y = 0;
+                this.v = 1;
+                this.z = 0;
+                this.A = 0;
+                this.B = 0;
+                this.o = -1;
+                this.p = 0;
+                this.q = -1;
+                this.r = null;
+                try {
+                    try {
+                        if (this.C != null) {
+                            this.E.close();
+                            this.D.close();
+                            this.C.close();
+                        }
+                        this.C = null;
+                        this.D = null;
+                        this.E = null;
+                        this.F = null;
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                        this.C = null;
+                        this.D = null;
+                        this.E = null;
+                        this.F = null;
+                    }
+                } catch (Throwable th) {
+                    this.C = null;
+                    this.D = null;
+                    this.E = null;
+                    this.F = null;
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                this.G = null;
+                this.H = null;
+                this.I = null;
+                this.J = null;
+                throw th2;
+            }
+        }
+    }
+
+    public long f() {
+        long j = 0;
+        Iterator it = w.er.iterator();
+        while (it.hasNext()) {
+            w wVar = (w) it.next();
+            if (wVar instanceof com.corrodinggames.rts.game.units.y) {
+                com.corrodinggames.rts.game.units.y yVar = (com.corrodinggames.rts.game.units.y) wVar;
+                j = ((long) (((long) (((long) (j + (yVar.eo * 1000.0f))) + (yVar.ep * 1000.0f))) + (yVar.cu * 1.0f))) + yVar.eh;
+            }
+        }
+        return j;
+    }
+
+    public void g() {
+        if (!this.N) {
+            e();
+        }
+    }
+
+    public boolean c(String str) {
+        return a(str, a(str, false));
+    }
+
+    private void l() {
+        for (int i = 0; i < com.corrodinggames.rts.game.n.c; i++) {
+            com.corrodinggames.rts.game.n nVarK = com.corrodinggames.rts.game.n.k(i);
+            if (nVarK != null && (nVarK instanceof com.corrodinggames.rts.game.a.a)) {
+                ((com.corrodinggames.rts.game.a.a) nVarK).aX = true;
+            }
+        }
+    }
+
+    public boolean a(String str, File file) {
+        if (this.P) {
+            if (this.u) {
+                l.b("startReplayingFile: A replay is already playing");
+            } else {
+                l.b("startReplayingFile: A replay is already saving");
+            }
+        }
+        e();
+        l lVarB = l.B();
+        lVarB.e();
+        lVarB.bX.q();
+        this.w = null;
+        this.s = false;
+        this.P = true;
+        this.u = true;
+        this.t = str;
+        try {
+            if (file.isDirectory()) {
+                l.e("File is a directory: " + file.getAbsolutePath());
+                l.e("Cannot load replay: Target is a folder, instead of a file");
+                lVarB.a("Cannot load replay: Target is a folder, instead of a file", 1);
+                return false;
+            }
+            this.C = com.corrodinggames.rts.gameFramework.e.a.a(file);
+            if (this.C == null) {
+                l.e("Cannot load replay: Failed to read replay file");
+                lVarB.a("Cannot load replay: Failed to read replay file", 1);
+                return false;
+            }
+            this.D = new BufferedInputStream(this.C);
+            this.E = new DataInputStream(this.D);
+            this.F = new com.corrodinggames.rts.gameFramework.j.k(this.E);
+            String strL = this.F.l();
+            if (!strL.equals("rustedWarfareReplay")) {
+                l.e("Header is not correct:" + strL);
+                l.e("Cannot load replay: File is missing header (check if this file is a replay)");
+                lVarB.a("Cannot load replay: File is missing header (check if this file is a replay)", 1);
+                return false;
+            }
+            int iF = this.F.f();
+            int iF2 = this.F.f();
+            a("Loading save from version: " + iF2);
+            this.F.a(iF2);
+            String strL2 = this.F.l();
+            if ((iF2 != 96 || iF != lVarB.c(true)) && !this.n) {
+                String str2 = "Cannot load replay: This replay was recording with a different version: " + strL2;
+                if (l.av()) {
+                    str2 = str2 + " (You can use the beta tab in steam to switch to old versions)";
+                }
+                lVarB.a(str2, 1);
+                a("Replay version: " + iF2 + " (" + iF + ")");
+                a("GameSaver.thisSaveVersion: 96 (" + lVarB.c(true) + ")");
+                if (!l.aG) {
+                    this.P = false;
+                    return false;
+                }
+            }
+            this.q = iF2;
+            this.r = strL2;
+            this.F.e();
+            this.F.b("gamesave");
+            this.O = false;
+            this.N = true;
+            a("Loading replay initial save");
+            lVarB.ca.a(this.F, false, false, false);
+            this.N = false;
+            this.F.d("gamesave");
+            if (!this.O) {
+                a("ReplayEngine: --- No game setup read ----");
+                lVarB.bX.ay.i = true;
+                lVarB.bC = lVarB.bQ.teamUnitCapHostedGame;
+                lVarB.bB = lVarB.bC;
+            }
+            if (!this.h) {
+                l();
+            }
+            a("--- Reply settings ---");
+            a("Unit cap: " + lVarB.bC);
+            a(lVarB.bX.ay.b());
+            a("Starting frame:" + lVarB.bx);
+            if (!this.h) {
+                for (int i = 0; i < com.corrodinggames.rts.game.n.c; i++) {
+                    com.corrodinggames.rts.game.n nVarK = com.corrodinggames.rts.game.n.k(i);
+                    if (nVarK != null && nVarK.v != null) {
+                        lVarB.bS.h.a(VariableScope.nullOrMissingString, "Player '" + nVarK.v + "' playing as " + nVarK.N().toLowerCase() + " (team:" + nVarK.h() + ")");
+                    }
+                }
+            }
+            if (l.aw) {
+                com.corrodinggames.rts.gameFramework.j.ad.g("Warning: editor will desync checksums.");
+                lVarB.bv = true;
+                lVarB.bl = true;
+                lVarB.bn = true;
+            }
+            return true;
+        } catch (IOException e2) {
+            throw new RuntimeException(e2);
+        }
+    }
+
+    public void a(boolean z) throws IOException {
+        if (l.aW) {
+            if (!l.bd) {
+                return;
+            }
+        } else if (!l.bc) {
+            return;
+        }
+        l lVarB = l.B();
+        if (lVarB.bX.B && !z && !this.N && lVarB.bQ.saveMultiplayerReplays) {
+            d(lVarB.al() + " [v" + lVarB.v() + "] (" + f.a("d MMM yyyy HH.mm.ss") + ").replay");
+        }
+    }
+
+    public void d(String str) throws IOException {
+        a("Recording replay to: " + str);
+        if (this.P) {
+            if (this.u) {
+                b("startSaving: A replay is already playing");
+            } else {
+                b("startSaving: A replay is already saving");
+            }
+        }
+        e();
+        l lVarB = l.B();
+        f = lVarB.bQ.replayTracing;
+        if (f) {
+            lVarB.bX.j("Warning traceChecksumsWriting is on. Large replay file size will be created.");
+        }
+        this.s = false;
+        this.P = true;
+        this.u = false;
+        this.t = str;
+        try {
+            File fileA = a(str, true);
+            this.G = com.corrodinggames.rts.gameFramework.e.a.a(fileA, false);
+            if (this.G == null) {
+                b("Failed to create replay file at:" + fileA.getAbsolutePath());
+                l.B().i("Failed to create replay file (Replay recording will be disabled)");
+                e();
+                return;
+            }
+            this.H = new BufferedOutputStream(this.G);
+            this.I = new DataOutputStream(this.H);
+            this.J = new com.corrodinggames.rts.gameFramework.j.as(this.I);
+            this.J.c("rustedWarfareReplay");
+            this.J.a(lVarB.c(true));
+            this.J.a(96);
+            this.J.c(lVarB.v());
+            this.J.a(lVarB.ar);
+            this.J.e("gamesave");
+            lVarB.ca.a(this.J);
+            this.J.a("gamesave");
+            this.I.flush();
+            this.K = new bb(this);
+            this.L = new Thread(this.K);
+            this.L.start();
+        } catch (IOException e2) {
+            a("Failed to start recording replay", e2);
+            l.B().i("Failed to start recording replay: " + e2.getMessage());
+            e();
+        } catch (Exception e3) {
+            a("Failed to start recording replay (Non IOException)", e3);
+            l.B().i("Failed to start recording replay (Non IOException): " + e3.getMessage());
+            e();
+        }
+    }
+
+    public boolean h() {
+        l lVarB = l.B();
+        String strX = this.F.x();
+        if ("rc".equals(strX)) {
+            this.y++;
+            bd bdVar = new bd();
+            bdVar.f448a = this.F.f();
+            e eVarB = lVarB.cf.b();
+            eVarB.a(this.F);
+            eVarB.f475a = true;
+            bdVar.e = eVarB;
+            this.F.d("rc");
+            this.w = bdVar;
+            this.p++;
+            this.o = bdVar.f448a;
+            if (c) {
+                a("updateGameFrame: Command: " + eVarB.i.v + " (" + eVarB.i.k + ") count:" + eVarB.d() + " id:" + this.y);
+                if (eVarB.j != null) {
+                    a("updateGameFrame: Waypoint: " + eVarB.j.d().name());
+                    if (eVarB.j.a() != null) {
+                        a("updateGameFrame: Build Type: " + eVarB.j.a().i());
+                    }
+                }
+                if (com.corrodinggames.rts.game.units.a.s.c(eVarB.k)) {
+                    a("updateGameFrame: SpecialAction: " + eVarB.k.a());
+                }
+                if (eVarB.n != null) {
+                    a("updateGameFrame: SetAttackMode: " + eVarB.n);
+                }
+                if (eVarB.g) {
+                    a("updateGameFrame: stopOrUndo is set");
+                }
+                if (eVarB.r) {
+                    if (eVarB.s != 0.0f) {
+                        a("updateGameFrame: changeStepRate:" + eVarB.s);
+                    }
+                    if (eVarB.u != 0) {
+                        a("updateGameFrame: systemAction_action:" + eVarB.u);
+                    }
+                }
+                a("updateGameFrame: ------");
+                return true;
+            }
+            return true;
+        }
+        if ("wait".equals(strX)) {
+            bd bdVar2 = new bd();
+            bdVar2.f448a = this.F.f();
+            bdVar2.b = true;
+            this.w = bdVar2;
+            this.F.d("wait");
+            return true;
+        }
+        if ("cs".equals(strX)) {
+            int iF = this.F.f();
+            long jI = this.F.i();
+            if (!this.n) {
+                if (lVarB.bx != iF) {
+                    l.b("replay:updateGameFrame", "expected:" + iF + " got:" + lVarB.bx);
+                }
+                if (f() != jI) {
+                    b("checksum: checksums don't match!!");
+                    b("checksum: game frameNumber:" + lVarB.bx);
+                    b("checksum: Replay checksum:" + jI);
+                    b("checksum: Game checksum  :" + f());
+                    this.l++;
+                    if (!this.k) {
+                        this.k = true;
+                        lVarB.bS.h.a(VariableScope.nullOrMissingString, "Error: This replay might be out of sync");
+                    }
+                } else {
+                    a("checksum: checksums are matching frameNumber:" + lVarB.bx);
+                }
+            }
+            this.F.d("cs");
+            return true;
+        }
+        if ("es".equals(strX)) {
+            int iF2 = this.F.f();
+            if (!this.n) {
+                if (lVarB.bx != iF2) {
+                    l.b("replay.updateGameFrame: expected:" + iF2 + " got:" + lVarB.bx);
+                }
+                com.corrodinggames.rts.gameFramework.j.k kVar = new com.corrodinggames.rts.gameFramework.j.k(this.F.t());
+                boolean z = false;
+                if (com.corrodinggames.rts.game.units.custom.d.b.a(kVar.d(), 1)) {
+                    z = true;
+                }
+                if (z) {
+                    l.e("replay: -trace checksum-");
+                } else {
+                    l.e("replay: -long checksum-");
+                }
+                lVarB.bX.d();
+                kVar.f();
+                Iterator it = lVarB.bX.am.b.iterator();
+                while (it.hasNext()) {
+                    com.corrodinggames.rts.gameFramework.j.al alVar = (com.corrodinggames.rts.gameFramework.j.al) it.next();
+                    long jI2 = kVar.i();
+                    if (!this.m && jI2 == alVar.b) {
+                        a("extraChecksum: " + alVar.f566a + " Checksum [" + iF2 + "]. " + jI2 + " == " + alVar.b + " (ok)");
+                    }
+                    if (jI2 != alVar.b) {
+                        if (this.l < 150) {
+                            b("extraChecksum: " + alVar.f566a + " Checksum [" + iF2 + "]. " + jI2 + " != " + alVar.b + " (failed)");
+                        }
+                        this.l++;
+                    }
+                }
+            }
+            this.m = true;
+            this.F.d("es");
+            return true;
+        }
+        if ("resync".equals(strX)) {
+            int iF3 = this.F.f();
+            l.e("Loading resync from replay");
+            if (lVarB.bx != iF3) {
+                l.b("replay:resync", "expected:" + iF3 + " got:" + lVarB.bx);
+            }
+            int iF4 = this.F.f();
+            int iF5 = this.F.f();
+            float fG = this.F.g();
+            float fG2 = this.F.g();
+            lVarB.ca.a(new com.corrodinggames.rts.gameFramework.j.k(this.F.t()), true, true, true);
+            l();
+            lVarB.bx = iF4;
+            lVarB.by = iF5;
+            lVarB.bX.am.f565a = 0L;
+            if (fG < 0.1d) {
+                com.corrodinggames.rts.gameFramework.j.ad.a("replay setCurrentStepRate:" + fG + " is too small", true);
+            }
+            lVarB.bX.a(fG, "replay");
+            lVarB.bX.J = fG2;
+            this.F.d("resync");
+            return true;
+        }
+        if ("chat".equals(strX)) {
+            bd bdVar3 = new bd();
+            bdVar3.f448a = this.F.f();
+            bdVar3.g = new bc();
+            bdVar3.g.f447a = this.F.f();
+            bdVar3.g.b = this.F.j();
+            bdVar3.g.c = this.F.j();
+            this.w = bdVar3;
+            this.F.d("chat");
+            return true;
+        }
+        if ("end".equals(strX)) {
+            l.b("replay:updateGameFrame", "end of replay block found");
+            lVarB.bS.h.a(VariableScope.nullOrMissingString, "Replay has ended");
+            if (!lVarB.bv) {
+                this.s = true;
+                lVarB.bt = 0.25f;
+                l.B().bS.G();
+            } else {
+                this.s = false;
+                this.P = false;
+                this.u = false;
+                com.corrodinggames.rts.game.units.h hVarI = lVarB.bS.i();
+                if (hVarI != null) {
+                    lVarB.bs = hVarI.bX;
+                }
+            }
+            this.F.d("end");
+            l.e("number of replay commands issued:" + this.z);
+            return false;
+        }
+        if ("endReplayMetaData".equals(strX)) {
+            this.F.d("endReplayMetaData");
+            return true;
+        }
+        l.b("updateGameFrame", "Unknown command block:" + strX);
+        this.F.d(strX);
+        return true;
+    }
+
+    public void a(float f2) {
+        l lVarB = l.B();
+        if (this.s || !this.P || !this.u) {
+            return;
+        }
+        while (true) {
+            if (this.w == null) {
+                try {
+                    if (!h()) {
+                        return;
+                    }
+                } catch (IOException e2) {
+                    l.b("updateGameFrame", "IOException, read of replay?");
+                    e2.printStackTrace();
+                    lVarB.bt = 0.25f;
+                    if (!this.s && this.P) {
+                        lVarB.bS.h.a(VariableScope.nullOrMissingString, "Replay ended (unexpected)");
+                    }
+                    this.s = true;
+                    return;
+                }
+            }
+            if (this.w != null) {
+                if (this.n) {
+                    this.w = null;
+                } else {
+                    if (b && this.w != null && this.x != this.w) {
+                        this.x = this.w;
+                        l.e("replay: upcoming in " + (this.w.f448a - lVarB.bx) + " command:" + (this.w.e != null));
+                    }
+                    if (this.w.b && this.z == 0) {
+                        l.e("updateGameFrame: replay: Skipping wait on first resync without commands to avoid delay");
+                        this.w = null;
+                    } else if (lVarB.bx >= this.w.f448a) {
+                        if (this.w.e != null) {
+                            if (lVarB.bx > this.w.f448a) {
+                                l.b("updateGameFrame: replay incorrect frameNumber, skipping command:" + lVarB.bx + " vs " + this.w.f448a);
+                            } else {
+                                if (d) {
+                                    if (this.w.e.p == null) {
+                                        l.e("Precommand Team: commandingPlayer==null");
+                                        if (this.w.e.i != null) {
+                                            l.e("Precommand Team id:" + this.w.e.i.k + " credits:" + this.w.e.i.o);
+                                        }
+                                    } else {
+                                        l.e("Precommand Team id:" + this.w.e.p.k + " credits:" + this.w.e.p.o + " count:" + this.w.e.p.w() + " max:" + this.w.e.p.x());
+                                    }
+                                }
+                                if (this.w.e.r && this.w.e.u != 0) {
+                                    l.b("replay:issueCommand", "systemAction_action:" + this.w.e.u);
+                                }
+                                this.w.e.k();
+                                if (d) {
+                                    if (this.w.e.p != null) {
+                                        l.e("Postcommand credits:" + this.w.e.p.o + " count:" + this.w.e.p.w() + " max:" + this.w.e.p.x());
+                                    } else if (this.w.e.i != null) {
+                                        l.e("Postcommand Team id:" + this.w.e.i.k + " credits:" + this.w.e.i.o);
+                                    }
+                                }
+                                this.z++;
+                            }
+                        } else if (this.w.g != null) {
+                            bc bcVar = this.w.g;
+                            boolean z = false;
+                            if (bcVar.c == null) {
+                                z = true;
+                            } else {
+                                if (bcVar.c.startsWith("-i ")) {
+                                    z = true;
+                                }
+                                if (bcVar.c.equals("<All players ready>")) {
+                                    z = true;
+                                }
+                                if (bcVar.c.equals("--too many desync errors, suppressing output--")) {
+                                    z = true;
+                                }
+                                if (bcVar.c.startsWith("desync:")) {
+                                    z = true;
+                                }
+                            }
+                            if (!lVarB.bQ.replaysShowRecordedChat) {
+                                z = true;
+                            }
+                            if (z) {
+                                l.b("replay:updateGameFrame", "Skipping message: " + bcVar.b + ":" + bcVar.c);
+                            } else {
+                                l.b("replay:updateGameFrame", "message: " + bcVar.b + ":" + bcVar.c);
+                                lVarB.bS.h.a(bcVar.b, bcVar.c);
+                            }
+                        } else if (this.w.b) {
+                            if (c) {
+                            }
+                        } else {
+                            l.b("updateGameFrame", "error: lastReadCommand null action");
+                        }
+                        this.w = null;
+                    }
+                }
+            }
+            if (this.w != null) {
+                return;
+            }
+        }
+    }
+
+    public void e(String str) {
+        l.e("ReplayEngine deleteGame: " + str);
+        String strO = com.corrodinggames.rts.gameFramework.e.a.o(str);
+        if (strO.contains("\\") || strO.contains("/")) {
+            l.e("Cannot get replay with path: " + str);
+            return;
+        }
+        File fileA = a(str, true);
+        l.e("ReplayEngine path: " + fileA.getAbsolutePath());
+        if (!fileA.exists()) {
+            l.e("ReplayEngine deleteGame: file doesn't exist");
+        }
+        if (!com.corrodinggames.rts.gameFramework.e.a.b(fileA)) {
+            l.e("ReplayEngine deleteGame: failed to delete: " + fileA.getAbsolutePath());
+        }
+        File fileA2 = a(str + ".map", true);
+        if (fileA2.exists()) {
+            com.corrodinggames.rts.gameFramework.e.a.b(fileA2);
+        }
+    }
+
+    public boolean i() {
+        return this.P;
+    }
+
+    public boolean j() {
+        return this.P && this.u;
+    }
+
+    public boolean k() {
+        return this.P && !this.u;
+    }
+}
+
+
+================================================================================
+// FILE_PATH: ./gameFramework/w.java
+================================================================================
+
+package com.corrodinggames.rts.gameFramework;
+
+import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
+import java.io.IOException;
+
+/* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/w.class */
+public abstract class w extends bq {
+    public long eh;
+    public boolean ej;
+    public boolean ek;
+    public boolean el;
+    public int em;
+    public int en;
+    public float eo;
+    public float ep;
+    public float eq;
+    public static x ei = new x();
+
+    /* renamed from: a, reason: collision with root package name */
+    private static final com.corrodinggames.rts.gameFramework.utility.o f708a = new com.corrodinggames.rts.gameFramework.utility.o();
+    public static final com.corrodinggames.rts.gameFramework.utility.s er = new com.corrodinggames.rts.gameFramework.utility.s("fastGameObjectList");
+
+    public abstract void a(float f);
+
+    public abstract void a(float f, boolean z);
+
+    public abstract void d(float f);
+
+    public abstract void e(float f);
+
+    public abstract boolean c(float f);
+
+    public abstract boolean f(float f);
+
+    public void S(int i) {
+        this.em = i;
+    }
+
+    @Override // com.corrodinggames.rts.gameFramework.bq
+    public void a(com.corrodinggames.rts.gameFramework.j.as asVar) throws IOException {
+        asVar.a(this.ej);
+        asVar.a(this.ek);
+        asVar.a(this.em);
+    }
+
+    public void a(com.corrodinggames.rts.gameFramework.j.k kVar) {
+        this.ej = kVar.e();
+        this.ek = kVar.e();
+        this.em = kVar.f();
+    }
+
+    public w() {
+        this(false);
+    }
+
+    public w(boolean z) {
+        this.ej = false;
+        this.ek = false;
+        this.em = 2;
+        this.en = 0;
+        this.eq = 0.0f;
+        if (!z) {
+            l lVarB = l.B();
+            if (this.eh != 0) {
+                throw new RuntimeException("ID for GameObject is already set at:" + this.eh);
+            }
+            this.eh = lVarB.bX.y();
+            if (this.eh == 0) {
+                throw new RuntimeException("Adding object with id:0 class:" + getClass().getSimpleName());
+            }
+            f708a.a(this);
+            er.add(this);
+            return;
+        }
+        this.eh = 0L;
+    }
+
+    public void p(float f) {
+    }
+
+    public boolean a(l lVar) {
+        return true;
+    }
+
+    public void a() {
+        if (this.eh != 0) {
+            f708a.b(this);
+            er.remove(this);
+        }
+        this.ej = true;
+    }
+
+    public static w a(long j, Class cls, boolean z) {
+        if (j == -1) {
+            return null;
+        }
+        w[] wVarArrA = er.a();
+        int size = er.size();
+        for (int i = 0; i < size; i++) {
+            w wVar = wVarArrA[i];
+            if (wVar.eh == j) {
+                if (cls.isInstance(wVar)) {
+                    return wVar;
+                }
+                String name = wVar.getClass().getName();
+                String name2 = cls.getName();
+                com.corrodinggames.rts.gameFramework.j.ad.g("object id:" + j + " was found, but with type " + name.replace("com.corrodinggames.rts.", VariableScope.nullOrMissingString) + " instead of " + name2.replace("com.corrodinggames.rts.", VariableScope.nullOrMissingString));
+            }
+        }
+        if (!z) {
+            com.corrodinggames.rts.gameFramework.j.ad.g("getFromId:" + j + " was not found");
+            return null;
+        }
+        return null;
+    }
+
+    public static com.corrodinggames.rts.game.units.am a(long j, boolean z) {
+        return (com.corrodinggames.rts.game.units.am) a(j, com.corrodinggames.rts.game.units.am.class, z);
+    }
+
+    public static com.corrodinggames.rts.game.units.y b(long j, boolean z) {
+        return (com.corrodinggames.rts.game.units.y) a(j, com.corrodinggames.rts.game.units.y.class, z);
+    }
+
+    public static com.corrodinggames.rts.gameFramework.utility.o dK() {
+        f708a.a();
+        return f708a;
+    }
+
+    public static void dL() {
+        f708a.a();
+        com.corrodinggames.rts.game.units.am.bG();
+    }
+}
+
+
+================================================================================
+// FILE_PATH: ./gameFramework/br.java
+================================================================================
+
+package com.corrodinggames.rts.gameFramework;
+
+import android.graphics.Paint;
+import android.graphics.Rect;
+import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
+
+/* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/br.class */
+public final class br {
+
+    /* renamed from: a, reason: collision with root package name */
+    l f458a;
+    public static int c = 40;
+    public int b = 0;
+    public int d = 0;
+    bu e = new bu(this);
+    Paint f = new Paint();
+    Rect g = new Rect();
+    int h = -1;
+
+    public br(l lVar) {
+        this.f458a = lVar;
+    }
+
+    public static final long a() {
+        return System.nanoTime();
+    }
+
+    public static final float a(long j) {
+        return (System.nanoTime() - j) / 1000000.0f;
+    }
+
+    public static final double a(long j, long j2) {
+        return (j2 - j) / 1000000.0d;
+    }
+
+    public static final void a(String str, long j) {
+        l.e(str + VariableScope.nullOrMissingString + a(a(j)));
+    }
+
+    public final void a(bs bsVar) {
+    }
+
+    public final void b(bs bsVar) {
+    }
+
+    public static final String a(double d) {
+        return VariableScope.nullOrMissingString + f.a(d, 3) + "ms";
+    }
+
+    public static final String b(double d) {
+        return VariableScope.nullOrMissingString + (d / 1000000.0d) + "ms";
+    }
+
+    public final void b() {
+    }
+
+    public final void c() {
+    }
+
+    public final void a(boolean z, boolean z2) {
+    }
+}
+
+
+================================================================================
+// FILE_PATH: ./gameFramework/ac.java
+================================================================================
+
+package com.corrodinggames.rts.gameFramework;
+
+import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
+import com.corrodinggames.rts.gameFramework.utility.SlickToAndroidKeycodes;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Properties;
+
+/* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/ac.class */
+public class ac {
+
+    /* renamed from: a, reason: collision with root package name */
+    public static aj f400a = new al();
+    public static ai b = new ai();
+    public ad c;
+    public ad d;
+    public ad e;
+    public ad f;
+    public ad g;
+    public ad h;
+    public ad i;
+    public ad j;
+    public ad k;
+    public ad l = a("Debug Left");
+    public ad m = a("Debug Right");
+    public ad n = b("Camera Up");
+    public ad o = b("Camera Down");
+    public ad p = b("Camera Left");
+    public ad q = b("Camera Right");
+    public ad r = b("Zoom In");
+    public ad s = b("Zoom Out");
+    public ad t = b("Send Chat");
+    public ad u = b("Send Team Chat");
+    public ad v = b("Ping Map");
+    public ad w = b("Show Menu");
+    public ad x = b("Save Game");
+    public ad y = b("Deselect units");
+    public ad z = b("Go to notification");
+    public ad A = b("Select Whole Army");
+    public ad B = b("Select Command Center");
+    public ad C = b("Cycle Builders");
+    public ad D = b("Cycle Extractors");
+    public ad E = b("Cycle Upgradable Fabricators");
+    public ad F = b("Cycle Land Factories");
+    public ad G = b("Cycle Air Factories");
+    public ad H = b("Next Music Track");
+    public ae I = c("Game Speed (Single player)");
+    public ad J = b("Slower");
+    public ad K = b("Faster");
+    public ad L = b("Pause Game");
+    public ae M = c("Unit Actions");
+    public ad N = b("Attack Move");
+    public ad O = b("Stop");
+    public ad P = b("Guard Unit");
+    public ad Q = b("Patrol");
+    public ad R = b("Reclaim");
+    public ad S = b("Action - Upgrade");
+    public ad T = b("Action - Set Rally");
+    public ad U = a("Debug Editor");
+    public ad V = a("Debug Pause");
+    public ad W = a("Debug Slow");
+    public ad X = a("Debug HideInterface");
+    public ad Y = a("Debug HideInterface Temp");
+    public ad Z = a("Debug InvincibleUnits");
+    public ad aa = a("debugPrintSelectedUnit");
+    public ad ab = a("debugDevModeSwitch");
+    public ad ac = a("debugAIViewSwitch");
+    public ad ad = a("debugMapSwitch");
+    public ad ae = a("Debug Take Screenshot");
+    public ad af = a("Debug Take Screenshot High");
+    public ad[] ag;
+    public ae ah;
+    public ad[] ai;
+    public ad[] aj;
+    public ad[] ak;
+    public ArrayList al;
+    Properties am;
+    int an;
+    int ao;
+
+    public ac() {
+        this.n.a("UP").a("NUMPAD8");
+        this.o.a("DOWN").a("NUMPAD2");
+        this.p.a("LEFT").a("NUMPAD4");
+        this.q.a("RIGHT").a("NUMPAD6");
+        this.l.a("F5");
+        this.m.a("F6");
+        this.x.a("CTRL+S");
+        this.t.a("ENTER").a("T");
+        this.u.a("SHIFT+ENTER").a("Y");
+        this.v.a("CTRL+M").a("CTRL+P");
+        this.w.a("ESCAPE").a("F10");
+        this.y.a("SPACE");
+        this.z.a("CTRL+SPACE");
+        this.A.a("CTRL+A");
+        this.C.a("CTRL+B");
+        this.D.a("CTRL+E");
+        this.E.a("CTRL+F");
+        this.F.a("CTRL+L");
+        this.G.a("CTRL+K");
+        this.B.a("CTRL+C");
+        this.H.a("CTRL+N");
+        this.N.a("A");
+        this.L.a("BREAK");
+        this.O.a("S");
+        this.P.a("G");
+        this.Q.a("P");
+        this.S.a("U");
+        this.T.a("R");
+        this.U.a("CTRL+SHIFT+E");
+        this.V.a("CTRL+SHIFT+P");
+        this.W.a("CTRL+SHIFT+S");
+        this.X.a("CTRL+SHIFT+H");
+        this.Y.a("CTRL+H");
+        this.Z.a("CTRL+SHIFT+I");
+        this.aa.a("CTRL+SHIFT+L");
+        this.ab.a("CTRL+SHIFT+D");
+        this.ac.a("SHIFT+F3");
+        this.ad.a("SHIFT+F4");
+        this.ae.a("CTRL+SHIFT+ALT+S");
+        this.af.a("CTRL+SHIFT+ALT+D");
+        this.J.a("minus").a("NUMPADSUBTRACT");
+        this.K.a("equals").a("NUMPADADD");
+        int[] iArr = {54, 52, 31, 50, 30, 42, 41, 38, 39, 40, 37, 43};
+        this.ag = new ad[10];
+        for (int i = 0; i < this.ag.length; i++) {
+            this.ag[i] = b("unit action " + (i + 1));
+            this.ag[i].c(iArr[i]);
+        }
+        this.ah = c("Unit Groups");
+        this.ak = new ad[10];
+        int i2 = 0;
+        while (i2 < this.ak.length) {
+            this.ak[i2] = b("create group " + (i2 + 1));
+            this.ak[i2].a(a(i2 == 9 ? 0 : i2 + 1), 0, 1, false);
+            i2++;
+        }
+        this.ai = new ad[10];
+        int i3 = 0;
+        while (i3 < this.ai.length) {
+            this.ai[i3] = b("select group " + (i3 + 1));
+            this.ai[i3].c(a(i3 == 9 ? 0 : i3 + 1));
+            i3++;
+        }
+        this.aj = new ad[10];
+        int i4 = 0;
+        while (i4 < this.aj.length) {
+            this.aj[i4] = b("Add group to selection " + (i4 + 1));
+            this.aj[i4].a(a(i4 == 9 ? 0 : i4 + 1), 0, 2, false);
+            i4++;
+        }
+        this.am = new Properties();
+        this.an = 0;
+        this.ao = 0;
+    }
+
+    public int a(int i) {
+        if (i >= 10) {
+            throw new RuntimeException("number:" + i + " too high");
+        }
+        if (i == 0) {
+            return 7;
+        }
+        return 8 + (i - 1);
+    }
+
+    public ad a(String str) {
+        if (this.al == null) {
+            this.al = new ArrayList();
+        }
+        ad adVar = new ad();
+        adVar.f401a = str;
+        adVar.b = false;
+        this.al.add(adVar);
+        return adVar;
+    }
+
+    public ad b(String str) {
+        if (this.al == null) {
+            this.al = new ArrayList();
+        }
+        ad adVar = new ad();
+        adVar.f401a = str;
+        adVar.b = true;
+        this.al.add(adVar);
+        return adVar;
+    }
+
+    public ae c(String str) {
+        if (this.al == null) {
+            this.al = new ArrayList();
+        }
+        ae aeVar = new ae();
+        aeVar.f401a = str;
+        aeVar.b = true;
+        this.al.add(aeVar);
+        return aeVar;
+    }
+
+    public void a(String str, String str2) {
+        String strTrim = str.toLowerCase(Locale.ENGLISH).trim();
+        ad adVar = null;
+        Iterator it = this.al.iterator();
+        while (it.hasNext()) {
+            ad adVar2 = (ad) it.next();
+            if (adVar2.f401a != null && adVar2.e().equals(strTrim)) {
+                adVar = adVar2;
+            }
+        }
+        if (adVar == null) {
+            l.b("loadKey: could not find:" + strTrim);
+            return;
+        }
+        String[] strArrSplit = str2.split(",");
+        for (int i = 0; i <= 1 && i < strArrSplit.length; i++) {
+            String str3 = strArrSplit[i];
+            if (!str3.equalsIgnoreCase("DEFAULT")) {
+                adVar.a(str3, i);
+                if (adVar.c.size() > i && adVar.c.get(i) != null) {
+                    ((af) adVar.c.get(i)).d = true;
+                } else {
+                    l.g("out of range");
+                }
+            }
+        }
+    }
+
+    public String a(ad adVar) {
+        String str = VariableScope.nullOrMissingString;
+        boolean z = true;
+        Iterator it = adVar.c.iterator();
+        while (it.hasNext()) {
+            af afVar = (af) it.next();
+            if (z) {
+                z = false;
+            } else {
+                str = str + ",";
+            }
+            if (afVar.d) {
+                if (afVar.d()) {
+                    str = str + "CLEARED";
+                } else {
+                    str = str + afVar.c();
+                }
+            } else {
+                str = str + "DEFAULT";
+            }
+        }
+        return str;
+    }
+
+    public boolean a(ad adVar, int i) {
+        l lVarB = l.B();
+        af afVarA = adVar.a(i);
+        if (afVarA == null) {
+            return false;
+        }
+        ArrayList arrayList = lVarB.bT.al;
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            ad adVar2 = (ad) arrayList.get(i2);
+            if (adVar2 != adVar) {
+                Iterator it = adVar2.c.iterator();
+                while (it.hasNext()) {
+                    if (afVarA.a((af) it.next())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public void a() {
+        this.c = a("shoot");
+        this.d = a("move up");
+        this.e = a("move down");
+        this.f = a("move left");
+        this.g = a("move right");
+        this.h = a("aim up");
+        this.i = a("aim down");
+        this.j = a("aim left");
+        this.k = a("aim right");
+        this.c.a(0, "enter", -1);
+        this.c.a(0, "space", -1);
+        this.d.a(0, "w", -1);
+        this.e.a(0, "s", -1);
+        this.f.a(0, "a", -1);
+        this.g.a(0, "d", -1);
+        this.h.a(0, "UP", -1);
+        this.i.a(0, "DOWN", -1);
+        this.j.a(0, "LEFT", -1);
+        this.k.a(0, "RIGHT", -1);
+        l.e("getControllerCount:" + b.a());
+        this.d.b(0, 1, 0, true);
+        this.e.b(0, 1, 0, false);
+        this.f.b(0, 1, 1, true);
+        this.g.b(0, 1, 1, false);
+        this.h.b(0, 1, 2, true);
+        this.i.b(0, 1, 2, false);
+        this.j.b(0, 1, 3, true);
+        this.k.b(0, 1, 3, false);
+        this.c.b(0, 1, 4, true);
+    }
+
+    public void b() {
+        if (b.a() != this.ao) {
+            this.ao = b.a();
+            l.e("Number of controllers changed, now:" + this.ao);
+        }
+    }
+
+    public static int d(String str) {
+        if (str.equalsIgnoreCase("CLEARED")) {
+            return 0;
+        }
+        return SlickToAndroidKeycodes.a(str);
+    }
+}
+
+
+================================================================================
+// FILE_PATH: ./gameFramework/be.java
+================================================================================
+
+package com.corrodinggames.rts.gameFramework;
+
+import android.content.Context;
+import android.os.Environment;
+import android.util.Log;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
+
+/* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/be.class */
+public class be {
+    static be e = null;
+
+    /* renamed from: a, reason: collision with root package name */
+    public boolean f449a = false;
+    String b = "rtsSave";
+    String c = "rtsSave.bak";
+    public boolean d = false;
+    HashMap f = new HashMap();
+
+    public void a(Context context) throws IOException {
+        if (l.aU || this.f449a) {
+            return;
+        }
+        try {
+        } catch (FileNotFoundException e2) {
+            Log.b("RustedWarfare", "file save error:", e2);
+        } catch (IOException e3) {
+            Log.b("RustedWarfare", "file save error:", e3);
+        }
+        if (context == null) {
+            throw new IOException("context==null");
+        }
+        try {
+            FileOutputStream fileOutputStreamB = context.b(this.b, 0);
+            DataOutputStream dataOutputStream = new DataOutputStream(fileOutputStreamB);
+            a(dataOutputStream);
+            dataOutputStream.close();
+            fileOutputStreamB.close();
+            if (this.d) {
+                try {
+                    FileOutputStream fileOutputStream = new FileOutputStream(new File(Environment.getExternalStorageDirectory() + "/" + this.c));
+                    DataOutputStream dataOutputStream2 = new DataOutputStream(fileOutputStream);
+                    a(dataOutputStream2);
+                    dataOutputStream2.close();
+                    fileOutputStream.close();
+                } catch (IOException e4) {
+                    Log.b("RustedWarfare", "file read error:", e4);
+                }
+            }
+        } catch (NullPointerException e5) {
+            throw new IOException("openFileOutput NullPointerException", e5);
+        }
+    }
+
+    public boolean a(DataOutputStream dataOutputStream) throws IOException {
+        if (l.aU) {
+            return false;
+        }
+        try {
+            dataOutputStream.writeInt(1);
+            dataOutputStream.writeInt(0);
+            dataOutputStream.writeInt(this.f.size());
+            for (bf bfVar : this.f.values()) {
+                dataOutputStream.writeInt(0);
+                dataOutputStream.writeInt(bfVar.f450a);
+                dataOutputStream.writeUTF(bfVar.b);
+                dataOutputStream.writeInt(bfVar.c);
+                dataOutputStream.writeBoolean(bfVar.d);
+                dataOutputStream.writeBoolean(bfVar.e);
+                dataOutputStream.writeBoolean(bfVar.f);
+                dataOutputStream.writeLong(bfVar.g);
+                dataOutputStream.writeInt(bfVar.h);
+            }
+            dataOutputStream.flush();
+            return true;
+        } catch (IOException e2) {
+            Log.b("RustedWarfare", "file save error:", e2);
+            return false;
+        }
+    }
+
+    public void b(Context context) throws IOException {
+        if (this.f449a) {
+            return;
+        }
+        boolean zA = false;
+        Log.d("RustedWarfare", "Trying to load from internal memory");
+        try {
+            FileInputStream fileInputStreamA = context.a(this.b);
+            zA = a(new DataInputStream(fileInputStreamA));
+            if (zA) {
+                Log.d("RustedWarfare", "loaded from internal memory");
+            }
+            fileInputStreamA.close();
+        } catch (IOException e2) {
+            Log.b("RustedWarfare", "file read error:", e2);
+        }
+        if (this.d && !zA) {
+            Log.d("RustedWarfare", "Trying to load from SD");
+            try {
+                FileInputStream fileInputStream = new FileInputStream(new File(Environment.getExternalStorageDirectory() + "/" + this.c));
+                DataInputStream dataInputStream = new DataInputStream(fileInputStream);
+                if (a(dataInputStream)) {
+                    Log.d("RustedWarfare", "loaded from SD");
+                }
+                dataInputStream.close();
+                fileInputStream.close();
+            } catch (IOException e3) {
+                Log.b("RustedWarfare", "file read error:", e3);
+            }
+        }
+    }
+
+    public boolean a(DataInputStream dataInputStream) throws IOException {
+        try {
+            int i = dataInputStream.readInt();
+            if (i > 1) {
+                Log.d("RustedWarfare", "Warning file is at version:" + i);
+                return false;
+            }
+            dataInputStream.readInt();
+            int i2 = dataInputStream.readInt();
+            this.f.clear();
+            for (int i3 = 0; i3 < i2; i3++) {
+                bf bfVar = new bf(this);
+                dataInputStream.readInt();
+                bfVar.f450a = dataInputStream.readInt();
+                String utf = dataInputStream.readUTF();
+                if (utf.equals("maps/challenge/l030;Level 5.tmx")) {
+                    Log.d("RustedWarfare", "converting:" + utf);
+                    utf = "maps/challenge/l090;Level 7.tmx";
+                }
+                bfVar.b = utf;
+                bfVar.c = dataInputStream.readInt();
+                bfVar.d = dataInputStream.readBoolean();
+                bfVar.e = dataInputStream.readBoolean();
+                bfVar.f = dataInputStream.readBoolean();
+                bfVar.g = dataInputStream.readLong();
+                bfVar.h = dataInputStream.readInt();
+                this.f.put(a(bfVar.b), bfVar);
+            }
+            return true;
+        } catch (IOException e2) {
+            Log.b("RustedWarfare", "file read error:", e2);
+            return false;
+        }
+    }
+
+    public static be c(Context context) throws IOException {
+        if (e == null) {
+            e = new be(context);
+            if (!l.aU) {
+                e.b(context);
+            }
+        }
+        return e;
+    }
+
+    private be(Context context) {
+    }
+
+    public String a(String str) {
+        Integer numL = l.l(str);
+        if (numL != null) {
+            return l.j(str) + "/l" + numL;
+        }
+        return str;
+    }
+
+    public bf b(String str) {
+        String strA = a(str);
+        bf bfVar = (bf) this.f.get(strA);
+        Log.d("RustedWarfare", "StateEngine: get(" + str + ")=" + bfVar + "  (key=" + strA + ")");
+        if (bfVar == null) {
+            bfVar = new bf(this);
+            bfVar.f450a = 1;
+            bfVar.b = str;
+            this.f.put(strA, bfVar);
+        }
+        return bfVar;
+    }
+}
+
+
+================================================================================
+// FILE_PATH: ./gameFramework/SettingsEngine.java
+================================================================================
+
+package com.corrodinggames.rts.gameFramework;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.Uri;
+import android.util.Log;
+import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+/* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/SettingsEngine.class */
+public class SettingsEngine {
+    public boolean enableSounds;
+    public boolean enableMouseCapture;
+    public boolean androidNoSoundPrioritiesDebug;
+    public boolean disableDigitGrouping;
+    public String slick2dResolution;
+    public int settingsGameVersion;
+    public int settingsGameVersionFirst;
+    public String slick2dFullScreenResolution;
+    public boolean upgradedToNoPublicStorage;
+    public boolean upgradedToNoPublicStorageWarningShown;
+    public boolean slick2dFullScreen;
+    public boolean slick2dBorderless;
+    public boolean autosaving;
+    public float masterVolume;
+    public float gameVolume;
+    public float interfaceVolume;
+    public float musicVolume;
+    public float scrollSpeed;
+    public float edgeScrollSpeed;
+    public boolean hasPlayedGameOrSeenHelp;
+    public boolean onscreenControls;
+    public boolean trackpad;
+    public boolean dpad;
+    public boolean batterySaving;
+    public boolean highRefreshRate;
+    public boolean renderBackground;
+    public boolean renderExtraLayers;
+    public boolean immersiveFullScreen;
+    public boolean displayOverCutout;
+    public boolean unlockedScreenRotation;
+    public boolean renderDoubleScale;
+    public float uiRenderScale;
+    public boolean renderClouds;
+    public boolean renderWithLineWidth;
+    public boolean softFogFading;
+    public boolean showUnitGroups;
+    public boolean allowGameRecording;
+    public boolean renderControls;
+    public boolean showHp;
+    public boolean showHpChanges;
+    public boolean showUnitIcons;
+    public boolean gestureZoom;
+    public boolean useCircleSelect;
+    public boolean showZoomButton;
+    public boolean showFps;
+    public boolean newRender;
+    public boolean shaderEffects;
+    public boolean teamShaders;
+    public boolean showUnitWaypoints;
+    public boolean useMinimapAllyColors;
+    public boolean showWarLogOnScreen;
+    public boolean classicInterface;
+    public boolean quickRally;
+    public boolean doubleClickToAttackMove;
+    public boolean showMapPingsOnBattlefield;
+    public boolean showMapPingsOnMinimap;
+    public boolean showPlayerChatInGame;
+    public boolean sendReports;
+    public boolean shownAudioWarning;
+    public boolean mouseSupport;
+    public boolean keyboardSupport;
+    public boolean forceEnglish;
+    public String overrideLanguageCode;
+    public boolean saveMultiplayerReplays;
+    public boolean replaysShowRecordedChat;
+    public int nextBackgroundMap;
+    public String lastNetworkPlayerName;
+    public String lastNetworkIP;
+    public String lastDebugOption;
+    public boolean landscapeOrientation;
+    public int aiDifficulty;
+    public int locationAction;
+    public int locationDpad;
+    public int keyAction;
+    public int keyJump;
+    public int keyLeft;
+    public int keyRight;
+    public int keyDown;
+    public String uuid;
+    public String networkClientId;
+    public String networkClientIdMachineKey;
+    public String networkServerId;
+    public int numIncompleteLoadAttempts;
+    public int numLoadsSinceRunningGameOrNormalExit;
+    public int lastSeenMessageId;
+    public String lastSeenMessageIds;
+    public int networkPort;
+    public boolean udpInMultiplayer;
+    public int banTimeInSecondsAfterKick;
+    public int numberOfWins;
+    public boolean rateGameShown;
+    public int mouseOrders;
+    public int mousePlacement;
+    public boolean liveReloading;
+    public boolean renderVsync;
+    public boolean renderSmoothDelta;
+    public int teamUnitCapSinglePlayer;
+    public int teamUnitCapHostedGame;
+    public boolean showChatAndPingShortcuts;
+    public String modSettings;
+    public int modSettingsVersion;
+    public int storageType;
+    public boolean hasSelectedAStorageType;
+    public boolean hadStoragePermissionInPast;
+    public boolean loadDisabledModData;
+    public int lastModCount;
+    public String modSAFlinks;
+    public boolean externalSAFWorking;
+    public String externalSAFLink;
+    public String externalSAFPathShown;
+    public String externalSAFPathExtra;
+    public boolean smartSelection_v2;
+    public boolean replayTracing;
+    SharedPreferences prefs;
+    static SettingsEngine settingsEngine = null;
+    public boolean resizeFontWithUIScale = true;
+    public float renderDensity = 1.0f;
+    public boolean renderExtraShadows = true;
+    public boolean renderFancyWater = false;
+    public boolean showActionInfoHoverNearMouse = true;
+    public boolean disableModLazyLoad = false;
+    public boolean renderAntiAlias = true;
+    public boolean showSelectedUnitsList = true;
+    public String teamColors = "#00ff00,#d02013,#0463f3,#ffff40,#00ffff,#d0f8f7,#000000,#ff00ea,#ff7f18,#9368c4";
+    public String teamColorsNames = "GREEN,RED,BLUE,YELLOW,CYAN,WHITE,BLACK,PINK,ORANGE,PURPLE";
+    public boolean highGraphics = true;
+    HashMap settingFields = new HashMap();
+
+    public static SettingsEngine getInstance(Context context) {
+        if (settingsEngine == null) {
+            settingsEngine = new SettingsEngine(context);
+        }
+        return settingsEngine;
+    }
+
+    public boolean getBooleanPref(String str, boolean z) {
+        if (l.aU) {
+            return z;
+        }
+        return this.prefs.getBoolean(str, z);
+    }
+
+    public int getIntPref(String str, int i) {
+        if (l.aU) {
+            return i;
+        }
+        return this.prefs.getInt(str, i);
+    }
+
+    public float getFloatPref(String str, float f) {
+        if (l.aU) {
+            return f;
+        }
+        return this.prefs.getFloat(str, f);
+    }
+
+    public String getStringPref(String str, String str2) {
+        if (l.aU) {
+            return str2;
+        }
+        return this.prefs.getString(str, str2);
+    }
+
+    public String getValueDynamic(String str) throws IllegalAccessException, IllegalArgumentException {
+        try {
+            Field field = (Field) this.settingFields.get(str);
+            if (field == null) {
+                throw new RuntimeException("Could not find: " + str);
+            }
+            Object obj = field.get(this);
+            if (obj == null) {
+                return null;
+            }
+            return obj.toString();
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalArgumentException e2) {
+            throw new RuntimeException(e2);
+        }
+    }
+
+    public boolean setValueDynamic(String str, String str2) throws IllegalAccessException, IllegalArgumentException {
+        try {
+            Field field = (Field) this.settingFields.get(str);
+            Object objValueOf = str2;
+            if (field.getType().equals(Boolean.TYPE)) {
+                if (str2 == null) {
+                    throw new RuntimeException("value==null");
+                }
+                objValueOf = Boolean.valueOf(Boolean.parseBoolean(str2));
+            }
+            if (field.getType().equals(Float.TYPE)) {
+                if (str2 != null && str2.contains(",")) {
+                    str2 = str2.replace(",", ".");
+                }
+                objValueOf = Float.valueOf(Float.parseFloat(str2));
+            }
+            if (field.getType().equals(Integer.TYPE)) {
+                objValueOf = Integer.valueOf(Integer.parseInt(str2));
+            }
+            field.set(this, objValueOf);
+            return true;
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String getPreferencesPath() {
+        return com.corrodinggames.rts.gameFramework.e.a.e("/SD/rustedWarfare/preferences.ini");
+    }
+
+    public boolean saveToFileSystem() throws IllegalAccessException, IllegalArgumentException {
+        l lVarB = l.B();
+        File file = new File(getPreferencesPath());
+        l.e("Saving settings to: " + file.getAbsolutePath());
+        try {
+            PrintWriter printWriter = new PrintWriter(file);
+            printWriter.println("[settings]");
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.settingFields.keySet());
+            Collections.sort(arrayList);
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                String str = (String) it.next();
+                String valueDynamic = getValueDynamic(str);
+                if (valueDynamic == null) {
+                    valueDynamic = VariableScope.nullOrMissingString;
+                }
+                printWriter.println(str + ":" + valueDynamic.replace("\\", "\\\\").replace("\n", "\\n"));
+            }
+            printWriter.println("[keys]");
+            Iterator it2 = lVarB.bT.al.iterator();
+            while (it2.hasNext()) {
+                ad adVar = (ad) it2.next();
+                if (adVar.b && !adVar.d()) {
+                    printWriter.println((VariableScope.nullOrMissingString + adVar.e()) + ":" + lVarB.bT.a(adVar));
+                }
+            }
+            printWriter.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            l.B().a("Failed to save preferences, IO error", 1);
+            return false;
+        }
+    }
+
+    public void loadFromFileSystem() throws IllegalAccessException, IllegalArgumentException {
+        l lVarB = l.B();
+        String preferencesPath = getPreferencesPath();
+        File file = new File(preferencesPath);
+        if (!file.exists()) {
+            l.e("preferences not found, not loading (" + preferencesPath + ")");
+            return;
+        }
+        l.e("loadFromFileSystem filepath: " + file.getAbsolutePath());
+        try {
+            com.corrodinggames.rts.gameFramework.utility.ab abVar = new com.corrodinggames.rts.gameFramework.utility.ab(preferencesPath);
+            Iterator it = this.settingFields.entrySet().iterator();
+            while (it.hasNext()) {
+                String str = (String) ((Map.Entry) it.next()).getKey();
+                String strB = abVar.b("settings", str, (String) null);
+                if (l.aZ) {
+                    l.e(str + "= " + strB);
+                }
+                if (strB != null && !VariableScope.nullOrMissingString.equals(strB)) {
+                    if (str.startsWith("key.")) {
+                        String strReplace = str.replace("key.", VariableScope.nullOrMissingString);
+                        l.e("loading keybind:" + strReplace);
+                        lVarB.bT.a(strReplace, strB);
+                    } else {
+                        setValueDynamic(str, strB);
+                    }
+                }
+            }
+            Iterator it2 = lVarB.bT.al.iterator();
+            while (it2.hasNext()) {
+                ad adVar = (ad) it2.next();
+                if (adVar.b && !adVar.d()) {
+                    String strE = adVar.e();
+                    String strB2 = abVar.b("keys", strE, (String) null);
+                    if (strB2 != null && !VariableScope.nullOrMissingString.equals(strB2)) {
+                        lVarB.bT.a(strE, strB2);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            l.B().a("Failed to load preferences, IO error", 1);
+        }
+    }
+
+    private SettingsEngine(Context context) throws IllegalAccessException, SecurityException, IllegalArgumentException {
+        this.autosaving = true;
+        this.uiRenderScale = 1.0f;
+        this.renderClouds = false;
+        this.softFogFading = false;
+        this.doubleClickToAttackMove = false;
+        this.showMapPingsOnBattlefield = true;
+        this.showMapPingsOnMinimap = true;
+        this.showPlayerChatInGame = true;
+        this.banTimeInSecondsAfterKick = 60;
+        this.teamUnitCapSinglePlayer = 1000;
+        this.teamUnitCapHostedGame = 250;
+        this.showChatAndPingShortcuts = true;
+        for (Field field : getClass().getFields()) {
+            String name = field.getName();
+            if (this.settingFields.get(name) != null) {
+                l.e("SettingsEngine: fields: " + name + " already exists");
+            }
+            if (l.aZ) {
+                l.e("SettingsEngine: field:" + name);
+            }
+            this.settingFields.put(name, field);
+        }
+        if (!l.aU) {
+            this.prefs = context.a("rts_settings", 0);
+        }
+        int intPref = getIntPref("settingVersion", 1);
+        this.settingsGameVersion = getIntPref("settingsGameVersion", 0);
+        this.settingsGameVersionFirst = getIntPref("settingsGameVersionFirst", 0);
+        if (this.settingsGameVersionFirst == 0) {
+            if (this.settingsGameVersion != 0) {
+                this.settingsGameVersionFirst = this.settingsGameVersion;
+            } else {
+                this.settingsGameVersionFirst = 176;
+            }
+        }
+        this.upgradedToNoPublicStorage = getBooleanPref("upgradedToNoPublicStorage", this.settingsGameVersionFirst <= 160);
+        this.upgradedToNoPublicStorageWarningShown = getBooleanPref("upgradedToNoPublicStorageWarningShown", false);
+        this.slick2dResolution = getStringPref("slick2dResolution", "native");
+        this.slick2dFullScreenResolution = getStringPref("slick2dFullScreenResolution", "native");
+        this.slick2dFullScreen = getBooleanPref("slick2dFullScreen", false);
+        this.hasPlayedGameOrSeenHelp = getBooleanPref("hasPlayedGameOrSeenHelp", false);
+        this.enableSounds = getBooleanPref("enableSounds", true);
+        this.enableMouseCapture = getBooleanPref("enableMouseCapture", false);
+        this.androidNoSoundPrioritiesDebug = getBooleanPref("androidNoSoundPrioritiesDebug", false);
+        this.disableDigitGrouping = getBooleanPref("disableDigitGrouping", false);
+        this.musicVolume = getFloatPref("musicVolume", 0.25f);
+        this.masterVolume = getFloatPref("masterVolume", l.av() ? 0.5f : 1.0f);
+        this.gameVolume = getFloatPref("gameVolume", 1.0f);
+        this.interfaceVolume = getFloatPref("interfaceVolume", 0.8f);
+        this.scrollSpeed = getFloatPref("scrollSpeed", 1.0f);
+        this.edgeScrollSpeed = getFloatPref("edgeScrollSpeed", 1.0f);
+        this.onscreenControls = getBooleanPref("onscreenControls", true);
+        this.trackpad = getBooleanPref("trackpad", true);
+        this.dpad = getBooleanPref("dpad", true);
+        this.batterySaving = getBooleanPref("batterySaving", false);
+        this.highRefreshRate = getBooleanPref("highRefreshRate", l.av());
+        this.unlockedScreenRotation = getBooleanPref("unlockedScreenRotation", false);
+        this.renderBackground = getBooleanPref("renderBackground", true);
+        this.renderExtraLayers = getBooleanPref("renderExtraLayers", true);
+        this.renderControls = getBooleanPref("renderControls", true);
+        this.immersiveFullScreen = getBooleanPref("immersiveFullScreen", true);
+        this.displayOverCutout = getBooleanPref("displayOverCutout", false);
+        this.renderDoubleScale = getBooleanPref("renderDoubleScale", false);
+        this.showUnitGroups = getBooleanPref("showUnitGroups", true);
+        this.renderClouds = getBooleanPref("renderClouds", l.aZ ? true : l.av());
+        this.renderWithLineWidth = getBooleanPref("renderWithLineWidth", true);
+        this.softFogFading = getBooleanPref("softFogFading", l.aZ ? true : l.av());
+        this.showUnitWaypoints = getBooleanPref("showUnitWaypoints", true);
+        this.useMinimapAllyColors = getBooleanPref("useMinimapAllyColors", true);
+        this.showWarLogOnScreen = getBooleanPref("showWarLogOnScreen", l.av());
+        this.classicInterface = getBooleanPref("classicInterface", false);
+        boolean z = l.av();
+        this.quickRally = getBooleanPref("quickRally", z);
+        if (intPref <= 1 && !l.av()) {
+            this.quickRally = z;
+        }
+        this.doubleClickToAttackMove = getBooleanPref("doubleClickToAttackMove", true);
+        this.showMapPingsOnBattlefield = getBooleanPref("showMapPingsOnBattlefield", true);
+        this.showMapPingsOnMinimap = getBooleanPref("showMapPingsOnMinimap", true);
+        this.showPlayerChatInGame = getBooleanPref("showPlayerChatInGame", true);
+        this.allowGameRecording = false;
+        this.showHp = getBooleanPref("showHp", true);
+        this.showHpChanges = getBooleanPref("showHpChanges", true);
+        this.showUnitIcons = getBooleanPref("showUnitIcons", true);
+        this.gestureZoom = getBooleanPref("gestureZoom", true);
+        this.useCircleSelect = getBooleanPref("useCircleSelect", false);
+        this.showZoomButton = getBooleanPref("showZoomButton", true);
+        this.showFps = getBooleanPref("showFps", false);
+        this.newRender = getBooleanPref("newRender", false);
+        this.shaderEffects = getBooleanPref("shaderEffects", false);
+        this.teamShaders = getBooleanPref("teamShaders", false);
+        this.sendReports = getBooleanPref("sendReports", true);
+        this.shownAudioWarning = getBooleanPref("shownAudioWarning", false);
+        this.mouseSupport = getBooleanPref("mouseSupport", !l.d(context));
+        this.keyboardSupport = getBooleanPref("keyboardSupport", true);
+        this.forceEnglish = getBooleanPref("forceEnglish", l.aZ);
+        boolean z2 = l.av();
+        this.saveMultiplayerReplays = getBooleanPref("saveMultiplayerReplays", z2);
+        if (intPref <= 1) {
+            this.saveMultiplayerReplays = z2;
+        }
+        this.replaysShowRecordedChat = getBooleanPref("replaysShowRecordedChat", true);
+        this.lastNetworkPlayerName = getStringPref("lastNetworkPlayerName", null);
+        this.lastNetworkIP = getStringPref("lastNetworkIP", null);
+        this.lastDebugOption = getStringPref("lastDebugOption", null);
+        this.aiDifficulty = getIntPref("aiDifficulty", 0);
+        this.locationDpad = getIntPref("locationDpad", 0);
+        this.locationAction = getIntPref("locationAction", 3);
+        this.keyAction = getIntPref("keyAction", 23);
+        this.keyJump = getIntPref("keyJump", 19);
+        this.keyLeft = getIntPref("keyLeft", 21);
+        this.keyRight = getIntPref("keyRight", 22);
+        this.keyDown = getIntPref("keyDown", 20);
+        this.landscapeOrientation = getBooleanPref("landscapeOrientation", true);
+        this.networkPort = getIntPref("networkPort", 5123);
+        if (this.networkPort < 1024 || this.networkPort > 65535) {
+            this.networkPort = 5123;
+        }
+        this.udpInMultiplayer = getBooleanPref("udpInMultiplayer", false);
+        this.banTimeInSecondsAfterKick = getIntPref("banTimeInSecondsAfterKick", 60);
+        this.numIncompleteLoadAttempts = getIntPref("numIncompleteLoadAttempts", 0);
+        this.numLoadsSinceRunningGameOrNormalExit = getIntPref("numLoadsSinceRunningGameOrNormalExit", 0);
+        this.numberOfWins = getIntPref("numberOfWins", 0);
+        this.rateGameShown = getBooleanPref("rateGameShown", false);
+        this.uuid = getStringPref("uuid", null);
+        this.networkClientId = getStringPref("networkClientId", null);
+        this.networkServerId = getStringPref("networkServerId", null);
+        this.lastSeenMessageId = getIntPref("lastSeenMessageId", -1);
+        this.lastSeenMessageIds = getStringPref("lastSeenMessageIds", VariableScope.nullOrMissingString);
+        this.nextBackgroundMap = getIntPref("nextBackgroundMap", 1);
+        this.showChatAndPingShortcuts = getBooleanPref("showChatAndPingShortcuts", true);
+        this.teamUnitCapSinglePlayer = getIntPref("teamUnitCapSinglePlayer", 1000);
+        this.teamUnitCapHostedGame = getIntPref("teamUnitCapHostedGame", 250);
+        this.modSettings = getStringPref("modSettings", VariableScope.nullOrMissingString);
+        this.modSettingsVersion = getIntPref("modSettingsVersion", 0);
+        boolean z3 = false;
+        if (l.at() && com.corrodinggames.rts.appFramework.c.b(com.corrodinggames.rts.appFramework.c.a())) {
+            z3 = true;
+        }
+        this.storageType = getIntPref("storageType", z3 ? 2 : 0);
+        this.hadStoragePermissionInPast = getBooleanPref("hadStoragePermissionInPast", false);
+        if (z3) {
+            this.hadStoragePermissionInPast = true;
+        }
+        this.hasSelectedAStorageType = getBooleanPref("hasSelectedAStorageType", false);
+        this.loadDisabledModData = getBooleanPref("loadDisabledModData", false);
+        this.lastModCount = getIntPref("lastModCount", -1);
+        this.modSAFlinks = getStringPref("modSAFlinks", null);
+        this.externalSAFWorking = getBooleanPref("externalSAFWorking", false);
+        this.externalSAFLink = getStringPref("externalSAFLink", null);
+        this.externalSAFPathShown = getStringPref("externalSAFPathShown", null);
+        this.externalSAFPathExtra = getStringPref("externalSAFPathExtra", null);
+        this.smartSelection_v2 = getBooleanPref("smartSelection_v2", true);
+        this.mouseOrders = getIntPref("mouseOrders", 1);
+        this.mousePlacement = getIntPref("mousePlacement", 1);
+        this.autosaving = getBooleanPref("autosaving", true);
+        if (l.aW) {
+            loadFromFileSystem();
+        }
+        if (this.settingsGameVersion < 174) {
+            this.uiRenderScale = 1.0f;
+        }
+    }
+
+    public synchronized boolean save() {
+        this.settingsGameVersion = 176;
+        if (l.aU) {
+            if (l.aW) {
+                return saveToFileSystem();
+            }
+            return true;
+        }
+        SharedPreferences.Editor editorEdit = this.prefs.edit();
+        editorEdit.putInt("settingVersion", 2);
+        editorEdit.putInt("settingsGameVersion", this.settingsGameVersion);
+        editorEdit.putInt("settingsGameVersionFirst", this.settingsGameVersionFirst);
+        editorEdit.putBoolean("upgradedToNoPublicStorage", this.upgradedToNoPublicStorage);
+        editorEdit.putBoolean("upgradedToNoPublicStorageWarningShown", this.upgradedToNoPublicStorageWarningShown);
+        editorEdit.putBoolean("hasPlayedGameOrSeenHelp", this.hasPlayedGameOrSeenHelp);
+        editorEdit.putString("slick2dResolution", this.slick2dResolution);
+        editorEdit.putString("slick2dFullScreenResolution", this.slick2dFullScreenResolution);
+        editorEdit.putBoolean("slick2dFullScreen", this.slick2dFullScreen);
+        editorEdit.putBoolean("enableSounds", this.enableSounds);
+        editorEdit.putBoolean("enableMouseCapture", this.enableMouseCapture);
+        editorEdit.putBoolean("androidNoSoundPrioritiesDebug", this.androidNoSoundPrioritiesDebug);
+        editorEdit.putBoolean("disableDigitGrouping", this.disableDigitGrouping);
+        Log.d("RustedWarfare", "put mv:" + this.musicVolume);
+        editorEdit.putFloat("musicVolume", this.musicVolume);
+        editorEdit.putFloat("masterVolume", this.masterVolume);
+        editorEdit.putFloat("gameVolume", this.gameVolume);
+        editorEdit.putFloat("interfaceVolume", this.interfaceVolume);
+        editorEdit.putFloat("scrollSpeed", this.scrollSpeed);
+        editorEdit.putFloat("edgeScrollSpeed", this.edgeScrollSpeed);
+        editorEdit.putBoolean("onscreenControls", this.onscreenControls);
+        editorEdit.putBoolean("trackpad", this.trackpad);
+        editorEdit.putBoolean("dpad", this.dpad);
+        editorEdit.putBoolean("batterySaving", this.batterySaving);
+        editorEdit.putBoolean("highRefreshRate", this.highRefreshRate);
+        editorEdit.putBoolean("unlockedScreenRotation", this.unlockedScreenRotation);
+        editorEdit.putBoolean("renderBackground", this.renderBackground);
+        editorEdit.putBoolean("renderExtraLayers", this.renderExtraLayers);
+        editorEdit.putBoolean("renderControls", this.renderControls);
+        editorEdit.putBoolean("immersiveFullScreen", this.immersiveFullScreen);
+        editorEdit.putBoolean("displayOverCutout", this.displayOverCutout);
+        editorEdit.putBoolean("renderDoubleScale", this.renderDoubleScale);
+        editorEdit.putBoolean("showUnitGroups", this.showUnitGroups);
+        editorEdit.putBoolean("renderWithLineWidth", this.renderWithLineWidth);
+        editorEdit.putBoolean("renderClouds", this.renderClouds);
+        editorEdit.putBoolean("softFogFading", this.softFogFading);
+        editorEdit.putBoolean("showUnitWaypoints", this.showUnitWaypoints);
+        editorEdit.putBoolean("useMinimapAllyColors", this.useMinimapAllyColors);
+        editorEdit.putBoolean("showWarLogOnScreen", this.showWarLogOnScreen);
+        editorEdit.putBoolean("classicInterface", this.classicInterface);
+        editorEdit.putBoolean("quickRally", this.quickRally);
+        editorEdit.putBoolean("doubleClickToAttackMove", this.doubleClickToAttackMove);
+        editorEdit.putBoolean("showMapPingsOnBattlefield", this.showMapPingsOnBattlefield);
+        editorEdit.putBoolean("showMapPingsOnMinimap", this.showMapPingsOnMinimap);
+        editorEdit.putBoolean("showPlayerChatInGame", this.showPlayerChatInGame);
+        editorEdit.putBoolean("allowGameRecording", this.allowGameRecording);
+        editorEdit.putBoolean("showHp", this.showHp);
+        editorEdit.putBoolean("showHpChanges", this.showHpChanges);
+        editorEdit.putBoolean("showUnitIcons", this.showUnitIcons);
+        editorEdit.putBoolean("gestureZoom", this.gestureZoom);
+        editorEdit.putBoolean("useCircleSelect", this.useCircleSelect);
+        editorEdit.putBoolean("showZoomButton", this.showZoomButton);
+        editorEdit.putBoolean("showFps", this.showFps);
+        editorEdit.putBoolean("newRender", this.newRender);
+        editorEdit.putBoolean("shaderEffects", this.shaderEffects);
+        editorEdit.putBoolean("teamShaders", this.teamShaders);
+        editorEdit.putBoolean("sendReports", this.sendReports);
+        editorEdit.putBoolean("shownAudioWarning", this.shownAudioWarning);
+        editorEdit.putBoolean("mouseSupport", this.mouseSupport);
+        editorEdit.putBoolean("keyboardSupport", this.keyboardSupport);
+        editorEdit.putBoolean("forceEnglish", this.forceEnglish);
+        editorEdit.putBoolean("saveMultiplayerReplays", this.saveMultiplayerReplays);
+        editorEdit.putBoolean("replaysShowRecordedChat", this.replaysShowRecordedChat);
+        editorEdit.putString("lastNetworkPlayerName", this.lastNetworkPlayerName);
+        editorEdit.putString("lastNetworkIP", this.lastNetworkIP);
+        editorEdit.putString("lastDebugOption", this.lastDebugOption);
+        editorEdit.putInt("aiDifficulty", this.aiDifficulty);
+        editorEdit.putInt("locationDpad", this.locationDpad);
+        editorEdit.putInt("locationAction", this.locationAction);
+        editorEdit.putInt("keyAction", this.keyAction);
+        editorEdit.putInt("keyJump", this.keyJump);
+        editorEdit.putInt("keyLeft", this.keyLeft);
+        editorEdit.putInt("keyRight", this.keyRight);
+        editorEdit.putInt("keyDown", this.keyDown);
+        editorEdit.putBoolean("landscapeOrientation", this.landscapeOrientation);
+        editorEdit.putInt("networkPort", this.networkPort);
+        editorEdit.putBoolean("udpInMultiplayer", this.udpInMultiplayer);
+        editorEdit.putInt("banTimeInSecondsAfterKick", this.banTimeInSecondsAfterKick);
+        editorEdit.putInt("numIncompleteLoadAttempts", this.numIncompleteLoadAttempts);
+        editorEdit.putInt("numLoadsSinceRunningGameOrNormalExit", this.numLoadsSinceRunningGameOrNormalExit);
+        editorEdit.putInt("numberOfWins", this.numberOfWins);
+        editorEdit.putBoolean("rateGameShown", this.rateGameShown);
+        editorEdit.putString("uuid", this.uuid);
+        editorEdit.putString("networkClientId", this.networkClientId);
+        editorEdit.putString("networkServerId", this.networkServerId);
+        editorEdit.putInt("lastSeenMessageId", this.lastSeenMessageId);
+        editorEdit.putString("lastSeenMessageIds", this.lastSeenMessageIds);
+        editorEdit.putInt("nextBackgroundMap", this.nextBackgroundMap);
+        editorEdit.putBoolean("showChatAndPingShortcuts", this.showChatAndPingShortcuts);
+        editorEdit.putString("modSettings", this.modSettings);
+        editorEdit.putInt("modSettingsVersion", this.modSettingsVersion);
+        editorEdit.putInt("storageType", this.storageType);
+        editorEdit.putBoolean("hasSelectedAStorageType", this.hasSelectedAStorageType);
+        editorEdit.putBoolean("hadStoragePermissionInPast", this.hadStoragePermissionInPast);
+        editorEdit.putInt("teamUnitCapSinglePlayer", this.teamUnitCapSinglePlayer);
+        editorEdit.putInt("teamUnitCapHostedGame", this.teamUnitCapHostedGame);
+        editorEdit.putBoolean("loadDisabledModData", this.loadDisabledModData);
+        editorEdit.putInt("lastModCount", this.lastModCount);
+        editorEdit.putString("modSAFlinks", this.modSAFlinks);
+        editorEdit.putBoolean("externalSAFWorking", this.externalSAFWorking);
+        editorEdit.putString("externalSAFLink", this.externalSAFLink);
+        editorEdit.putString("externalSAFPathShown", this.externalSAFPathShown);
+        editorEdit.putString("externalSAFPathExtra", this.externalSAFPathExtra);
+        editorEdit.putBoolean("smartSelection_v2", this.smartSelection_v2);
+        editorEdit.putInt("mouseOrders", this.mouseOrders);
+        editorEdit.putInt("mousePlacement", this.mousePlacement);
+        editorEdit.putBoolean("autosaving", this.autosaving);
+        editorEdit.commit();
+        return true;
+    }
+
+    public boolean loadMainExternalFolder(boolean z) {
+        if (!l.at()) {
+            return false;
+        }
+        l.e("loadMainExternalFolder..");
+        l lVarB = l.B();
+        if (z && lVarB.c()) {
+            l.e("Not loading due to extra safe mode");
+            return false;
+        }
+        String str = lVarB.bQ.externalSAFLink;
+        String str2 = lVarB.bQ.externalSAFPathShown;
+        String str3 = lVarB.bQ.externalSAFPathExtra;
+        if (str == null) {
+            l.e("No external folder set");
+            return false;
+        }
+        l.e("External saf link: " + str);
+        l.e("External saf shown path: " + str2);
+        l.e("External saf extra: " + str3);
+        try {
+            Uri uri = Uri.parse(str);
+            boolean z2 = false;
+            String str4 = null;
+            String strA = com.corrodinggames.rts.gameFramework.utility.a.a.a(uri, true);
+            l.e("safVirualPathBase: " + strA);
+            if (strA == null) {
+                l.e("createSAFLink failed for uri: " + uri);
+                z2 = true;
+            } else {
+                str4 = strA + str3;
+                l.e("safVirualPath: " + str4);
+                if (!com.corrodinggames.rts.gameFramework.e.a.f(str4)) {
+                    l.e("isDirectory failed for: " + str4);
+                    z2 = true;
+                }
+            }
+            if (z2) {
+                l.e("error for uri: " + uri);
+                lVarB.bQ.externalSAFWorking = false;
+                String str5 = "Failed to read: " + str2 + " - Folder might have moved or permission expired. Please setup again under in-game settings.";
+                if (com.corrodinggames.rts.gameFramework.i.a.f545a == null) {
+                    com.corrodinggames.rts.gameFramework.i.a.f545a = VariableScope.nullOrMissingString;
+                }
+                com.corrodinggames.rts.gameFramework.i.a.f545a += str5;
+                com.corrodinggames.rts.gameFramework.i.a.b = str5;
+                return false;
+            }
+            l.e("Using external path");
+            lVarB.bQ.externalSAFWorking = true;
+            com.corrodinggames.rts.gameFramework.e.a.d = str4;
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+}
+
+
+================================================================================
+// FILE_PATH: ./gameFramework/l.java
+================================================================================
+
+package com.corrodinggames.rts.gameFramework;
+
+import android.R;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Paint;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.os.Debug;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.WindowManager;
+import android.widget.Toast;
+import com.corrodinggames.rts.game.units.custom.logicBooleans.VariableScope;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.lang.Thread;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/* loaded from: game-lib.jar:com/corrodinggames/rts/gameFramework/l.class */
+public abstract class l {
+    public Context an;
+    public com.corrodinggames.rts.appFramework.f ao;
+    public com.corrodinggames.rts.appFramework.f ap;
+    public boolean aq;
+    public static Throwable av;
+    public static boolean ay;
+    public static boolean az;
+    public static boolean aA;
+    public static boolean aB;
+    public static boolean aC;
+    public static boolean aD;
+    public static boolean aE;
+    public static boolean aF;
+    public static boolean aG;
+    public static boolean aJ;
+    public static boolean aR;
+    public boolean aS;
+    public static Class bg;
+    public static com.corrodinggames.rts.gameFramework.m.y bh;
+    public boolean bj;
+    public boolean bp;
+    public com.corrodinggames.rts.game.n bs;
+    public boolean bv;
+    public boolean bw;
+    public int by;
+    public int bz;
+    public int bA;
+    public int bB;
+    public int bC;
+    public boolean bD;
+    public int bJ;
+    public com.corrodinggames.rts.gameFramework.utility.i bK;
+    public com.corrodinggames.rts.game.b.b bL;
+    public com.corrodinggames.rts.gameFramework.a.e bM;
+    public am bN;
+    public com.corrodinggames.rts.gameFramework.m.y bO;
+    public a bP;
+    public SettingsEngine bQ;
+    public com.corrodinggames.rts.gameFramework.d.c bR;
+    public com.corrodinggames.rts.gameFramework.f.g bS;
+    public ac bT;
+    public com.corrodinggames.rts.gameFramework.k.l bU;
+    public aa bV;
+    public com.corrodinggames.rts.gameFramework.f.o bW;
+    public com.corrodinggames.rts.gameFramework.j.ad bX;
+    public bg bY;
+    public com.corrodinggames.rts.gameFramework.i.a bZ;
+    public y ca;
+    public ba cb;
+    public com.corrodinggames.rts.game.units.f.c cc;
+    public br cd;
+    public com.corrodinggames.rts.gameFramework.n.f ce;
+    public c cf;
+    public float ci;
+    public float cj;
+    public static Point ck;
+    public float cl;
+    public float cm;
+    public float co;
+    public float cp;
+    public float cq;
+    public float cr;
+    public float cs;
+    public boolean ct;
+    public int cu;
+    public int cv;
+    public float cw;
+    public float cx;
+    public float cy;
+    public float cz;
+    public float cA;
+    public float cB;
+    public float cC;
+    public float cD;
+    public float cE;
+    public float cF;
+    public float cG;
+    public float cH;
+    public float cI;
+    public float cJ;
+    public boolean cR;
+    public boolean cS;
+    public float cT;
+    public boolean cU;
+    public boolean cZ;
+    public float da;
+    public float db;
+    public String dl;
+    public com.corrodinggames.rts.gameFramework.j.k dm;
+    public Paint dn;
+
+    /* renamed from: do, reason: not valid java name */
+    public Paint f2do;
+    public Paint dp;
+    public int dw;
+    float dA;
+    public String dE;
+    public String dF;
+    public String dG;
+    String dK;
+    String dL;
+    private int e;
+    static byte[] dP;
+    static com.corrodinggames.rts.gameFramework.utility.d dS;
+    static boolean dV;
+    static boolean dX;
+    static boolean dY;
+    public boolean ee;
+    public boolean ef;
+    public String eg;
+    public boolean eh;
+    public boolean ei;
+    static int ej;
+    protected static l al = null;
+    public static boolean as = true;
+    public static boolean at = false;
+    public static boolean au = false;
+    public static boolean aw = false;
+    public static boolean ax = false;
+    public static boolean aH = false;
+    public static boolean aI = false;
+    public static String aK = null;
+    public static boolean aL = false;
+    public static boolean aM = false;
+    public static boolean aN = false;
+    public static boolean aO = false;
+    public static boolean aP = false;
+    public static String aQ = null;
+    public static boolean aT = false;
+    public static boolean aU = false;
+    public static boolean aV = false;
+    public static boolean aW = false;
+    public static boolean aX = false;
+    public static boolean aY = false;
+    public static boolean aZ = false;
+    public static String ba = null;
+    public static boolean bb = false;
+    public static boolean bc = true;
+    public static boolean bd = true;
+    public static boolean be = false;
+    public static boolean bf = false;
+    public static o dy = new v();
+    public static String dz = Build.VERSION.RELEASE;
+    public static boolean dO = false;
+    static byte[] dQ = new byte[1000];
+    static byte[] dR = new byte[1000];
+    static boolean dT = false;
+    static int dU = 0;
+    static u dW = null;
+    public final Object aj = new Object();
+    public final Object ak = new Object();
+    public Context am = null;
+    public boolean ar = false;
+    public boolean bi = false;
+    public boolean bk = false;
+    public boolean bl = false;
+    public boolean bm = false;
+    public boolean bn = false;
+    public boolean bo = false;
+    public boolean bq = false;
+    public boolean br = false;
+    public float bt = 1.0f;
+    public float bu = -1.0f;
+    public int bx = 0;
+    public boolean bE = false;
+    public volatile boolean bF = false;
+    public volatile boolean bG = false;
+    public volatile boolean bH = false;
+    public volatile boolean bI = false;
+    public com.corrodinggames.rts.gameFramework.g.a cg = new com.corrodinggames.rts.gameFramework.g.a();
+    public boolean ch = false;
+    public float cn = 1.0f;
+    public final Rect cK = new Rect();
+    public final Rect cL = new Rect();
+    public final RectF cM = new RectF();
+    public final Rect cN = new Rect();
+    public final RectF cO = new RectF();
+    public final RectF cP = new RectF();
+    public final Rect cQ = new Rect();
+    public float cV = 1.0f;
+    public boolean cW = false;
+    public float cX = 1.0f;
+    public float cY = 1.0f;
+    public boolean dc = true;
+    public boolean dd = true;
+    public boolean de = true;
+    public boolean df = true;
+    public boolean dg = true;
+    public float dh = 0.0f;
+    public float di = 0.0f;
+    public boolean dj = false;
+    protected z dk = null;
+    public boolean dq = false;
+    public boolean dr = false;
+    public float ds = 0.0f;
+    public boolean dt = false;
+    public boolean du = false;
+    public boolean dv = false;
+    public float dx = 0.0f;
+    boolean dB = false;
+    ArrayList dC = new ArrayList();
+    final Handler dD = new Handler(Looper.b());
+
+    /* renamed from: a, reason: collision with root package name */
+    private Runnable f617a = new Runnable() { // from class: com.corrodinggames.rts.gameFramework.l.1
+        @Override // java.lang.Runnable
+        public void run() {
+            String str = l.this.dE;
+            try {
+                if (str == null) {
+                    l.b("Cannot show toast, no message");
+                } else {
+                    Toast.makeText(l.this.am, str, 1).show();
+                }
+            } catch (Exception e) {
+                l.b("Error showing toast: " + ((Object) str));
+                e.printStackTrace();
+            }
+        }
+    };
+    private Runnable b = new Runnable() { // from class: com.corrodinggames.rts.gameFramework.l.2
+        @Override // java.lang.Runnable
+        public void run() {
+            DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() { // from class: com.corrodinggames.rts.gameFramework.l.2.1
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    l.this.bp = false;
+                }
+            };
+            DialogInterface.OnCancelListener onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.corrodinggames.rts.gameFramework.l.2.2
+                @Override // android.content.DialogInterface.OnCancelListener
+                public void onCancel(DialogInterface dialogInterface) {
+                    l.this.bp = false;
+                }
+            };
+            l.e("showMessageBoxRunnable context:" + l.this.am.getClass().getName());
+            try {
+                new AlertDialog.Builder(l.this.am).setIcon(R.drawable.ic_dialog_alert).setTitle(l.this.dF).setMessage(l.this.dG).setOnCancelListener(onCancelListener).setPositiveButton("Ok", onClickListener).show();
+            } catch (WindowManager.BadTokenException e) {
+                l.b("Failed to show message: " + l.this.dG);
+                e.printStackTrace();
+            }
+        }
+    };
+    public n dH = null;
+    transient String dI = null;
+    Object dJ = new Object();
+    public boolean[] dM = new boolean[10];
+    protected ConcurrentLinkedQueue dN = new ConcurrentLinkedQueue();
+    private boolean[] c = new boolean[KeyEvent.a() + 1];
+    private boolean[] d = new boolean[KeyEvent.a() + 1];
+    public byte dZ = 42;
+    public byte ea = 42;
+    public final q eb = new q();
+    public final q ec = new q();
+    public final q ed = new q();
+
+    public abstract void a(Context context);
+
+    public abstract boolean a();
+
+    public abstract boolean a(boolean z);
+
+    public abstract void a(Activity activity, com.corrodinggames.rts.appFramework.f fVar, boolean z);
+
+    public abstract void b(int i, int i2);
+
+    public abstract int c(boolean z);
+
+    public abstract boolean n();
+
+    public abstract boolean p();
+
+    public abstract String l();
+
+    public abstract String m();
+
+    public abstract String r();
+
+    public abstract String t();
+
+    public abstract String u();
+
+    public abstract void s();
+
+    public abstract String v();
+
+    public abstract void a(boolean z, boolean z2, s sVar);
+
+    public abstract void a(boolean z, s sVar);
+
+    public abstract void e();
+
+    public abstract void g();
+
+    public abstract void x();
+
+    public abstract void a(float f, int i);
+
+    public abstract int z();
+
+    public abstract int b();
+
+    public abstract boolean c();
+
+    public abstract boolean d();
+
+    public static boolean b(Context context) {
+        String strH;
+        if (aU) {
+            strH = "dedicatedServer";
+        } else {
+            strH = context.g().h();
+        }
+        Log.d("RustedWarfare", "packageName:" + strH);
+        if (strH.contains("rtsdemo")) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean A() {
+        return this.cS || this.cT > 0.0f || this.cU;
+    }
+
+    public static final l B() {
+        return al;
+    }
+
+    public static final boolean C() {
+        return be;
+    }
+
+    public static final boolean D() {
+        return bf;
+    }
+
+    public void c(Context context) {
+        com.corrodinggames.rts.appFramework.c.a(context);
+        this.am = context;
+    }
+
+    public static synchronized l a(Context context, n nVar) {
+        if (al != null) {
+            if (nVar != null) {
+                al.dH = nVar;
+            }
+            al.c(context);
+            return al;
+        }
+        al = dy.a(context);
+        e("Created new gameEngine of:" + al.getClass().getName());
+        if (nVar != null) {
+            al.dH = nVar;
+        }
+        al.a(context);
+        return al;
+    }
+
+    public l(Context context) {
+        Log.d("RustedWarfare", "GameEngine:GameEngine()");
+        if (al != null) {
+            throw new RuntimeException("gameEngine already created");
+        }
+        c(context);
+        al = this;
+    }
+
+    protected void finalize() throws Throwable {
+        Log.d("RustedWarfare", "GameEngine:finalize()");
+        super.finalize();
+    }
+
+    public boolean E() {
+        return true;
+    }
+
+    public void F() {
+    }
+
+    public String G() {
+        if (av()) {
+            return "PC";
+        }
+        if (aZ) {
+            String strA = com.corrodinggames.rts.gameFramework.l.a.a();
+            if (strA != null) {
+                return "IOS - " + strA;
+            }
+            return "IOS";
+        }
+        if (aU) {
+            return "SERVER";
+        }
+        return Build.MODEL;
+    }
+
+    public String H() {
+        return dz;
+    }
+
+    public boolean I() {
+        if (this.bH) {
+            return true;
+        }
+        return false;
+    }
+
+    public synchronized void J() {
+        e("--- setRunning ---");
+        if (!av() && !aZ) {
+            this.bN.h();
+        }
+        if (!aW && !bb && this.dk == null) {
+            this.dk = new z();
+            this.dk.a(true);
+            this.dk.start();
+        }
+    }
+
+    public synchronized void K() {
+        e("--- setStoppedIfNotInGameThread ---");
+        if (Thread.currentThread() != this.dk) {
+            L();
+        }
+    }
+
+    public synchronized void L() {
+        e("--- setStopped ---");
+        if (this.dk == null) {
+            Log.d("RustedWarfare", "gameThread already null");
+            return;
+        }
+        if (!av()) {
+            this.bN.f();
+        }
+        this.dk.a(false);
+        if (Thread.currentThread() != this.dk) {
+            boolean z = true;
+            while (z) {
+                try {
+                    this.dk.join();
+                    z = false;
+                } catch (InterruptedException e) {
+                }
+            }
+            Log.d("RustedWarfare", "thread stop");
+        } else {
+            g("currentThread is game thread");
+        }
+        this.dk = null;
+        if (this.ao != null) {
+            this.ao.l();
+        }
+        if (this.bE) {
+            Debug.stopMethodTracing();
+        }
+    }
+
+    public boolean M() {
+        if (this.bX == null || !this.bX.B || this.bX.F || this.cb.j()) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean N() {
+        if (this.bX == null) {
+            return false;
+        }
+        return this.bX.B;
+    }
+
+    public boolean O() {
+        if (this.bX == null) {
+            return false;
+        }
+        return this.bX.F || this.bX.B || this.cb.j();
+    }
+
+    public boolean P() {
+        if (this.bX == null || this.bX.F) {
+            return true;
+        }
+        return (this.bX.B || this.cb.j()) ? false : true;
+    }
+
+    public void Q() {
+        this.ct = false;
+        if (this.cy < 0.0f) {
+            this.cy = 0.0f;
+            this.ct = true;
+        }
+        if (this.cz < 0.0f) {
+            this.cz = 0.0f;
+            this.ct = true;
+        }
+        if (this.bL != null) {
+            if (this.cy > this.bL.i() - this.cE) {
+                this.cy = this.bL.i() - this.cE;
+                this.ct = true;
+            }
+            if (this.cz > this.bL.j() - this.cB) {
+                this.cz = this.bL.j() - this.cB;
+                this.ct = true;
+            }
+            if (this.cE > this.bL.i()) {
+                this.cy = (this.bL.i() / 2.0f) - (this.cE / 2.0f);
+                this.ct = true;
+            }
+            if (this.cB > this.bL.j()) {
+                this.cz = (this.bL.j() / 2.0f) - (this.cB / 2.0f);
+                this.ct = true;
+            }
+        }
+        a(this.cy, this.cz);
+    }
+
+    public void a(float f, float f2) {
+        this.cy = f;
+        this.cz = f2;
+        this.cu = (int) this.cy;
+        this.cv = (int) this.cz;
+        this.cw = ((int) (this.cy * this.cX)) / this.cX;
+        this.cx = ((int) (this.cz * this.cX)) / this.cX;
+        int i = 90;
+        if (C()) {
+            i = 210;
+        }
+        this.cN.a((int) (this.cy - i), (int) (this.cz - i), (int) (this.cy + this.cA + i), (int) (this.cz + this.cB + i));
+        this.cO.a(this.cN);
+        this.cQ.a((int) this.cy, (int) this.cz, (int) (this.cy + this.cA), (int) (this.cz + this.cB));
+        this.cP.a((int) (this.cy - 300), (int) (this.cz - 300), (int) (this.cy + this.cA + 300), (int) (this.cz + this.cB + 300));
+    }
+
+    public void b(float f, float f2) {
+        a(f - (this.cE / 2.0f), f2 - (this.cB / 2.0f));
+    }
+
+    public static boolean d(Context context) {
+        if (aU) {
+            return false;
+        }
+        if (Build.MODEL.equals("GT-I9100") || Build.MODEL.equals("GT-I9300")) {
+            try {
+                WifiInfo connectionInfo = ((WifiManager) context.c("wifi")).getConnectionInfo();
+                if (connectionInfo != null) {
+                    if ("BlueStacks".equals(connectionInfo.getSSID())) {
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public void R() {
+        if (this.cX != 1.0f) {
+            this.bO.a(this.cX, this.cX);
+        }
+    }
+
+    public void S() {
+        if (this.cX != 1.0f) {
+            this.bO.a(1.0f / this.cX, 1.0f / this.cX);
+        }
+    }
+
+    public static void a(String str, Exception exc) {
+        e(str);
+        exc.printStackTrace();
+    }
+
+    public static String a(String str, String str2) {
+        if (ax && !str.contains("\u001b[0m")) {
+            str = str2 + str + "\u001b[0m";
+        }
+        return str;
+    }
+
+    public static void a(String str) {
+        e(a("--- ERROR: " + str, "\u001b[31m"));
+    }
+
+    public static void b(String str) {
+        e(a(str, "\u001b[33m"));
+    }
+
+    public static void a(String str, Throwable th) {
+        b(str);
+        e(VariableScope.nullOrMissingString + th.toString());
+        e("cause:" + th.getCause());
+        th.printStackTrace();
+    }
+
+    public static void c(String str) {
+        if (aX) {
+            Log.b("RustedWarfare", str);
+        } else {
+            Log.b("RustedWarfare", str);
+        }
+    }
+
+    public static void d(String str) {
+        c(str);
+    }
+
+    public static void e(String str) {
+        c(str);
+    }
+
+    public static void b(String str, String str2) {
+        c(str + ":" + str2);
+    }
+
+    public static synchronized void f(String str) {
+        c(str + " (at " + System.nanoTime() + ")");
+    }
+
+    public static void T() {
+        for (StackTraceElement stackTraceElement : new Throwable().getStackTrace()) {
+            e(stackTraceElement.toString());
+        }
+    }
+
+    public static String U() {
+        String str = VariableScope.nullOrMissingString;
+        for (StackTraceElement stackTraceElement : new Throwable().getStackTrace()) {
+            str = str + stackTraceElement.toString() + "\n";
+        }
+        return str;
+    }
+
+    public static void g(String str) {
+        b(str);
+        T();
+    }
+
+    public static long V() {
+        return System.currentTimeMillis();
+    }
+
+    public static final boolean a(long j, long j2) {
+        long jV = V();
+        if (j + j2 < jV || jV < j - 1000) {
+            return true;
+        }
+        return false;
+    }
+
+    public float W() {
+        float f = this.ci;
+        if (this.bQ != null) {
+            f = f * this.bQ.renderDensity * this.bQ.uiRenderScale;
+            if (this.bQ.renderDoubleScale) {
+                return f / 2.0f;
+            }
+        }
+        return f;
+    }
+
+    public int e(float f) {
+        return (int) ((f * this.cj) + 0.5f);
+    }
+
+    public int a(int i) {
+        return (int) ((i * this.cj) + 0.5f);
+    }
+
+    public void X() {
+        if (this.dA != this.cj) {
+            e("Density size changed now: " + this.cj + ", refreshing fonts");
+            synchronized (this.dC) {
+                Iterator it = this.dC.iterator();
+                while (it.hasNext()) {
+                    ((m) it.next()).a();
+                }
+            }
+            this.dA = this.cj;
+            if (this.bO != null) {
+            }
+        }
+    }
+
+    protected void Y() {
+        Iterator it = this.dC.iterator();
+        while (it.hasNext()) {
+            this.bO.a(((m) it.next()).b);
+        }
+        this.dB = true;
+    }
+
+    public void a(Paint paint) {
+        a(paint, 16.0f);
+    }
+
+    public void a(Paint paint, float f) {
+        m mVar = new m(this);
+        mVar.f624a = f;
+        mVar.b = paint;
+        mVar.a();
+        synchronized (this.dC) {
+            this.dC.add(mVar);
+        }
+        if (this.dB) {
+            this.bO.a(mVar.b);
+        }
+    }
+
+    public void b(Paint paint, float f) {
+        float fE = e(f);
+        if (paint.k() != fE) {
+            paint.b(fE);
+        }
+    }
+
+    public void h(String str) {
+        a(str, true);
+    }
+
+    public void a(String str, boolean z) {
+        this.dI = str;
+        if (this.dH != null) {
+            this.dH.a(str, z);
+        }
+    }
+
+    public void Z() {
+        this.dI = null;
+    }
+
+    public void i(String str) {
+        a(str, 1);
+    }
+
+    public void a(String str, int i) {
+        if (aU) {
+            e("alert:" + str);
+        } else if (str == null) {
+            g("Cannot show alert, no message text");
+        } else {
+            this.dE = str;
+            this.dD.a(this.f617a);
+        }
+        if (this.dH != null) {
+            this.dH.a(str, i);
+        }
+    }
+
+    public boolean aa() {
+        if (this.dH != null) {
+            return this.dH.c();
+        }
+        return false;
+    }
+
+    public void a(String str, com.corrodinggames.rts.game.units.custom.bb bbVar) {
+        String strB = null;
+        if (bbVar != null) {
+            strB = bbVar.b();
+        }
+        c(str, strB);
+    }
+
+    public void c(String str, String str2) {
+        if (this.dH != null) {
+            this.dH.a(str, str2);
+        }
+        if (aU) {
+            if (this.dH == null) {
+                b("showMessageBox: not showing due to non-android:" + str2);
+            }
+        } else {
+            this.bp = true;
+            this.dF = str;
+            this.dG = str2;
+            this.dD.a(this.b);
+        }
+    }
+
+    public void ab() {
+        synchronized (this.dJ) {
+            if (this.dK != null) {
+                c(this.dL, this.dK);
+                this.dK = null;
+                this.dL = null;
+            }
+        }
+    }
+
+    public void d(String str, String str2) {
+        this.dL = str;
+        this.dK = str2;
+        if (aW) {
+            ab();
+        } else {
+            new Thread() { // from class: com.corrodinggames.rts.gameFramework.l.3
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    try {
+                        sleep(3000L);
+                    } catch (InterruptedException e) {
+                    }
+                    l.this.ab();
+                }
+            }.start();
+        }
+    }
+
+    public boolean ac() {
+        if (this.aq || this.ao.k() == null) {
+            return false;
+        }
+        return this.ao.k().b();
+    }
+
+    public void ad() {
+        if (this.ao.k() == null) {
+            return;
+        }
+        this.ao.k().c();
+    }
+
+    public int ae() {
+        if (this.aq) {
+            return 0;
+        }
+        return this.ao.k().a();
+    }
+
+    public float af() {
+        return b(0);
+    }
+
+    public float ag() {
+        return c(0);
+    }
+
+    public float b(int i) {
+        if (this.ao == null) {
+            return 0.0f;
+        }
+        if (this.bQ.renderDoubleScale) {
+            return this.ao.k().d()[i] / 2.0f;
+        }
+        return this.ao.k().d()[i];
+    }
+
+    public float c(int i) {
+        if (this.ao == null) {
+            return 0.0f;
+        }
+        if (this.bQ.renderDoubleScale) {
+            return this.ao.k().f()[i] / 2.0f;
+        }
+        return this.ao.k().f()[i];
+    }
+
+    public int d(int i) {
+        return this.ao.k().e()[i];
+    }
+
+    public boolean e(int i) {
+        if (i != 1 && i != 2 && i != 3) {
+            throw new RuntimeException("Unknown mouseButton:" + i);
+        }
+        if (f(i) != -1) {
+            return true;
+        }
+        return false;
+    }
+
+    public int f(int i) {
+        if (i == 0) {
+            throw new RuntimeException("finding state of 0 doesn't make sense");
+        }
+        int[] iArrE = this.ao.k().e();
+        for (int i2 = 0; i2 < iArrE.length; i2++) {
+            if (iArrE[i2] == i) {
+                return i2;
+            }
+        }
+        return -1;
+    }
+
+    public boolean g(int i) {
+        if (i < this.c.length && i >= 0 && this.c[i] && this.d[i]) {
+            this.d[i] = false;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean h(int i) {
+        if (i >= this.c.length || i < 0) {
+            return false;
+        }
+        return this.c[i];
+    }
+
+    public boolean a(int i, boolean z) {
+        boolean z2 = true;
+        boolean z3 = true;
+        int iAh = ah();
+        if ((i & 2) != 0) {
+            if ((iAh & 2) == 0) {
+                z2 = false;
+            }
+        } else if ((iAh & 2) != 0) {
+            z3 = false;
+        }
+        if ((i & 1) != 0) {
+            if ((iAh & 1) == 0) {
+                z2 = false;
+            }
+        } else if ((iAh & 1) != 0) {
+            z3 = false;
+        }
+        if ((i & 4) != 0) {
+            if ((iAh & 4) == 0) {
+                z2 = false;
+            }
+        } else if ((iAh & 4) != 0) {
+            z3 = false;
+        }
+        if (z) {
+            return z2;
+        }
+        return z2 && z3;
+    }
+
+    public boolean i(int i) {
+        if (i == 59 || i == 60 || i == 113 || i == 114 || i == 57 || i == 58) {
+            return true;
+        }
+        return false;
+    }
+
+    public static String j(int i) {
+        String str = VariableScope.nullOrMissingString;
+        if ((i & 2) != 0) {
+            str = str + "shift+";
+        }
+        if ((i & 1) != 0) {
+            str = str + "ctrl+";
+        }
+        if ((i & 4) != 0) {
+            str = str + "alt+";
+        }
+        return str;
+    }
+
+    public int ah() {
+        int i = 0;
+        if (h(59) || h(60)) {
+            i = 0 + 2;
+        }
+        if (h(113) || h(114)) {
+            i++;
+        }
+        if (h(57) || h(58)) {
+            i += 4;
+        }
+        return i;
+    }
+
+    public boolean c(int i, int i2) {
+        boolean z = false;
+        boolean z2 = false;
+        if (i >= 0 && i < this.c.length) {
+            z = this.c[i];
+        }
+        if (i2 >= 0 && i2 < this.c.length) {
+            z2 = this.c[i2];
+        }
+        return z || z2;
+    }
+
+    public void b(int i, boolean z) {
+        if (i >= 0 && i < this.c.length) {
+            this.c[i] = z;
+            if (z) {
+                this.d[i] = z;
+                return;
+            }
+            return;
+        }
+        e("setKeyState: Key out of range:" + i);
+    }
+
+    public void k(int i) {
+        this.dN.add(new t(this, i));
+    }
+
+    public int ai() {
+        return this.e;
+    }
+
+    protected void aj() {
+        this.e = 0;
+        while (true) {
+            p pVar = (p) this.dN.poll();
+            if (pVar != null) {
+                if (pVar instanceof r) {
+                    r rVar = (r) pVar;
+                    if (rVar.c >= this.c.length || rVar.c < 0) {
+                        b("updateKeyState", "keyCode (" + rVar.c + ") is out of range");
+                    } else {
+                        this.c[rVar.c] = !rVar.d;
+                        this.d[rVar.c] = !rVar.d;
+                    }
+                } else if (pVar instanceof t) {
+                    this.e += ((t) pVar).c;
+                }
+            } else {
+                return;
+            }
+        }
+    }
+
+    public static String j(String str) {
+        int iLastIndexOf = str.lastIndexOf("/");
+        if (iLastIndexOf == -1) {
+            iLastIndexOf = str.length();
+        }
+        return str.substring(0, iLastIndexOf);
+    }
+
+    public static String k(String str) {
+        int i;
+        int iLastIndexOf = str.lastIndexOf("/");
+        if (iLastIndexOf == -1) {
+            i = 0;
+        } else {
+            i = iLastIndexOf + 1;
+        }
+        return str.substring(i);
+    }
+
+    public static Integer l(String str) {
+        String strK = k(str);
+        e("getMapLevel for :" + str + " file:" + strK);
+        Matcher matcher = Pattern.compile("^l(\\d*);.*").matcher(strK);
+        if (matcher.matches()) {
+            e("getMapLevel:" + str + ":" + Integer.parseInt(matcher.group(1)));
+            return Integer.valueOf(Integer.parseInt(matcher.group(1)));
+        }
+        return null;
+    }
+
+    public static String m(String str) {
+        l lVarB = B();
+        Integer numL = l(str);
+        if (numL == null) {
+            return null;
+        }
+        int iLastIndexOf = str.lastIndexOf("/");
+        if (iLastIndexOf == -1) {
+            iLastIndexOf = str.length();
+        }
+        String strSubstring = str.substring(0, iLastIndexOf);
+        String[] strArrA = com.corrodinggames.rts.gameFramework.e.a.a(strSubstring, true);
+        if (strArrA == null) {
+            return null;
+        }
+        for (String str2 : strArrA) {
+            Integer numL2 = l(str2);
+            if (numL2 != null && numL2.intValue() > numL.intValue() && (!lVarB.ar || com.corrodinggames.rts.appFramework.i.a(str2, strSubstring + "/" + str2))) {
+                return strSubstring + "/" + str2;
+            }
+        }
+        return null;
+    }
+
+    public String ak() {
+        return this.dl;
+    }
+
+    public String al() {
+        String strL = this.dl;
+        if ((this.dl == null || VariableScope.nullOrMissingString.equals(this.dl)) && N()) {
+            strL = this.bX.l();
+        }
+        return com.corrodinggames.rts.appFramework.i.e(com.corrodinggames.rts.appFramework.i.d(strL));
+    }
+
+    public String am() {
+        return com.corrodinggames.rts.appFramework.i.d(this.dl);
+    }
+
+    public com.corrodinggames.rts.gameFramework.j.ai an() {
+        if (com.corrodinggames.rts.appFramework.i.g(this.dl)) {
+            return com.corrodinggames.rts.gameFramework.j.ai.customMap;
+        }
+        return com.corrodinggames.rts.gameFramework.j.ai.skirmishMap;
+    }
+
+    public static String a(Throwable th) {
+        StringWriter stringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(stringWriter);
+        th.printStackTrace(printWriter);
+        String string = stringWriter.toString();
+        printWriter.close();
+        return string;
+    }
+
+    public static String b(Throwable th) {
+        String strReplace;
+        Throwable th2;
+        String message = th.getMessage();
+        if (message == null) {
+            strReplace = th.getClass().getName();
+        } else {
+            strReplace = message.replace("java.lang.RuntimeException: ", VariableScope.nullOrMissingString).replace("java.lang.RuntimeException: ", VariableScope.nullOrMissingString);
+        }
+        Throwable th3 = th;
+        while (true) {
+            th2 = th3;
+            if (th2 == null) {
+                break;
+            }
+            Throwable cause = th2.getCause();
+            if (cause == null || cause == th || cause == th2) {
+                break;
+            }
+            th3 = cause;
+        }
+        if (th2 != null && th2 != th) {
+            String message2 = th2.getMessage();
+            if (message2 == null) {
+                message2 = th2.getClass().getName();
+            }
+            if (!message2.equals(strReplace)) {
+                strReplace = strReplace + " caused by (" + message2 + ")";
+            }
+        }
+        return strReplace;
+    }
+
+    public static File ao() {
+        com.corrodinggames.rts.gameFramework.e.a.d();
+        String str = "/SD/rustedWarfare/crashes.txt";
+        if (at()) {
+            str = "/SD/rustedWarfare/crashes.txt";
+        }
+        return new File(com.corrodinggames.rts.gameFramework.e.a.e(str));
+    }
+
+    public static void e(String str, String str2) {
+        try {
+            PrintWriter printWriter = new PrintWriter(com.corrodinggames.rts.gameFramework.e.a.a(ao(), true));
+            printWriter.write("\r\n" + str + " (at " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date()) + " - 1.15" + VariableScope.nullOrMissingString + ")\n");
+            printWriter.write(str2 + "\r\n");
+            printWriter.close();
+        } catch (Throwable th) {
+            e("Exception in writeCrashToFile");
+            th.printStackTrace();
+        }
+    }
+
+    public static void ap() {
+        if (!at || aU) {
+            return;
+        }
+        if (dS != null) {
+            b("setupANRWatchDog: activeANRWatchDog!=null");
+            return;
+        }
+        dS = new com.corrodinggames.rts.gameFramework.utility.d(4000);
+        dS.a(new com.corrodinggames.rts.gameFramework.utility.e() { // from class: com.corrodinggames.rts.gameFramework.l.4
+            @Override // com.corrodinggames.rts.gameFramework.utility.e
+            public void a(com.corrodinggames.rts.gameFramework.utility.a aVar) throws InterruptedException, IOException {
+                if (l.dT) {
+                    l.b("activeANRWatchDog: ANR already detected");
+                }
+                l.dT = true;
+                l.b("activeANRWatchDog: ANR detected");
+                String strA = l.a(aVar);
+                com.corrodinggames.rts.gameFramework.j.n.a("detectedANR", strA);
+                try {
+                    Thread.sleep(400L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    FileOutputStream fileOutputStream = new FileOutputStream(y.a("lastFreeze", VariableScope.nullOrMissingString, true));
+                    PrintStream printStream = new PrintStream(fileOutputStream);
+                    printStream.print(strA);
+                    printStream.close();
+                    fileOutputStream.close();
+                } catch (IOException e2) {
+                    throw new RuntimeException(e2);
+                }
+            }
+        });
+        dS.start();
+        b("setupANRWatchDog: running");
+    }
+
+    public static void aq() {
+        if (dP == null && av()) {
+            dP = new byte[2500000];
+            dP[0] = 2;
+            dP[dP.length - 1] = 5;
+        }
+        if (aA) {
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = Thread.currentThread().getUncaughtExceptionHandler();
+            if (!(uncaughtExceptionHandler instanceof i)) {
+                Thread.currentThread().setUncaughtExceptionHandler(new i(uncaughtExceptionHandler));
+                return;
+            }
+            return;
+        }
+        Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
+        if (!(defaultUncaughtExceptionHandler instanceof i)) {
+            Thread.setDefaultUncaughtExceptionHandler(new i(defaultUncaughtExceptionHandler));
+        }
+    }
+
+    public boolean ar() {
+        return true;
+    }
+
+    public boolean as() {
+        return true;
+    }
+
+    public static void n(String str) {
+        l lVarB = B();
+        if (lVarB != null) {
+            dU++;
+            if (dU < 1000) {
+                b("reportProblem: " + str);
+            }
+            if (dU < 10) {
+                lVarB.a(str, 1);
+            }
+        }
+    }
+
+    public static boolean at() {
+        return !aU;
+    }
+
+    public static boolean au() {
+        return !aW || aZ;
+    }
+
+    public static boolean av() {
+        return aW && !aZ;
+    }
+
+    public static boolean aw() {
+        return aW && !aZ;
+    }
+
+    public static boolean ax() {
+        return aU && !aW;
+    }
+
+    public boolean ay() {
+        return this.bX.B || this.cb.j();
+    }
+
+    public void a(com.corrodinggames.rts.game.units.am amVar, float f) {
+        this.bW.a((int) amVar.eo, (int) amVar.ep, f, amVar);
+        this.bS.i.c(amVar);
+    }
+
+    public static boolean az() {
+        l lVarB = B();
+        if (lVarB != null && lVarB.bQ.teamShaders && (lVarB.bQ.newRender || !at())) {
+            return true;
+        }
+        return aN;
+    }
+
+    public static boolean aA() {
+        l lVarB = B();
+        if (lVarB != null && lVarB.bQ.shaderEffects && (lVarB.bQ.newRender || !at())) {
+            return true;
+        }
+        return aM;
+    }
+
+    public static boolean aB() {
+        l lVarB = B();
+        if (lVarB != null && lVarB.bQ.shaderEffects && (lVarB.bQ.newRender || !at())) {
+            return true;
+        }
+        return aM;
+    }
+
+    public static void aC() {
+        System.out.println("Free memory (bytes): " + Runtime.getRuntime().freeMemory());
+        long jMaxMemory = Runtime.getRuntime().maxMemory();
+        System.out.println("Maximum memory (bytes): " + (jMaxMemory == Long.MAX_VALUE ? "no limit" : Long.valueOf(jMaxMemory)));
+        System.out.println("Total memory (bytes): " + Runtime.getRuntime().totalMemory());
+    }
+
+    public Context aD() {
+        return this.am;
+    }
+
+    public static void f(String str, String str2) {
+        l lVarB = B();
+        if (lVarB == null) {
+            return;
+        }
+        if (lVarB.bS != null && lVarB.bS.h != null) {
+            lVarB.bS.h.a(str, str2);
+        } else {
+            g("addMessage: interfaceEngine/messageInterface==null");
+        }
+    }
+
+    public static void a(u uVar, Throwable th) {
+        dQ = null;
+        e("reportCaughtOutOfMemory:" + dW);
+        if (dW != null) {
+            return;
+        }
+        dW = uVar;
+        if (th != null) {
+            c(th);
+        }
+        aC();
+    }
+
+    public static void c(Throwable th) {
+        try {
+            th.printStackTrace();
+        } catch (Throwable th2) {
+            e("Failed to print stacktrace");
+        }
+    }
+
+    public void aE() {
+        if (dX && !dY) {
+            dY = true;
+            String str = "Warning game has less than 5mb of free space remaining. A larger battle might cause a crash. ";
+            int iH = this.bZ.h();
+            if (iH > 1) {
+                str = str + "This is often caused by large mods, you currently have: " + iH + " mods loaded. ";
+            }
+            c("Warning: Low memory detected", str);
+        }
+        if (!dV && dW != null) {
+            e("Showing out of memory message");
+            dV = true;
+            String str2 = "trying to load data";
+            if (dW == u.gameImage) {
+                str2 = "trying to load game textures";
+            } else if (dW == u.gameImageCreate) {
+                str2 = "trying to create a texture";
+            } else if (dW == u.gameImageColor) {
+                str2 = "trying to colour new texture";
+            } else if (dW == u.gameImageFogBuffer) {
+                str2 = "trying to create texture buffer for on-screen fog fading";
+            } else if (dW == u.gameFont) {
+                str2 = "trying to create game fonts";
+            } else if (dW == u.gameSound) {
+                str2 = "trying to load game sounds";
+            } else if (dW == u.uiImage) {
+                str2 = "trying to load UI textures";
+            }
+            String str3 = "The game ran out of memory " + str2 + ". ";
+            int iH2 = this.bZ.h();
+            if (iH2 > 1) {
+                str3 = str3 + "This is often caused by large mods, you currently have: " + iH2 + " mods. ";
+            }
+            if (av() && !com.corrodinggames.rts.game.i.b) {
+                str3 = str3 + "You are also using the 32 bit version, switching to the 64 bit version might help. ";
+            }
+            c("Warning: Out Of Memory", str3);
+        }
+    }
+
+    public void aF() {
+        try {
+            byte[] bArr = new byte[5000000];
+            bArr[0] = this.dZ;
+            this.ea = bArr[1];
+        } catch (OutOfMemoryError e) {
+            System.gc();
+            e("Low memory detected");
+            e.printStackTrace();
+            dX = true;
+        }
+    }
+
+    public void a(Runnable runnable) {
+        this.ec.a(runnable);
+    }
+
+    public final boolean a(float f, float f2, float f3) {
+        return this.cM.f48a < f + f3 && f - f3 < this.cM.c && this.cM.b < f2 + f3 && f2 - f3 < this.cM.d;
+    }
+
+    public static boolean o(String str) {
+        if (aQ == null) {
+            return false;
+        }
+        return aQ.contains(str);
+    }
+
+    public static void p(String str) {
+        com.corrodinggames.rts.gameFramework.j.ad adVar = B().bX;
+        String str2 = VariableScope.nullOrMissingString + str;
+        b(str2);
+        T();
+        ej++;
+        if (ej < 10 && adVar != null) {
+            adVar.m(str2);
+        }
+    }
+
+    public void a(com.corrodinggames.rts.gameFramework.g.f fVar, com.corrodinggames.rts.gameFramework.g.c cVar) {
+        this.cg = new com.corrodinggames.rts.gameFramework.g.a(fVar, cVar);
+        this.cg.a();
+    }
+}

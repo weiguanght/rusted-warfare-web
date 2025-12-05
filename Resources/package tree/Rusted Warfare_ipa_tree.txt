@@ -1,0 +1,1696 @@
+├── AppIcon20x20@2x.png
+├── AppIcon20x20@2x~ipad.png
+├── AppIcon20x20@3x.png
+├── AppIcon20x20~ipad.png
+├── AppIcon29x29.png
+├── AppIcon29x29@2x.png
+├── AppIcon29x29@2x~ipad.png
+├── AppIcon29x29@3x.png
+├── AppIcon29x29~ipad.png
+├── AppIcon40x40@2x.png
+├── AppIcon40x40@2x~ipad.png
+├── AppIcon40x40@3x.png
+├── AppIcon40x40~ipad.png
+├── AppIcon60x60@2x.png
+├── AppIcon60x60@3x.png
+├── AppIcon76x76@2x~ipad.png
+├── AppIcon76x76~ipad.png
+├── AppIcon83.5x83.5@2x~ipad.png
+├── Assets.car
+├── Base.lproj
+│   └── LaunchScreen.storyboardc
+│       ├── 01J-lp-oVM-view-Ze5-6b-2t3.nib
+│       ├── Info.plist
+│       └── UIViewController-01J-lp-oVM.nib
+├── IOSLauncher
+├── Info.plist
+├── SC_Info
+│   ├── IOSLauncher.sinf
+│   ├── IOSLauncher.supf
+│   ├── IOSLauncher.supp
+│   ├── IOSLauncher.supx
+│   └── Manifest.plist
+├── _CodeSignature
+│   └── CodeResources
+├── assets
+│   ├── builtin_mods
+│   │   └── mega_builders
+│   │       ├── mega_builder
+│   │       │   ├── builder.png
+│   │       │   ├── builder_dead.png
+│   │       │   └── mega_builder.ini
+│   │       ├── mod-info.txt
+│   │       └── mod-thumbnail.png
+│   ├── builtin_mods_enabled
+│   │   └── mods_here_will_be_enabled_by_default.txt
+│   ├── gui
+│   │   ├── Arial.fnt
+│   │   ├── battleroom.rml
+│   │   ├── battleroom_gameoptions.rml
+│   │   ├── battleroom_player.rml
+│   │   ├── battleroom_setTeams.rml
+│   │   ├── blank.png
+│   │   ├── button-minimize.png
+│   │   ├── button_close.png
+│   │   ├── button_close_hover.png
+│   │   ├── common.rcss
+│   │   ├── credits.rml
+│   │   ├── debugGameLog.rml
+│   │   ├── forms.rcss
+│   │   ├── help.rml
+│   │   ├── help_quick_mobile.rml
+│   │   ├── help_unitstats.rml
+│   │   ├── leaderboard.rml
+│   │   ├── levelOptions.rml
+│   │   ├── levelSelect.rml
+│   │   ├── mainMenu.rml
+│   │   ├── messagebox.rml
+│   │   ├── mods.rml
+│   │   ├── multiplayerLobby.rml
+│   │   ├── multiplayerLobby_connecting.rml
+│   │   ├── multiplayerLobby_hostgame.rml
+│   │   ├── panel1.png
+│   │   ├── panel2.png
+│   │   ├── panel_basic.png
+│   │   ├── radio-check.png
+│   │   ├── rkt.rcss
+│   │   ├── sandboxOptions.rml
+│   │   ├── settings.rml
+│   │   ├── settingsKeyBinding.rml
+│   │   ├── settingsKeyBindingSet.rml
+│   │   ├── settingsPlaceholder.rml
+│   │   ├── singleplayer.rml
+│   │   └── widgets.png
+│   ├── maps
+│   │   ├── challenge
+│   │   │   ├── 1v3 Island.tmx
+│   │   │   ├── 1v3 Island_map.png
+│   │   │   ├── Artillery.tmx
+│   │   │   ├── Artillery_map.png
+│   │   │   ├── Beachhead Landing.tmx
+│   │   │   ├── Beachhead Landing_map.png
+│   │   │   ├── Flying Fortress.tmx
+│   │   │   ├── Flying Fortress_map.png
+│   │   │   ├── Ice Base.tmx
+│   │   │   ├── Ice Base_map.png
+│   │   │   ├── Island Base.tmx
+│   │   │   ├── Island Base_map.png
+│   │   │   ├── Middle Ground.tmx
+│   │   │   └── Middle Ground_map.png
+│   │   ├── menu_background
+│   │   │   ├── menu1.tmx
+│   │   │   ├── menu2.tmx
+│   │   │   └── menu3.tmx
+│   │   ├── normal
+│   │   │   ├── l010;[demo]mission_1__-__Dividing_River.tmx
+│   │   │   ├── l010;[demo]mission_1__-__Dividing_River_map.png
+│   │   │   ├── l020;mission_2__-__Icy_Assault.tmx
+│   │   │   ├── l020;mission_2__-__Icy_Assault_map.png
+│   │   │   ├── l030;[demo]mission_3__-__Crossfire.tmx
+│   │   │   ├── l030;[demo]mission_3__-__Crossfire_map.png
+│   │   │   ├── l040;mission_4__-__Sneak_Attack.tmx
+│   │   │   ├── l040;mission_4__-__Sneak_Attack_map.png
+│   │   │   ├── l050;mission_5__-__Desert_Base.tmx
+│   │   │   ├── l050;mission_5__-__Desert_Base_map.png
+│   │   │   ├── l060;mission_6__-__Snowy_Outcrop.tmx
+│   │   │   ├── l060;mission_6__-__Snowy_Outcrop_map.png
+│   │   │   ├── l070;mission_7__-__Lava_Fortress.tmx
+│   │   │   ├── l070;mission_7__-__Lava_Fortress_map.png
+│   │   │   ├── l080;mission_8__-__Downstream.tmx
+│   │   │   ├── l080;mission_8__-__Downstream_map.png
+│   │   │   ├── l090;mission_9__-__Spider battle.tmx
+│   │   │   ├── l090;mission_9__-__Spider battle_map.png
+│   │   │   ├── l100;mission_10__-__Carrier_Group.tmx
+│   │   │   └── l100;mission_10__-__Carrier_Group_map.png
+│   │   ├── skirmish
+│   │   │   ├── [p2]Beach landing (2p) [by hxyy].tmx
+│   │   │   ├── [p2]Beach landing (2p) [by hxyy]_map.png
+│   │   │   ├── [p2]Big Island (2p).tmx
+│   │   │   ├── [p2]Big Island (2p)_map.png
+│   │   │   ├── [p2]Dire_Straight (2p) [by uber].tmx
+│   │   │   ├── [p2]Dire_Straight (2p) [by uber]_map.png
+│   │   │   ├── [p2]Fire Bridge (2p) [by uber].tmx
+│   │   │   ├── [p2]Fire Bridge (2p) [by uber]_demo
+│   │   │   ├── [p2]Fire Bridge (2p) [by uber]_map.png
+│   │   │   ├── [p2]Hills_(2p)_[By Tstis & KPSS].tmx
+│   │   │   ├── [p2]Hills_(2p)_[By Tstis & KPSS]_map.png
+│   │   │   ├── [p2]Ice Island (2p).tmx
+│   │   │   ├── [p2]Ice Island (2p)_map.png
+│   │   │   ├── [p2]Lake (2p).tmx
+│   │   │   ├── [p2]Lake (2p)_map.png
+│   │   │   ├── [p2]Small_Island (2p).tmx
+│   │   │   ├── [p2]Small_Island (2p)_map.png
+│   │   │   ├── [p2]Two_cold_sides (2p).tmx
+│   │   │   ├── [p2]Two_cold_sides (2p)_map.png
+│   │   │   ├── [p3]Hercules_(2vs1p) [by_uber].tmx
+│   │   │   ├── [p3]Hercules_(2vs1p) [by_uber]_map.png
+│   │   │   ├── [p3]King of the Middle (3p).tmx
+│   │   │   ├── [p3]King of the Middle (3p)_demo
+│   │   │   ├── [p3]King of the Middle (3p)_map.png
+│   │   │   ├── [p4]Depth charges (4p) [by hxyy].tmx
+│   │   │   ├── [p4]Depth charges (4p) [by hxyy]_map.png
+│   │   │   ├── [p4]Desert (4p).tmx
+│   │   │   ├── [p4]Desert (4p)_map.png
+│   │   │   ├── [p4]Ice Lake (4p) [by hxyy].tmx
+│   │   │   ├── [p4]Ice Lake (4p) [by hxyy]_map.png
+│   │   │   ├── [p4]Island freeze (4p) [by hxyy].tmx
+│   │   │   ├── [p4]Island freeze (4p) [by hxyy]_map.png
+│   │   │   ├── [p4]Islands (4p).tmx
+│   │   │   ├── [p4]Islands (4p)_map.png
+│   │   │   ├── [p4]Lava Maze (4p).tmx
+│   │   │   ├── [p4]Lava Maze (4p)_demo
+│   │   │   ├── [p4]Lava Maze (4p)_map.png
+│   │   │   ├── [p4]Lava Vortex (4p).tmx
+│   │   │   ├── [p4]Lava Vortex (4p)_map.png
+│   │   │   ├── [p4]Magma Island (4p).tmx
+│   │   │   ├── [p4]Magma Island (4p)_demo
+│   │   │   ├── [p4]Magma Island (4p)_map.png
+│   │   │   ├── [p4]Manipulation_(4p)_[By Tstis].tmx
+│   │   │   ├── [p4]Manipulation_(4p)_[By Tstis]_map.png
+│   │   │   ├── [p4]Nuclear war (4p) [by hxyy].tmx
+│   │   │   ├── [p4]Nuclear war (4p) [by hxyy]_map.png
+│   │   │   ├── [p6]Crossing (6p).tmx
+│   │   │   ├── [p6]Crossing (6p)_map.png
+│   │   │   ├── [p6]Shore to Shore (6p).tmx
+│   │   │   ├── [p6]Shore to Shore (6p)_map.png
+│   │   │   ├── [p6]Valley Pass (6p).tmx
+│   │   │   ├── [p6]Valley Pass (6p)_map.png
+│   │   │   ├── [p8]Bridges Over Lava (8p).tmx
+│   │   │   ├── [p8]Bridges Over Lava (8p)_map.png
+│   │   │   ├── [p8]Coastline (8p) [by hxyy].tmx
+│   │   │   ├── [p8]Coastline (8p) [by hxyy]_map.png
+│   │   │   ├── [p8]Crossing Large (8p)_moved
+│   │   │   ├── [p8]Huge Subdivide (8p).tmx
+│   │   │   ├── [p8]Huge Subdivide (8p)_map.png
+│   │   │   ├── [p8]Interlocked (8p).tmx
+│   │   │   ├── [p8]Interlocked (8p)_map.png
+│   │   │   ├── [p8]Interlocked Large (8p).tmx
+│   │   │   ├── [p8]Interlocked Large (8p)_map.png
+│   │   │   ├── [p8]Isle Ring (8p).tmx
+│   │   │   ├── [p8]Isle Ring (8p)_map.png
+│   │   │   ├── [p8]Large Ice Outcrop (8p).tmx
+│   │   │   ├── [p8]Large Ice Outcrop (8p)_map.png
+│   │   │   ├── [p8]Lava Bio-grid(8p).tmx
+│   │   │   ├── [p8]Lava Bio-grid(8p)_map.png
+│   │   │   ├── [p8]Lava Divide(8p).tmx
+│   │   │   ├── [p8]Lava Divide(8p)_map.png
+│   │   │   ├── [p8]Many Islands (8p).tmx
+│   │   │   ├── [p8]Many Islands (8p)_map.png
+│   │   │   ├── [p8]Random Islands (8p).tmx
+│   │   │   ├── [p8]Random Islands (8p)_map.png
+│   │   │   ├── [p8]Tornado eye (8p) [by hxyy].tmx
+│   │   │   ├── [p8]Tornado eye (8p) [by hxyy]_map.png
+│   │   │   ├── [p8]Two Sides (8p).tmx
+│   │   │   ├── [p8]Two Sides (8p)_map.png
+│   │   │   ├── [p8]Two Sides Remake (8p)_moved
+│   │   │   ├── [p8]Volcano (8p).tmx
+│   │   │   ├── [p8]Volcano (8p)_map.png
+│   │   │   ├── [p8]Volcano Crater(8p).tmx
+│   │   │   ├── [p8]Volcano Crater(8p)_map.png
+│   │   │   ├── [z;p10]Crossing Large (10p).tmx
+│   │   │   ├── [z;p10]Crossing Large (10p)_map.png
+│   │   │   ├── [z;p10]Enclosed Island (10p).tmx
+│   │   │   ├── [z;p10]Enclosed Island (10p)_map.png
+│   │   │   ├── [z;p10]Kingdoms (10p) [by Vulkan].tmx
+│   │   │   ├── [z;p10]Kingdoms (10p) [by Vulkan]_map.png
+│   │   │   ├── [z;p10]Large Lava Divide (10p).tmx
+│   │   │   ├── [z;p10]Large Lava Divide (10p)_map.png
+│   │   │   ├── [z;p10]Many Islands Large (10p).tmx
+│   │   │   ├── [z;p10]Many Islands Large (10p)_map.png
+│   │   │   ├── [z;p10]Two Sides Remake (10p).tmx
+│   │   │   ├── [z;p10]Two Sides Remake (10p)_map.png
+│   │   │   ├── [z;p10]Two_Large_Islands_(10p).tmx
+│   │   │   ├── [z;p10]Two_Large_Islands_(10p)_map.png
+│   │   │   ├── [z;p10]Valley Arena (10p) [by_uber].tmx
+│   │   │   ├── [z;p10]Valley Arena (10p) [by_uber]_map.png
+│   │   │   ├── [z;p10]Wetlands (10p).tmx
+│   │   │   └── [z;p10]Wetlands (10p)_map.png
+│   │   ├── survival
+│   │   │   ├── [o1]Surrounded.tmx
+│   │   │   ├── [o1]Surrounded_map.png
+│   │   │   ├── [o1]Surrounded_unit.png
+│   │   │   ├── [o2]Single Passage.tmx
+│   │   │   ├── [o2]Single Passage_map.png
+│   │   │   ├── [o2]Single Passage_unit.png
+│   │   │   ├── [o3]Cornered Stronghold.tmx
+│   │   │   ├── [o3]Cornered Stronghold_map.png
+│   │   │   ├── [o4]Valley Arena (2p) [map_by_uber].tmx
+│   │   │   ├── [o4]Valley Arena (2p) [map_by_uber]_map.png
+│   │   │   ├── [z;o1]Surrounded_(Classic_Waves).tmx
+│   │   │   └── [z;o1]Surrounded_(Classic_Waves)_map.png
+│   │   └── testing
+│   │       ├── challenge_fortress2.tmx
+│   │       ├── shore_to_shore_testing.tmx
+│   │       ├── skirmish_forest_bugtest.tmx
+│   │       ├── skirmish_forest_customtest.tmx
+│   │       ├── skirmish_new_ice_demo.tmx
+│   │       ├── skirmish_split_demo.tmx
+│   │       ├── skirmish_volcano_demo.tmx
+│   │       ├── test_unit_volcano_crater.tmx
+│   │       ├── unit_stress_test.tmx
+│   │       ├── unit_stress_test_empty.tmx
+│   │       └── unit_types_test.tmx
+│   ├── music
+│   │   ├── attacked
+│   │   │   └── Adama-Bobthede-11966.ogg
+│   │   ├── buildup
+│   │   │   ├── Acti-Rudy_Ves-8657.ogg
+│   │   │   ├── Ove - Earth Is All We Have.ogg
+│   │   │   ├── [noloop]Ove Melaa - Theme Crystalized.ogg
+│   │   │   ├── [noloop]The Planets - Mars (Part A).ogg
+│   │   │   └── [noloop]The Planets - Mars (Part B).ogg
+│   │   └── starting
+│   │       ├── Cont-Edgen-6084.ogg
+│   │       ├── battletanks1B.ogg
+│   │       └── sile-Justin_R-6891.ogg
+│   ├── shaders
+│   │   ├── error.frag
+│   │   ├── hueAddTeamColor.frag
+│   │   ├── hueShiftTeamColor.frag
+│   │   ├── plain.frag
+│   │   ├── plain.vert
+│   │   ├── plainGDX.vert
+│   │   ├── post_base.frag
+│   │   ├── post_displacement.frag
+│   │   └── pureGreenTeamColor.frag
+│   ├── tilesets
+│   │   ├── bitmaps
+│   │   │   ├── bridge.png
+│   │   │   ├── decoration.png
+│   │   │   ├── deepwater.png
+│   │   │   ├── dirt.png
+│   │   │   ├── dirt2dirt_flat.png
+│   │   │   ├── dirt2dirt_ridge.png
+│   │   │   ├── dirt2dirt_ridge_old.png
+│   │   │   ├── dirt2ice_ridge.png
+│   │   │   ├── dirt2lava_ridge.png
+│   │   │   ├── dirt2longgrass_flat.png
+│   │   │   ├── dirt2longgrass_ridge.png
+│   │   │   ├── dirt2mountain_ridge.png
+│   │   │   ├── dirt2sand_flat.png
+│   │   │   ├── dirt2sand_ridge.png
+│   │   │   ├── dirt2shallowwater_ridge.png
+│   │   │   ├── dirt2snow_flat.png
+│   │   │   ├── dirt2snow_ridge.png
+│   │   │   ├── dirt2stone_ridge.png
+│   │   │   ├── dirt_details.png
+│   │   │   ├── dust.png
+│   │   │   ├── fauna.png
+│   │   │   ├── fauna_dark.png
+│   │   │   ├── fauna_highland.png
+│   │   │   ├── ice.png
+│   │   │   ├── ice2dirt_flat.png
+│   │   │   ├── ice2ice_flat.png
+│   │   │   ├── ice2longgrass_flat.png
+│   │   │   ├── ice2nothing_ridge.png
+│   │   │   ├── ice2sand_flat.png
+│   │   │   ├── ice2shallowwater_broken.png
+│   │   │   ├── ice2shallowwater_ridge.png
+│   │   │   ├── ice2snow_flat.png
+│   │   │   ├── lava.png
+│   │   │   ├── lava2dirt_flat.png
+│   │   │   ├── lava2longgrass_flat.png
+│   │   │   ├── lava2sand_flat.png
+│   │   │   ├── lava2snow_flat.png
+│   │   │   ├── longgrass.png
+│   │   │   ├── longgrass2dirt_flat.png
+│   │   │   ├── longgrass2dirt_ridge.png
+│   │   │   ├── longgrass2ice_flat.png
+│   │   │   ├── longgrass2ice_ridge.png
+│   │   │   ├── longgrass2lava_flat.png
+│   │   │   ├── longgrass2lava_ridge.png
+│   │   │   ├── longgrass2longgrass_flat.png
+│   │   │   ├── longgrass2longgrass_hill.png
+│   │   │   ├── longgrass2longgrass_ridge.png
+│   │   │   ├── longgrass2mountain_flat.png
+│   │   │   ├── longgrass2mountain_ridge.png
+│   │   │   ├── longgrass2sand_flat.png
+│   │   │   ├── longgrass2sand_ridge.png
+│   │   │   ├── longgrass2shallowwater_flat.png
+│   │   │   ├── longgrass2shallowwater_ridge.png
+│   │   │   ├── longgrass2shortgrass_flat.png
+│   │   │   ├── longgrass2snow_flat.png
+│   │   │   ├── longgrass2snow_ridge.png
+│   │   │   ├── longgrass2stone_flat.png
+│   │   │   ├── longgrass2stone_ridge.png
+│   │   │   ├── longrass2darkgrass_flat.png
+│   │   │   ├── misc.png
+│   │   │   ├── mountain.png
+│   │   │   ├── mountain2dirt_flat.png
+│   │   │   ├── mountain2dirt_ridge.png
+│   │   │   ├── mountain2highland_flat.png
+│   │   │   ├── mountain2ice_flat.png
+│   │   │   ├── mountain2ice_ridge.png
+│   │   │   ├── mountain2lava_flat.png
+│   │   │   ├── mountain2lava_ridge.png
+│   │   │   ├── mountain2longgrass_flat.png
+│   │   │   ├── mountain2longgrass_ridge.png
+│   │   │   ├── mountain2mountain_flat.png
+│   │   │   ├── mountain2mountain_hill.png
+│   │   │   ├── mountain2mountain_ridge.png
+│   │   │   ├── mountain2nothing_flat.png
+│   │   │   ├── mountain2nothing_ridge.png
+│   │   │   ├── mountain2sand_flat.png
+│   │   │   ├── mountain2sand_ridge.png
+│   │   │   ├── mountain2shallowwater_flat.png
+│   │   │   ├── mountain2shallowwater_flat.xcf
+│   │   │   ├── mountain2shallowwater_ridge.png
+│   │   │   ├── mountain2snow_flat.png
+│   │   │   ├── mountain2snow_ridge.png
+│   │   │   ├── mountain2stone_flat.png
+│   │   │   ├── mountain2stone_ridge.png
+│   │   │   ├── nothing2dust_flat.png
+│   │   │   ├── nothing2road_flat.png
+│   │   │   ├── nothing2sand_flat.png
+│   │   │   ├── sand.png
+│   │   │   ├── sand2.png
+│   │   │   ├── sand2darksand_flat.png
+│   │   │   ├── sand2darksand_ridge.png
+│   │   │   ├── sand2dirt_flat.png
+│   │   │   ├── sand2dirt_ridge.png
+│   │   │   ├── sand2ice_flat.png
+│   │   │   ├── sand2ice_ridge.png
+│   │   │   ├── sand2lava_flat.png
+│   │   │   ├── sand2lava_ridge.png
+│   │   │   ├── sand2longgrass_flat.png
+│   │   │   ├── sand2longgrass_ridge.png
+│   │   │   ├── sand2mountain_flat.png
+│   │   │   ├── sand2mountain_ridge.png
+│   │   │   ├── sand2nothing_flat.png
+│   │   │   ├── sand2sand_flat.png
+│   │   │   ├── sand2sand_hill.png
+│   │   │   ├── sand2sand_ridge.png
+│   │   │   ├── sand2shallowwater_flat.png
+│   │   │   ├── sand2shallowwater_ridge.png
+│   │   │   ├── sand2snow_flat.png
+│   │   │   ├── sand2snow_ridge.png
+│   │   │   ├── sand2stone_flat.png
+│   │   │   ├── sand2stone_ridge.png
+│   │   │   ├── sand_dark.png
+│   │   │   ├── shallowwater.png
+│   │   │   ├── shallowwater2dirt_flat.png
+│   │   │   ├── shallowwater2longgrass_flat.png
+│   │   │   ├── shallowwater2sand_flat.png
+│   │   │   ├── shallowwater2snow_flat.png
+│   │   │   ├── shallowwater2water_flat.png
+│   │   │   ├── shortgrass.png
+│   │   │   ├── snow.png
+│   │   │   ├── snow2dirt_flat.png
+│   │   │   ├── snow2dirt_ridge.png
+│   │   │   ├── snow2ice_ridge.png
+│   │   │   ├── snow2lava_ridge.png
+│   │   │   ├── snow2longgrass_flat.png
+│   │   │   ├── snow2longgrass_ridge.png
+│   │   │   ├── snow2mountain_ridge.png
+│   │   │   ├── snow2sand_flat.png
+│   │   │   ├── snow2sand_ridge.png
+│   │   │   ├── snow2shallowwater_ridge.png
+│   │   │   ├── snow2snow_flat.png
+│   │   │   ├── snow2snow_hill.png
+│   │   │   ├── snow2snow_ridge.png
+│   │   │   ├── snow2stone_ridge.png
+│   │   │   ├── stone.png
+│   │   │   ├── stone2dirt_flat.png
+│   │   │   ├── stone2dirt_ridge.png
+│   │   │   ├── stone2ice_ridge.png
+│   │   │   ├── stone2lava.png
+│   │   │   ├── stone2lava_ridge.png
+│   │   │   ├── stone2longgrass_flat.png
+│   │   │   ├── stone2longgrass_ridge.png
+│   │   │   ├── stone2mountain_ridge.png
+│   │   │   ├── stone2sand_flat.png
+│   │   │   ├── stone2sand_ridge.png
+│   │   │   ├── stone2shallowwater_ridge.png
+│   │   │   ├── stone2snow.png
+│   │   │   ├── stone2snow_flat.png
+│   │   │   ├── stone2snow_ridge.png
+│   │   │   ├── stone2stone_ridge.png
+│   │   │   ├── units.png
+│   │   │   ├── water.png
+│   │   │   └── water2deepwater_flat.png
+│   │   ├── decoration.tsx
+│   │   ├── misc.tsx
+│   │   ├── ridges
+│   │   │   ├── Dirt Dirt - Ridge.tsx
+│   │   │   ├── Dirt ShalowWater - Ridge.tsx
+│   │   │   ├── Ice Ice - Flat.tsx
+│   │   │   ├── Ice ShallowWater - Broken.tsx
+│   │   │   ├── Ice ShallowWater - Ridge.tsx
+│   │   │   ├── LongGrass Dirt - Flat.tsx
+│   │   │   ├── LongGrass Dirt - Ridge.tsx
+│   │   │   ├── LongGrass LongGrass - Hill.tsx
+│   │   │   ├── LongGrass LongGrass - Ridge.tsx
+│   │   │   ├── LongGrass ShallowWater - Flat.tsx
+│   │   │   ├── LongGrass ShallowWater - Ridge.tsx
+│   │   │   ├── LongGrass ShortGrass - Flat.tsx
+│   │   │   ├── Mountain Dirt - Flat.tsx
+│   │   │   ├── Mountain Dirt - Ridge.tsx
+│   │   │   ├── Mountain LongGrass - Flat.tsx
+│   │   │   ├── Mountain Mountain - Hill.tsx
+│   │   │   ├── Mountain Mountain - Ridge.tsx
+│   │   │   ├── Mountain Nothing - Flat.tsx
+│   │   │   ├── Mountain Nothing - Ridge.tsx
+│   │   │   ├── Mountain Sand - Flat.tsx
+│   │   │   ├── Mountain Sand - Ridge.tsx
+│   │   │   ├── Mountain ShallowWater - Flat.tsx
+│   │   │   ├── Mountain ShallowWater - Ridge.tsx
+│   │   │   ├── Mountain Snow - Flat.tsx
+│   │   │   ├── Mountain Stone - Flat.tsx
+│   │   │   ├── Mountain Stone - Ridge.tsx
+│   │   │   ├── Nothing Dust - Flat.tsx
+│   │   │   ├── Nothing Road - Flat.tsx
+│   │   │   ├── Nothing Sand - Flat.tsx
+│   │   │   ├── Sand Dirt - Flat.tsx
+│   │   │   ├── Sand Dirt - Ridge.tsx
+│   │   │   ├── Sand LandGrass - Flat.tsx
+│   │   │   ├── Sand Nothing - Flat - 2.tsx
+│   │   │   ├── Sand Nothing - Flat.tsx
+│   │   │   ├── Sand Sand - Hill.tsx
+│   │   │   ├── Sand Sand - Ridge.tsx
+│   │   │   ├── Sand ShallowWater - Flat.tsx
+│   │   │   ├── Sand ShallowWater - Ridge.tsx
+│   │   │   ├── ShallowWater Water - Flat.tsx
+│   │   │   ├── Snow Dirt - Flat.tsx
+│   │   │   ├── Snow Dirt - Ridge.tsx
+│   │   │   ├── Snow Ice - Ridge.tsx
+│   │   │   ├── Snow Snow - Hill.tsx
+│   │   │   ├── Snow Snow - ridge.tsx
+│   │   │   ├── Stone Lava - Ridge.tsx
+│   │   │   ├── Stone Sand - Flat.tsx
+│   │   │   ├── Stone ShallowWater - ridge.tsx
+│   │   │   ├── Stone Snow - ridge.tsx
+│   │   │   ├── Stone Stone - Ridge.tsx
+│   │   │   └── Water DeepWater - Flat.tsx
+│   │   ├── terrain
+│   │   │   ├── Deep Water.tsx
+│   │   │   ├── Dirt.tsx
+│   │   │   ├── Dirt_Details.tsx
+│   │   │   ├── Dust.tsx
+│   │   │   ├── Ice.tsx
+│   │   │   ├── Lava.tsx
+│   │   │   ├── Long Grass.tsx
+│   │   │   ├── Mountain.tsx
+│   │   │   ├── Sand.tsx
+│   │   │   ├── Shallow Water.tsx
+│   │   │   ├── Short Grass.tsx
+│   │   │   ├── Snow.tsx
+│   │   │   ├── Stone.tsx
+│   │   │   └── Water.tsx
+│   │   └── units.tsx
+│   ├── translations
+│   │   ├── Strings.properties
+│   │   ├── Strings_by.properties
+│   │   ├── Strings_de.properties
+│   │   ├── Strings_es.properties
+│   │   ├── Strings_fr.properties
+│   │   ├── Strings_it.properties
+│   │   ├── Strings_ja.properties
+│   │   ├── Strings_nl.properties
+│   │   ├── Strings_pl.properties
+│   │   ├── Strings_pt.properties
+│   │   ├── Strings_ru.properties
+│   │   ├── Strings_tr.properties
+│   │   ├── Strings_uk.properties
+│   │   ├── Strings_zh.properties
+│   │   └── Strings_zh_cn.properties
+│   └── units
+│       ├── aa_beam_gunship
+│       │   ├── aa_beam_gunship.ini
+│       │   ├── aa_beam_gunship_afterburn.ini
+│       │   ├── base3.png
+│       │   ├── base3_dead.png
+│       │   └── beam_turret.png
+│       ├── all-units.template
+│       ├── amphibious_jet
+│       │   ├── amphibious_jet.ini
+│       │   ├── amphibious_jet.png
+│       │   ├── amphibious_jet_dead.png
+│       │   ├── amphibious_jet_p1.png
+│       │   ├── amphibious_jet_p2.png
+│       │   ├── amphibious_jet_transition.ini
+│       │   └── amphibious_jet_underwater.ini
+│       ├── bomber
+│       │   ├── base.png
+│       │   ├── base_dead.png
+│       │   └── bomber.ini
+│       ├── bug_base
+│       │   └── bug_generator
+│       │       ├── bug_generator.ini
+│       │       ├── bug_generator.png
+│       │       ├── bug_generator2.png
+│       │       ├── bug_generator3.png
+│       │       ├── bug_generator4.png
+│       │       ├── bug_generatorT2.ini
+│       │       └── leg.png
+│       ├── bug_melee
+│       │   ├── bug_melee_t31.ini
+│       │   ├── bug_meleet31.png
+│       │   ├── bug_meleet31_dead.png
+│       │   ├── leg.png
+│       │   ├── leg2.png
+│       │   ├── leg3.png
+│       │   ├── leg4.png
+│       │   ├── leg4_2.png
+│       │   └── leg5.png
+│       ├── classic_bugs
+│       │   ├── bug_bee
+│       │   │   ├── bug_bee.ini
+│       │   │   └── bug_bee.png
+│       │   ├── bug_extractor
+│       │   │   ├── bug_extractor.ini
+│       │   │   ├── bug_extractor.png
+│       │   │   └── bug_extractorT2.ini
+│       │   ├── bug_fly
+│       │   │   ├── bug_fly.ini
+│       │   │   └── bug_fly.png
+│       │   ├── bug_generator
+│       │   │   ├── bug_generator.ini
+│       │   │   ├── bug_generator.png
+│       │   │   └── bug_generatorT2.ini
+│       │   ├── bug_melee
+│       │   │   ├── bug_dead.png
+│       │   │   ├── bug_melee.ini
+│       │   │   ├── bug_melee.png
+│       │   │   ├── bug_melee_large.ini
+│       │   │   └── bug_melee_small.ini
+│       │   ├── bug_nest
+│       │   │   ├── bug_nest.ini
+│       │   │   ├── bug_nest_back.png
+│       │   │   ├── bug_nest_front.png
+│       │   │   └── bug_nest_open.png
+│       │   ├── bug_ranged
+│       │   │   ├── bug_ranged.ini
+│       │   │   └── bug_ranged.png
+│       │   ├── bug_spore
+│       │   │   ├── bug_spore.ini
+│       │   │   └── bug_spore.png
+│       │   ├── bug_turret
+│       │   │   ├── bug_turret.ini
+│       │   │   └── bug_turret.png
+│       │   ├── bugs
+│       │   │   ├── bug_pickup.ini
+│       │   │   ├── bug_pickup.png
+│       │   │   ├── bug_wasp.ini
+│       │   │   └── bug_wasp.png
+│       │   └── bugs_t2
+│       │       ├── bug_ranged_t2.ini
+│       │       ├── bug_ranged_t2.png
+│       │       ├── foot.png
+│       │       └── leg.png
+│       ├── combat_engineer
+│       │   ├── base.png
+│       │   ├── base_dead.png
+│       │   └── combat_engineer.ini
+│       ├── do_NOT_put_your_modded_units_here.txt
+│       ├── experimental_carrier
+│       │   ├── Experiemental_carrier.ini
+│       │   ├── Experiemental_carrier.png
+│       │   ├── Experiemental_carrier_dead.png
+│       │   ├── anti_air_top_flakgun.png
+│       │   ├── projectile.png
+│       │   ├── turret_top_artillery.png
+│       │   └── turret_top_cannon.png
+│       ├── experimental_dropship
+│       │   ├── experimental_dropship.ini
+│       │   ├── experimental_dropship.png
+│       │   └── experimental_dropship_dead.png
+│       ├── experimental_gunship
+│       │   ├── body.png
+│       │   ├── body_dead.png
+│       │   ├── door.png
+│       │   ├── experimental_gunship.ini
+│       │   ├── experimental_gunship_landed.ini
+│       │   └── turbine.png
+│       ├── experimental_spider
+│       │   ├── body.png
+│       │   ├── body_dead.png
+│       │   ├── experimental_spider.ini
+│       │   ├── experimental_tank_turret2.png
+│       │   ├── foot.png
+│       │   ├── leg.png
+│       │   └── spider_turret_base.png
+│       ├── experimental_tank
+│       │   ├── experimental_tank.ini
+│       │   ├── experimental_tank.png
+│       │   ├── experimental_tank_barrel.png
+│       │   ├── experimental_tank_dead.png
+│       │   └── experimental_tank_turret.png
+│       ├── extractor
+│       │   ├── extractor.ini
+│       │   ├── extractor.png
+│       │   ├── extractorT2.ini
+│       │   ├── extractorT3.ini
+│       │   ├── extractorT3_overclocked.ini
+│       │   ├── extractorT3_reinforced.ini
+│       │   ├── extractor_back.png
+│       │   ├── extractor_common.ini
+│       │   ├── extractor_t2.png
+│       │   ├── extractor_t3.png
+│       │   ├── extractor_t3_overclocked.png
+│       │   └── extractor_t3_reinforced.png
+│       ├── fabricator
+│       │   ├── fabricatorT1.ini
+│       │   ├── fabricatorT1.png
+│       │   ├── fabricatorT2.ini
+│       │   ├── fabricatorT2.png
+│       │   ├── fabricatorT3.ini
+│       │   ├── fabricatorT3.png
+│       │   └── fabricator_dead.png
+│       ├── fire_bee
+│       │   ├── body.png
+│       │   ├── body_dead.png
+│       │   ├── fire_bee.ini
+│       │   └── small_laser_turret.png
+│       ├── heavy_aa_ship
+│       │   ├── anti_air_top_flakgun.png
+│       │   ├── heavy_aa_ship.ini
+│       │   ├── heavy_aa_ship.png
+│       │   └── heavy_aa_ship_dead.png
+│       ├── heavy_battleship
+│       │   ├── heavy_battleship.ini
+│       │   ├── heavy_battleship.png
+│       │   └── heavy_battleship_dead.png
+│       ├── heavy_interceptor
+│       │   ├── base.png
+│       │   ├── base2.png
+│       │   ├── base_dead.png
+│       │   ├── base_shadow.png
+│       │   ├── heavyInterceptor.ini
+│       │   └── turret.png
+│       ├── heavy_missile_ship
+│       │   ├── body.png
+│       │   ├── body_dead.png
+│       │   └── heavy_missile_ship.ini
+│       ├── heavy_sub
+│       │   ├── base.png
+│       │   ├── base_dead.png
+│       │   └── heavy_sub.ini
+│       ├── helicopter
+│       │   ├── helicopter.ini
+│       │   ├── helicopter.png
+│       │   ├── helicopter_blades.png
+│       │   └── helicopter_dead.png
+│       ├── interceptor
+│       │   ├── interceptor.ini
+│       │   ├── interceptor.png
+│       │   ├── interceptor_dead.png
+│       │   ├── interceptor_shadow.png
+│       │   └── interceptor_turret.png
+│       ├── laboratory
+│       │   ├── base.png
+│       │   ├── base_dead.png
+│       │   └── laboratory.ini
+│       ├── laser_tank
+│       │   ├── laser_tank.ini
+│       │   ├── laser_tank.png
+│       │   ├── laser_tank_barrel.png
+│       │   ├── laser_tank_charge.png
+│       │   ├── laser_tank_dead.png
+│       │   └── laser_tank_turret.png
+│       ├── light_gunship
+│       │   ├── base.png
+│       │   ├── base_dead.png
+│       │   └── light_gunship.ini
+│       ├── light_sub
+│       │   ├── base.png
+│       │   ├── base_dead.png
+│       │   └── light_sub.ini
+│       ├── mammoth_tank
+│       │   ├── mammoth_tank.ini
+│       │   ├── mammoth_tank.png
+│       │   ├── mammoth_tank_coil.png
+│       │   ├── mammoth_tank_dead.png
+│       │   └── mammoth_tank_turret.png
+│       ├── mech_engineer
+│       │   ├── body.png
+│       │   ├── body_dead.png
+│       │   ├── cannon.png
+│       │   ├── foot.png
+│       │   ├── leg.png
+│       │   └── mech_engineer.ini
+│       ├── mech_factory
+│       │   ├── mechFactory.ini
+│       │   ├── mechFactoryBottom.png
+│       │   ├── mechFactoryDead.png
+│       │   ├── mechFactoryDoor.png
+│       │   ├── mechFactoryT2.ini
+│       │   ├── mechFactoryTop.png
+│       │   ├── mechFactoryTopT2.png
+│       │   └── mechFactoryTopT3.png
+│       ├── mechs_large
+│       │   ├── ArtilleryTurret.png
+│       │   ├── bunkerTurret.png
+│       │   ├── foot.png
+│       │   ├── foot_med.png
+│       │   ├── foot_small.png
+│       │   ├── foot_small2.png
+│       │   ├── heavyMisssileTurret.png
+│       │   ├── leg.png
+│       │   ├── legs.png
+│       │   ├── mech_artillery.ini
+│       │   ├── mech_bunker.ini
+│       │   ├── mech_bunker_deployed.ini
+│       │   ├── mech_flame.ini
+│       │   ├── mech_flying_landed.ini
+│       │   ├── mech_flying_takeoff.ini
+│       │   ├── mech_heavyMissile.ini
+│       │   ├── mech_large_common.ini
+│       │   ├── mech_laser.ini
+│       │   ├── mech_lightning.ini
+│       │   ├── mech_med_common.ini
+│       │   ├── mech_minigun.ini
+│       │   ├── smallTurret.png
+│       │   ├── smallTurret2.png
+│       │   ├── topArtillery.png
+│       │   ├── topBunker.png
+│       │   ├── topBunkerDead.png
+│       │   ├── topFlame.png
+│       │   ├── topFlying.png
+│       │   ├── topHeavyMissile.png
+│       │   ├── topLaser.png
+│       │   ├── topLightning.png
+│       │   └── topMinigun.png
+│       ├── mechs_small
+│       │   ├── foot.png
+│       │   ├── leg.png
+│       │   ├── legs.png
+│       │   ├── legs_ld.png
+│       │   ├── mech_gun.ini
+│       │   ├── mech_missile.ini
+│       │   ├── mechs_small_common.ini
+│       │   ├── topGun.png
+│       │   └── topMissile.png
+│       ├── miscellaneous
+│       │   ├── example_faction_picker.ini
+│       │   ├── flare_10s.ini
+│       │   └── picker.png
+│       ├── missile_airship
+│       │   ├── body.png
+│       │   ├── body_dead.png
+│       │   └── missile_airship.ini
+│       ├── missile_tank
+│       │   ├── missile_tank.ini
+│       │   ├── missile_tank.png
+│       │   ├── missile_tank_dead.png
+│       │   └── missile_tank_turret.png
+│       ├── missing_unit
+│       │   ├── missing.ini
+│       │   └── missing.png
+│       ├── modular_spider
+│       │   ├── antiair.ini
+│       │   ├── antiairFlak.ini
+│       │   ├── antiairT2.ini
+│       │   ├── antinuke.ini
+│       │   ├── antinuke.png
+│       │   ├── artillery.ini
+│       │   ├── baseSlot.ini
+│       │   ├── blink.ini
+│       │   ├── blink.png
+│       │   ├── body.png
+│       │   ├── body_dead.png
+│       │   ├── body_ui.png
+│       │   ├── common_slot.ini
+│       │   ├── common_weapon_slot.ini
+│       │   ├── emptySlot.ini
+│       │   ├── fabricator.ini
+│       │   ├── fabricatorT1.png
+│       │   ├── fabricatorT2.ini
+│       │   ├── fabricatorT2.png
+│       │   ├── gunturret.ini
+│       │   ├── gunturretT2.ini
+│       │   ├── icon_selected.png
+│       │   ├── laser_defense.ini
+│       │   ├── laser_defense.png
+│       │   ├── leg.png
+│       │   ├── lightning.ini
+│       │   ├── modular_spider.ini
+│       │   ├── modular_spider_nonEmpty.ini
+│       │   ├── shieldGen.ini
+│       │   ├── shieldGen.png
+│       │   ├── smallgun.ini
+│       │   ├── smallgunT2.ini
+│       │   ├── speed.ini
+│       │   ├── speed.png
+│       │   └── speed_incomplete.ini
+│       ├── nautilus
+│       │   ├── body.png
+│       │   ├── body2.png
+│       │   ├── bodyShadow1.png
+│       │   ├── bodyShadow2.png
+│       │   ├── body_dead.png
+│       │   ├── foot.png
+│       │   ├── leg.png
+│       │   ├── nautilus.ini
+│       │   ├── nautilusLand.ini
+│       │   ├── nautilusSurface.ini
+│       │   ├── robotCrab
+│       │   │   ├── base.png
+│       │   │   ├── base_dead.png
+│       │   │   ├── leg.png
+│       │   │   ├── robotCrab.ini
+│       │   │   ├── robotCrabWater.ini
+│       │   │   └── turret.png
+│       │   ├── siloLeft.png
+│       │   └── siloRight.png
+│       ├── nukes
+│       │   ├── antinuke_launcher.ini
+│       │   ├── antinuke_launcher_back.png
+│       │   ├── antinuke_launcher_dead.png
+│       │   ├── antinuke_launcher_door_l.png
+│       │   ├── antinuke_launcher_door_r.png
+│       │   ├── antinuke_launcher_front.png
+│       │   ├── nuke_launcher.ini
+│       │   ├── nuke_launcher_back.png
+│       │   ├── nuke_launcher_dead.png
+│       │   ├── nuke_launcher_door_l.png
+│       │   ├── nuke_launcher_door_r.png
+│       │   └── nuke_launcher_front.png
+│       ├── outpost
+│       │   ├── outpost.ini
+│       │   ├── outpost.png
+│       │   └── outpostT2.ini
+│       ├── plasma_tank
+│       │   ├── plasma_tank.ini
+│       │   ├── plasma_tank.png
+│       │   ├── plasma_tank_dead.png
+│       │   └── turret.png
+│       ├── resource_deposits
+│       │   ├── creditsCrate.ini
+│       │   ├── creditsCrate.png
+│       │   ├── crystal.png
+│       │   └── crystal_mid.ini
+│       ├── scout
+│       │   ├── base.png
+│       │   ├── base_dead.png
+│       │   └── scout.ini
+│       ├── shared
+│       │   ├── area_guide.png
+│       │   ├── beam1.png
+│       │   ├── beam1_end.png
+│       │   ├── beam1_start.png
+│       │   ├── beam2.png
+│       │   ├── beam3.png
+│       │   ├── blank.png
+│       │   ├── cone_inverted_normal_128.png
+│       │   ├── debug_marker.png
+│       │   ├── experimental_tank_turret.png
+│       │   ├── experimental_tank_turret2.png
+│       │   ├── experimental_tank_turret3.png
+│       │   ├── foot.png
+│       │   ├── glow_green.png
+│       │   ├── glow_sharp.png
+│       │   ├── icon_attack_point.png
+│       │   ├── icon_build.png
+│       │   ├── icon_downgrade.png
+│       │   ├── icon_nuke_stockpile.png
+│       │   ├── icon_off.png
+│       │   ├── icon_on.png
+│       │   ├── icon_sell_top.png
+│       │   ├── icon_upgrade.png
+│       │   ├── icon_upgrade_top.png
+│       │   ├── large_turret.png
+│       │   ├── leg.png
+│       │   ├── light_25.png
+│       │   ├── light_50.png
+│       │   ├── lighting_charge.png
+│       │   ├── lighting_charge2.png
+│       │   ├── lightning_shock.png
+│       │   ├── mammoth_tank_turret.png
+│       │   ├── mega_tank_turret.png
+│       │   ├── mega_tank_turret2.png
+│       │   ├── nano_turret.png
+│       │   ├── no_icon.png
+│       │   ├── ripple.png
+│       │   ├── ripple_normal_128.png
+│       │   ├── shockwave_normal_128.png
+│       │   ├── small_laser_turret.png
+│       │   ├── small_laser_turretT2.png
+│       │   ├── spark.png
+│       │   ├── turret_artillery_large.png
+│       │   ├── turret_large_laser.png
+│       │   ├── turret_main.png
+│       │   ├── turret_missile.png
+│       │   ├── turret_small.png
+│       │   └── white_pixel.png
+│       ├── spy_drone
+│       │   ├── base.png
+│       │   ├── base_dead.png
+│       │   └── spy_drone.ini
+│       ├── tanks
+│       │   ├── artillery.ini
+│       │   ├── artillery.png
+│       │   ├── artillery_dead.png
+│       │   ├── heavy_artillery.ini
+│       │   ├── heavy_artillery.png
+│       │   ├── heavy_artillery_dead.png
+│       │   ├── heavy_artillery_turret.png
+│       │   ├── tank.ini
+│       │   ├── tank.png
+│       │   ├── tank_dead.png
+│       │   └── tank_turret.png
+│       ├── test_tank
+│       │   ├── tank.ini
+│       │   ├── tank.png
+│       │   ├── tank_dead.png
+│       │   └── tank_turret.png
+│       └── turrets
+│           ├── anti_air_top.png
+│           ├── anti_air_top_flakgun.png
+│           ├── anti_air_top_l2.png
+│           ├── anti_air_top_l3.png
+│           ├── radar.png
+│           ├── turret_antiair.ini
+│           ├── turret_antiair_flakgun.ini
+│           ├── turret_antiair_t2.ini
+│           ├── turret_antiair_t3.ini
+│           ├── turret_base.png
+│           ├── turret_base2.png
+│           ├── turret_base2B.png
+│           ├── turret_base_dead.png
+│           ├── turret_common_land.ini
+│           ├── turret_t1.ini
+│           ├── turret_t1_artillery.ini
+│           ├── turret_t1_lightning.ini
+│           ├── turret_t2_artillery.ini
+│           ├── turret_t2_flame.ini
+│           ├── turret_t2_gun.ini
+│           ├── turret_t2_lightning.ini
+│           ├── turret_t3_gun.ini
+│           ├── turret_top.png
+│           ├── turret_top_artillery.png
+│           ├── turret_top_artillery_l2.png
+│           ├── turret_top_flame.png
+│           ├── turret_top_l2.png
+│           ├── turret_top_l3.png
+│           ├── turret_top_lightning.png
+│           └── turret_top_lightning_l2.png
+├── badlogic.jpg
+├── converted-sounds
+│   ├── assets
+│   │   └── music
+│   │       ├── attacked
+│   │       │   └── Adama-Bobthede-11966.mp3
+│   │       ├── buildup
+│   │       │   ├── Acti-Rudy_Ves-8657.mp3
+│   │       │   ├── Ove - Earth Is All We Have.mp3
+│   │       │   ├── [noloop]Ove Melaa - Theme Crystalized.mp3
+│   │       │   ├── [noloop]The Planets - Mars (Part A).mp3
+│   │       │   └── [noloop]The Planets - Mars (Part B).mp3
+│   │       └── starting
+│   │           ├── Cont-Edgen-6084.mp3
+│   │           ├── battletanks1B.mp3
+│   │           └── sile-Justin_R-6891.mp3
+│   └── res
+│       └── raw
+│           ├── bug_attack.mp3
+│           ├── bug_die.mp3
+│           ├── buiding_explode.mp3
+│           ├── cannon_firing.mp3
+│           ├── click.mp3
+│           ├── click_add.mp3
+│           ├── click_remove.mp3
+│           ├── firing3.mp3
+│           ├── firing4.mp3
+│           ├── gun_fire.mp3
+│           ├── interface_error.mp3
+│           ├── large_gun_fire1.mp3
+│           ├── large_gun_fire2.mp3
+│           ├── laser_deflect.mp3
+│           ├── laser_deflect2.mp3
+│           ├── lighting_burst.mp3
+│           ├── message.mp3
+│           ├── missile_fire.mp3
+│           ├── missile_hit.mp3
+│           ├── nuke_explode.mp3
+│           ├── nuke_launch.mp3
+│           ├── plasma_fire.mp3
+│           ├── plasma_fire2.mp3
+│           ├── tank_firing.mp3
+│           ├── unit_explode.mp3
+│           ├── unit_explode_old.mp3
+│           └── warning.mp3
+├── crashes.txt
+├── font
+│   ├── Delicious-Bold.otf
+│   ├── Delicious-BoldItalic.otf
+│   ├── Delicious-Italic.otf
+│   ├── Delicious-Roman.otf
+│   ├── DroidSansFallback.ttf
+│   ├── NotoSans-Bold.ttf
+│   ├── NotoSans-Regular.ttf
+│   ├── NotoSansCJKsc-Black.otf
+│   ├── NotoSansCJKsc-Regular.otf
+│   ├── Roboto-Bold.ttf
+│   └── Roboto-Regular.ttf
+├── lib
+│   ├── android-platform-lib.jar
+│   ├── android.jar
+│   ├── boot
+│   │   ├── robovm-cacerts-full.jar
+│   │   └── robovm-rt.jar
+│   ├── classes18.jar
+│   ├── core-1.0.jar
+│   ├── gdx-1.9.10.jar
+│   ├── gdx-backend-robovm-1.9.10.jar
+│   ├── gdx-freetype-1.9.10.jar
+│   ├── gdx-freetype-platform-1.9.10-natives-ios.jar
+│   ├── gdx-platform-1.9.10-natives-ios.jar
+│   ├── httpclient-4.2.2.jar
+│   ├── httpclient-cache-4.2.2.jar
+│   ├── httpcore-4.2.jar
+│   ├── httpmime-4.2.2.jar
+│   ├── ibxm.jar
+│   ├── robovm-cocoatouch-2.3.8.jar
+│   ├── robovm-objc-2.3.8.jar
+│   ├── robovm-rt-2.3.8.jar
+│   ├── support-compat-impl.jar
+│   └── support-compat.jar
+├── preferences.ini
+├── res
+│   ├── anim
+│   │   ├── mainfadein.xml
+│   │   └── splashfadeout.xml
+│   ├── drawable
+│   │   ├── air_factory.png
+│   │   ├── air_factory_dead.png
+│   │   ├── air_factory_t2.png
+│   │   ├── air_factory_t2_dead.png
+│   │   ├── amphibious_jet.png
+│   │   ├── amphibious_jet_dead.png
+│   │   ├── amphibious_jet_p1.png
+│   │   ├── amphibious_jet_p2.png
+│   │   ├── amphibious_jet_shadow.png
+│   │   ├── anti_air_top.png
+│   │   ├── anti_air_top_flakgun.png
+│   │   ├── anti_air_top_l2.png
+│   │   ├── antinuke_launcher.png
+│   │   ├── antinuke_launcher_dead.png
+│   │   ├── artillery1.png
+│   │   ├── artillery1_dead.png
+│   │   ├── artillery2.png
+│   │   ├── attack_submarine.png
+│   │   ├── attack_submarine_dead.png
+│   │   ├── back.png
+│   │   ├── back_circle.png
+│   │   ├── backrepeat.xml
+│   │   ├── base.png
+│   │   ├── base_back.png
+│   │   ├── base_dead.png
+│   │   ├── base_no_front.png
+│   │   ├── battle_ship2.png
+│   │   ├── battle_ship2_dead.png
+│   │   ├── battle_ship2_turret.png
+│   │   ├── battle_ship_experimental.png
+│   │   ├── battle_ship_t2.png
+│   │   ├── battle_ship_t2_dead.png
+│   │   ├── battle_ship_t2_turret.png
+│   │   ├── battle_ship_turret.png
+│   │   ├── blood_mark.png
+│   │   ├── border_shadow.xml
+│   │   ├── btn_black.9.png
+│   │   ├── btn_dropdown.xml
+│   │   ├── btn_dropdown_normal.9.png
+│   │   ├── btn_dropdown_pressed.9.png
+│   │   ├── btn_dropdown_selected.9.png
+│   │   ├── btn_orange.9.png
+│   │   ├── btn_red.9.png
+│   │   ├── builder.png
+│   │   ├── builder_charge.png
+│   │   ├── builder_dead.png
+│   │   ├── builder_decharge.png
+│   │   ├── builder_ship.png
+│   │   ├── builder_ship_dead.png
+│   │   ├── builder_ship_turret.png
+│   │   ├── button_add.png
+│   │   ├── button_more.png
+│   │   ├── button_no.png
+│   │   ├── button_subtract.png
+│   │   ├── button_yes.png
+│   │   ├── cell_shape.xml
+│   │   ├── crystal.png
+│   │   ├── custombutton.xml
+│   │   ├── dropship.png
+│   │   ├── dropship_dead.png
+│   │   ├── dropship_shadow.png
+│   │   ├── dust.png
+│   │   ├── effects.png
+│   │   ├── effects2.png
+│   │   ├── effects3.png
+│   │   ├── error.png
+│   │   ├── error_general.png
+│   │   ├── error_missingmap.png
+│   │   ├── error_outmem.png
+│   │   ├── error_toolargethumb.png
+│   │   ├── experimental_hovertank.png
+│   │   ├── experimental_hovertank_dead.png
+│   │   ├── experimental_hovertank_shield.png
+│   │   ├── experimental_hovertank_turret.png
+│   │   ├── experimental_tank.png
+│   │   ├── experimental_tank_dead.png
+│   │   ├── experimental_tank_turret.png
+│   │   ├── experimental_unit_factory_base.png
+│   │   ├── experimental_unit_factory_dead.png
+│   │   ├── experimental_unit_factory_front.png
+│   │   ├── explode_big.png
+│   │   ├── explode_big2.png
+│   │   ├── explode_bits.png
+│   │   ├── explode_bits_bug.png
+│   │   ├── extractor.png
+│   │   ├── extractor_back.png
+│   │   ├── extractor_dead.png
+│   │   ├── extractor_t2.png
+│   │   ├── extractor_t3.png
+│   │   ├── fast.png
+│   │   ├── fire.png
+│   │   ├── flame.png
+│   │   ├── flame_large.png
+│   │   ├── fog_dithering.png
+│   │   ├── fog_smooth.png
+│   │   ├── gun_boat.png
+│   │   ├── gun_boat_dead.png
+│   │   ├── gunship.png
+│   │   ├── gunship_dead.png
+│   │   ├── gunship_shadow.png
+│   │   ├── heavy_hover_tank.png
+│   │   ├── heavy_hover_tank_dead.png
+│   │   ├── heavy_hover_tank_shadow.png
+│   │   ├── heavy_tank.png
+│   │   ├── heavy_tank_dead.png
+│   │   ├── heavy_tank_turret.png
+│   │   ├── helicopter.png
+│   │   ├── helicopter_blades.png
+│   │   ├── helicopter_dead.png
+│   │   ├── helicopter_shadow.png
+│   │   ├── helicopter_shadow_blades.png
+│   │   ├── help1.png
+│   │   ├── help2.png
+│   │   ├── help3.png
+│   │   ├── help4.png
+│   │   ├── hover_tank.png
+│   │   ├── hover_tank_dead.png
+│   │   ├── hover_tank_shadow.png
+│   │   ├── hovercraft.png
+│   │   ├── hovercraft_dead.png
+│   │   ├── hovercraft_shadow.png
+│   │   ├── icon.png
+│   │   ├── icon2.png
+│   │   ├── icon_back_round.png
+│   │   ├── icon_rally.png
+│   │   ├── icon_round.xml
+│   │   ├── icon_save.png
+│   │   ├── icon_search.png
+│   │   ├── icon_upgrade.png
+│   │   ├── icon_window.png
+│   │   ├── icon_window128.png
+│   │   ├── icon_window16.png
+│   │   ├── icon_window24.png
+│   │   ├── ladybug.png
+│   │   ├── land_factory.png
+│   │   ├── land_factory_back.png
+│   │   ├── land_factory_dead.png
+│   │   ├── land_factory_front.png
+│   │   ├── land_factory_front_t2.png
+│   │   ├── large_gunship.png
+│   │   ├── large_gunship_shadow.png
+│   │   ├── laser_defence.png
+│   │   ├── laser_defence_dead.png
+│   │   ├── laser_defence_t2.png
+│   │   ├── laser_tank_base.png
+│   │   ├── laser_tank_charge.png
+│   │   ├── laser_tank_dead.png
+│   │   ├── laser_tank_turrent.png
+│   │   ├── lava_bubble.png
+│   │   ├── light_50.png
+│   │   ├── lighting_charge.png
+│   │   ├── lock_icon_menu.png
+│   │   ├── logo.png
+│   │   ├── mammoth_tank.png
+│   │   ├── mammoth_tank_dead.png
+│   │   ├── mammoth_tank_turret.png
+│   │   ├── mega_tank.png
+│   │   ├── mega_tank_dead.png
+│   │   ├── mega_tank_turret.png
+│   │   ├── menu.png
+│   │   ├── metal.png
+│   │   ├── metal_dark.png
+│   │   ├── noise.png
+│   │   ├── noise3.png
+│   │   ├── nuke_launcher.png
+│   │   ├── nuke_launcher2.png
+│   │   ├── nuke_launcher_dead.png
+│   │   ├── palm_leaves.png
+│   │   ├── palm_tree.png
+│   │   ├── pause.png
+│   │   ├── plasma_shot.png
+│   │   ├── pointer.png
+│   │   ├── power.png
+│   │   ├── power_dead.png
+│   │   ├── power_t2.png
+│   │   ├── power_t3.png
+│   │   ├── projectiles.png
+│   │   ├── projectiles2.png
+│   │   ├── projectiles_large.png
+│   │   ├── queenbug.png
+│   │   ├── repair_bay.png
+│   │   ├── repair_bay_dead.png
+│   │   ├── replay_leaderboard.png
+│   │   ├── replay_pause.png
+│   │   ├── ripple_normal_128.png
+│   │   ├── rounded_border.xml
+│   │   ├── rounded_dark_box.png
+│   │   ├── rounded_dark_box_titled.png
+│   │   ├── rounded_glow_button.png
+│   │   ├── rounded_glow_highlight_button.png
+│   │   ├── rounded_green.png
+│   │   ├── rounded_shadow.png
+│   │   ├── rounded_white_button.png
+│   │   ├── scorch_mark.png
+│   │   ├── scorch_mark_nuke.png
+│   │   ├── scout_ship.png
+│   │   ├── scout_ship_dead.png
+│   │   ├── sea_factory.png
+│   │   ├── sea_factory_dead.png
+│   │   ├── sea_factory_t2.png
+│   │   ├── shield_mid.png
+│   │   ├── ship.png
+│   │   ├── ship_dead.png
+│   │   ├── ship_scout_turret.png
+│   │   ├── ship_shadow.png
+│   │   ├── shockwave.png
+│   │   ├── shockwave2.png
+│   │   ├── shockwave_large.png
+│   │   ├── shockwave_normal_128.png
+│   │   ├── shockwave_normal_256.png
+│   │   ├── shockwave_normal_64.png
+│   │   ├── small_trees.png
+│   │   ├── smoke_black.png
+│   │   ├── smoke_black_small.png
+│   │   ├── smoke_white.png
+│   │   ├── stats_button_armyvalue.png
+│   │   ├── stats_button_buildingvalue.png
+│   │   ├── stats_button_income.png
+│   │   ├── stats_button_info.png
+│   │   ├── stats_button_totalvalue.png
+│   │   ├── stats_toggle_relative.png
+│   │   ├── stats_toggle_teams.png
+│   │   ├── supply_depot.png
+│   │   ├── supply_depot_dead.png
+│   │   ├── supply_depot_t2.png
+│   │   ├── tank1.png
+│   │   ├── tank1_dead.png
+│   │   ├── tank1_turret.png
+│   │   ├── tank2.png
+│   │   ├── tank2_dead.png
+│   │   ├── tank2_shadow.png
+│   │   ├── tank2_turret.png
+│   │   ├── temp_workaround_bug_image.png
+│   │   ├── title.png
+│   │   ├── touch_indicator.png
+│   │   ├── trees.png
+│   │   ├── trees_snow.png
+│   │   ├── turret_base.png
+│   │   ├── turret_base_dead.png
+│   │   ├── turret_top.png
+│   │   ├── turret_top_artillery.png
+│   │   ├── turret_top_flame.png
+│   │   ├── turret_top_l2.png
+│   │   ├── turret_top_l3.png
+│   │   ├── unit_icon_air.png
+│   │   ├── unit_icon_builder.png
+│   │   ├── unit_icon_building.png
+│   │   ├── unit_icon_building_air_turrent.png
+│   │   ├── unit_icon_building_turrent.png
+│   │   ├── unit_icon_hover.png
+│   │   ├── unit_icon_land.png
+│   │   ├── unit_icon_land_exp.png
+│   │   ├── unit_icon_underwater.png
+│   │   ├── unit_icon_water.png
+│   │   ├── wall_b.png
+│   │   ├── wall_h.png
+│   │   ├── wall_v.png
+│   │   ├── water_cloud.jpg
+│   │   ├── water_layer1.png
+│   │   ├── water_layer2.png
+│   │   └── zoom_button.png
+│   ├── layout
+│   │   ├── alert_chat.xml
+│   │   ├── credits.xml
+│   │   ├── intro_screen.xml
+│   │   ├── level_options_popup.xml
+│   │   ├── level_select.xml
+│   │   ├── level_select_grid.xml
+│   │   ├── load_level.xml
+│   │   ├── main.xml
+│   │   ├── menu.xml
+│   │   ├── mods.xml
+│   │   ├── multiplayer_battleroom.xml
+│   │   ├── multiplayer_battleroom_gameoptions.xml
+│   │   ├── multiplayer_battleroom_playerpopup.xml
+│   │   ├── multiplayer_lobby.xml
+│   │   ├── multiplayer_lobby_hostgame.xml
+│   │   ├── new_mission_starter.xml
+│   │   ├── quick_help.xml
+│   │   ├── replay_select.xml
+│   │   ├── settings.xml
+│   │   └── settings_keyboard.xml
+│   ├── raw
+│   │   ├── attack.wav
+│   │   ├── attack2.wav
+│   │   ├── bug_attack.ogg
+│   │   ├── bug_die.ogg
+│   │   ├── buiding_explode.ogg
+│   │   ├── cannon_firing.ogg
+│   │   ├── click.ogg
+│   │   ├── click_add.ogg
+│   │   ├── click_remove.ogg
+│   │   ├── firing3.ogg
+│   │   ├── firing4.ogg
+│   │   ├── gun_fire.ogg
+│   │   ├── interface_error.ogg
+│   │   ├── large_gun_fire1.ogg
+│   │   ├── large_gun_fire2.ogg
+│   │   ├── laser_deflect.ogg
+│   │   ├── laser_deflect2.ogg
+│   │   ├── lighting_burst.ogg
+│   │   ├── message.ogg
+│   │   ├── missile_fire.ogg
+│   │   ├── missile_hit.ogg
+│   │   ├── move.wav
+│   │   ├── nuke_explode.ogg
+│   │   ├── nuke_launch.ogg
+│   │   ├── plasma_fire.ogg
+│   │   ├── plasma_fire2.ogg
+│   │   ├── tank_firing.ogg
+│   │   ├── unit_explode.ogg
+│   │   ├── unit_explode_old.ogg
+│   │   └── warning.ogg
+│   ├── values
+│   │   ├── arrays.xml
+│   │   ├── attrs.xml
+│   │   ├── color.xml
+│   │   ├── strings.xml
+│   │   ├── styles.xml
+│   │   └── themes.xml
+│   └── xml
+│       └── provider_paths.xml
+└── res-old
+    ├── anim
+    │   ├── mainfadein.xml
+    │   └── splashfadeout.xml
+    ├── drawable
+    │   ├── air_factory.png
+    │   ├── air_factory_dead.png
+    │   ├── air_factory_t2.png
+    │   ├── air_factory_t2_dead.png
+    │   ├── amphibious_jet.png
+    │   ├── amphibious_jet_dead.png
+    │   ├── amphibious_jet_p1.png
+    │   ├── amphibious_jet_p2.png
+    │   ├── amphibious_jet_shadow.png
+    │   ├── anti_air_top.png
+    │   ├── anti_air_top_flakgun.png
+    │   ├── anti_air_top_l2.png
+    │   ├── antinuke_launcher.png
+    │   ├── antinuke_launcher_dead.png
+    │   ├── artillery1.png
+    │   ├── artillery1_dead.png
+    │   ├── artillery2.png
+    │   ├── attack_submarine.png
+    │   ├── attack_submarine_dead.png
+    │   ├── back.png
+    │   ├── back_circle.png
+    │   ├── backrepeat.xml
+    │   ├── base.png
+    │   ├── base_back.png
+    │   ├── base_dead.png
+    │   ├── base_no_front.png
+    │   ├── battle_ship2.png
+    │   ├── battle_ship2_dead.png
+    │   ├── battle_ship2_turret.png
+    │   ├── battle_ship_experimental.png
+    │   ├── battle_ship_t2.png
+    │   ├── battle_ship_t2_dead.png
+    │   ├── battle_ship_t2_turret.png
+    │   ├── battle_ship_turret.png
+    │   ├── blood_mark.png
+    │   ├── btn_black.9.png
+    │   ├── btn_dropdown.xml
+    │   ├── btn_dropdown_normal.9.png
+    │   ├── btn_dropdown_pressed.9.png
+    │   ├── btn_dropdown_selected.9.png
+    │   ├── btn_orange.9.png
+    │   ├── btn_red.9.png
+    │   ├── builder.png
+    │   ├── builder_charge.png
+    │   ├── builder_dead.png
+    │   ├── builder_decharge.png
+    │   ├── builder_ship.png
+    │   ├── builder_ship_dead.png
+    │   ├── builder_ship_turret.png
+    │   ├── button_add.png
+    │   ├── button_more.png
+    │   ├── button_no.png
+    │   ├── button_subtract.png
+    │   ├── button_yes.png
+    │   ├── cell_shape.xml
+    │   ├── crystal.png
+    │   ├── custombutton.xml
+    │   ├── dropship.png
+    │   ├── dropship_dead.png
+    │   ├── dropship_shadow.png
+    │   ├── dust.png
+    │   ├── effects.png
+    │   ├── effects2.png
+    │   ├── effects3.png
+    │   ├── error.png
+    │   ├── error_outmem.png
+    │   ├── experimental_hovertank.png
+    │   ├── experimental_hovertank_dead.png
+    │   ├── experimental_hovertank_shield.png
+    │   ├── experimental_hovertank_turret.png
+    │   ├── experimental_tank.png
+    │   ├── experimental_tank_dead.png
+    │   ├── experimental_tank_turret.png
+    │   ├── experimental_unit_factory_base.png
+    │   ├── experimental_unit_factory_dead.png
+    │   ├── experimental_unit_factory_front.png
+    │   ├── explode_big.png
+    │   ├── explode_big2.png
+    │   ├── explode_bits.png
+    │   ├── explode_bits_bug.png
+    │   ├── extractor.png
+    │   ├── extractor_back.png
+    │   ├── extractor_dead.png
+    │   ├── extractor_t2.png
+    │   ├── extractor_t3.png
+    │   ├── fast.png
+    │   ├── fire.png
+    │   ├── flame.png
+    │   ├── flame_large.png
+    │   ├── fog_dithering.png
+    │   ├── fog_smooth.png
+    │   ├── gun_boat.png
+    │   ├── gun_boat_dead.png
+    │   ├── gunship.png
+    │   ├── gunship_dead.png
+    │   ├── gunship_shadow.png
+    │   ├── heavy_hover_tank.png
+    │   ├── heavy_hover_tank_dead.png
+    │   ├── heavy_hover_tank_shadow.png
+    │   ├── heavy_tank.png
+    │   ├── heavy_tank_dead.png
+    │   ├── heavy_tank_turret.png
+    │   ├── helicopter.png
+    │   ├── helicopter_blades.png
+    │   ├── helicopter_dead.png
+    │   ├── helicopter_shadow.png
+    │   ├── helicopter_shadow_blades.png
+    │   ├── help1.png
+    │   ├── help2.png
+    │   ├── help3.png
+    │   ├── help4.png
+    │   ├── hover_tank.png
+    │   ├── hover_tank_dead.png
+    │   ├── hover_tank_shadow.png
+    │   ├── hovercraft.png
+    │   ├── hovercraft_dead.png
+    │   ├── hovercraft_shadow.png
+    │   ├── icon.png
+    │   ├── icon2.png
+    │   ├── icon_back_round.png
+    │   ├── icon_rally.png
+    │   ├── icon_round.xml
+    │   ├── icon_save.png
+    │   ├── icon_upgrade.png
+    │   ├── icon_window.png
+    │   ├── icon_window128.png
+    │   ├── icon_window16.png
+    │   ├── icon_window24.png
+    │   ├── ladybug.png
+    │   ├── land_factory.png
+    │   ├── land_factory_back.png
+    │   ├── land_factory_dead.png
+    │   ├── land_factory_front.png
+    │   ├── land_factory_front_t2.png
+    │   ├── large_gunship.png
+    │   ├── large_gunship_shadow.png
+    │   ├── laser_defence.png
+    │   ├── laser_defence_dead.png
+    │   ├── laser_defence_t2.png
+    │   ├── laser_tank_base.png
+    │   ├── laser_tank_charge.png
+    │   ├── laser_tank_dead.png
+    │   ├── laser_tank_turrent.png
+    │   ├── lava_bubble.png
+    │   ├── light_50.png
+    │   ├── lighting_charge.png
+    │   ├── lock_icon_menu.png
+    │   ├── logo.png
+    │   ├── mammoth_tank.png
+    │   ├── mammoth_tank_dead.png
+    │   ├── mammoth_tank_turret.png
+    │   ├── mega_tank.png
+    │   ├── mega_tank_dead.png
+    │   ├── mega_tank_turret.png
+    │   ├── menu.png
+    │   ├── metal.png
+    │   ├── metal_dark.png
+    │   ├── noise.png
+    │   ├── noise3.png
+    │   ├── nuke_launcher.png
+    │   ├── nuke_launcher2.png
+    │   ├── nuke_launcher_dead.png
+    │   ├── palm_leaves.png
+    │   ├── palm_tree.png
+    │   ├── pause.png
+    │   ├── plasma_shot.png
+    │   ├── pointer.png
+    │   ├── power.png
+    │   ├── power_dead.png
+    │   ├── power_t2.png
+    │   ├── power_t3.png
+    │   ├── projectiles.png
+    │   ├── projectiles2.png
+    │   ├── projectiles_large.png
+    │   ├── queenbug.png
+    │   ├── repair_bay.png
+    │   ├── repair_bay_dead.png
+    │   ├── replay_pause.png
+    │   ├── rounded_border.xml
+    │   ├── scorch_mark.png
+    │   ├── scorch_mark_nuke.png
+    │   ├── scout_ship.png
+    │   ├── scout_ship_dead.png
+    │   ├── sea_factory.png
+    │   ├── sea_factory_dead.png
+    │   ├── sea_factory_t2.png
+    │   ├── shield_mid.png
+    │   ├── ship.png
+    │   ├── ship_dead.png
+    │   ├── ship_scout_turret.png
+    │   ├── ship_shadow.png
+    │   ├── shockwave.png
+    │   ├── shockwave_large.png
+    │   ├── small_trees.png
+    │   ├── smoke_black.png
+    │   ├── smoke_black_small.png
+    │   ├── supply_depot.png
+    │   ├── supply_depot_dead.png
+    │   ├── supply_depot_t2.png
+    │   ├── tank1.png
+    │   ├── tank1_dead.png
+    │   ├── tank1_turret.png
+    │   ├── tank2.png
+    │   ├── tank2_dead.png
+    │   ├── tank2_shadow.png
+    │   ├── tank2_turret.png
+    │   ├── temp_workaround_bug_image.png
+    │   ├── title.png
+    │   ├── touch_indicator.png
+    │   ├── trees.png
+    │   ├── turret_base.png
+    │   ├── turret_base_dead.png
+    │   ├── turret_top.png
+    │   ├── turret_top_artillery.png
+    │   ├── turret_top_flame.png
+    │   ├── turret_top_l2.png
+    │   ├── turret_top_l3.png
+    │   ├── unit_icon_air.png
+    │   ├── unit_icon_builder.png
+    │   ├── unit_icon_building.png
+    │   ├── unit_icon_building_air_turrent.png
+    │   ├── unit_icon_building_turrent.png
+    │   ├── unit_icon_hover.png
+    │   ├── unit_icon_land.png
+    │   ├── unit_icon_land_exp.png
+    │   ├── unit_icon_underwater.png
+    │   ├── unit_icon_water.png
+    │   ├── wall_b.png
+    │   ├── wall_h.png
+    │   ├── wall_v.png
+    │   ├── water_cloud.jpg
+    │   ├── water_layer1.png
+    │   ├── water_layer2.png
+    │   └── zoom_button.png
+    ├── layout
+    │   ├── alert_chat.xml
+    │   ├── credits.xml
+    │   ├── intro_screen.xml
+    │   ├── level_options_popup.xml
+    │   ├── level_select.xml
+    │   ├── level_select_grid.xml
+    │   ├── load_level.xml
+    │   ├── main.xml
+    │   ├── menu.xml
+    │   ├── mods.xml
+    │   ├── multiplayer_battleroom.xml
+    │   ├── multiplayer_battleroom_gameoptions.xml
+    │   ├── multiplayer_battleroom_playerpopup.xml
+    │   ├── multiplayer_lobby.xml
+    │   ├── multiplayer_lobby_hostgame.xml
+    │   ├── new_mission_starter.xml
+    │   ├── quick_help.xml
+    │   ├── replay_select.xml
+    │   ├── settings.xml
+    │   └── settings_keyboard.xml
+    ├── raw
+    │   ├── attack.wav
+    │   ├── bug_attack.ogg
+    │   ├── bug_die.ogg
+    │   ├── buiding_explode.ogg
+    │   ├── cannon_firing.ogg
+    │   ├── click.ogg
+    │   ├── click_add.ogg
+    │   ├── click_remove.ogg
+    │   ├── firing3.ogg
+    │   ├── firing4.ogg
+    │   ├── gun_fire.ogg
+    │   ├── interface_error.ogg
+    │   ├── large_gun_fire1.ogg
+    │   ├── large_gun_fire2.ogg
+    │   ├── laser_deflect.ogg
+    │   ├── laser_deflect2.ogg
+    │   ├── lighting_burst.ogg
+    │   ├── message.ogg
+    │   ├── missile_fire.ogg
+    │   ├── missile_hit.ogg
+    │   ├── move.wav
+    │   ├── nuke_explode.ogg
+    │   ├── nuke_launch.ogg
+    │   ├── plasma_fire.ogg
+    │   ├── plasma_fire2.ogg
+    │   ├── tank_firing.ogg
+    │   ├── unit_explode.ogg
+    │   ├── unit_explode_old.ogg
+    │   └── warning.ogg
+    ├── values
+    │   ├── arrays.xml
+    │   ├── attrs.xml
+    │   ├── color.xml
+    │   ├── strings.xml
+    │   ├── styles.xml
+    │   └── themes.xml
+    └── xml
+        └── provider_paths.xml
+
+114 directories, 1581 files

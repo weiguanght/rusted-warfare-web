@@ -1,0 +1,472 @@
+├── aa_beam_gunship
+│   ├── aa_beam_gunship.ini
+│   ├── aa_beam_gunship_afterburn.ini
+│   ├── base3.png
+│   ├── base3_dead.png
+│   └── beam_turret.png
+├── all-units.template
+├── amphibious_jet
+│   ├── amphibious_jet.ini
+│   ├── amphibious_jet.png
+│   ├── amphibious_jet_dead.png
+│   ├── amphibious_jet_p1.png
+│   ├── amphibious_jet_p2.png
+│   ├── amphibious_jet_transition.ini
+│   └── amphibious_jet_underwater.ini
+├── bomber
+│   ├── base.png
+│   ├── base_dead.png
+│   └── bomber.ini
+├── bug_base
+│   └── bug_generator
+│       ├── bug_generator.ini
+│       ├── bug_generator.png
+│       ├── bug_generator2.png
+│       ├── bug_generator3.png
+│       ├── bug_generator4.png
+│       ├── bug_generatorT2.ini
+│       └── leg.png
+├── bug_melee
+│   ├── bug_melee_t31.ini
+│   ├── bug_meleet31.png
+│   ├── bug_meleet31_dead.png
+│   ├── leg.png
+│   ├── leg2.png
+│   ├── leg3.png
+│   ├── leg4.png
+│   ├── leg4_2.png
+│   └── leg5.png
+├── classic_bugs
+│   ├── bug_bee
+│   │   ├── bug_bee.ini
+│   │   └── bug_bee.png
+│   ├── bug_extractor
+│   │   ├── bug_extractor.ini
+│   │   ├── bug_extractor.png
+│   │   └── bug_extractorT2.ini
+│   ├── bug_fly
+│   │   ├── bug_fly.ini
+│   │   └── bug_fly.png
+│   ├── bug_generator
+│   │   ├── bug_generator.ini
+│   │   ├── bug_generator.png
+│   │   └── bug_generatorT2.ini
+│   ├── bug_melee
+│   │   ├── bug_dead.png
+│   │   ├── bug_melee.ini
+│   │   ├── bug_melee.png
+│   │   ├── bug_melee_large.ini
+│   │   └── bug_melee_small.ini
+│   ├── bug_nest
+│   │   ├── bug_nest.ini
+│   │   ├── bug_nest_back.png
+│   │   ├── bug_nest_front.png
+│   │   └── bug_nest_open.png
+│   ├── bug_ranged
+│   │   ├── bug_ranged.ini
+│   │   └── bug_ranged.png
+│   ├── bug_spore
+│   │   ├── bug_spore.ini
+│   │   └── bug_spore.png
+│   ├── bug_turret
+│   │   ├── bug_turret.ini
+│   │   └── bug_turret.png
+│   ├── bugs
+│   │   ├── bug_pickup.ini
+│   │   ├── bug_pickup.png
+│   │   ├── bug_wasp.ini
+│   │   └── bug_wasp.png
+│   └── bugs_t2
+│       ├── bug_ranged_t2.ini
+│       ├── bug_ranged_t2.png
+│       ├── foot.png
+│       └── leg.png
+├── combat_engineer
+│   ├── base.png
+│   ├── base_dead.png
+│   └── combat_engineer.ini
+├── do_NOT_put_your_modded_units_here.txt
+├── experimental_carrier
+│   ├── Experiemental_carrier.ini
+│   ├── Experiemental_carrier.png
+│   ├── Experiemental_carrier_dead.png
+│   ├── anti_air_top_flakgun.png
+│   ├── projectile.png
+│   ├── turret_top_artillery.png
+│   └── turret_top_cannon.png
+├── experimental_dropship
+│   ├── experimental_dropship.ini
+│   ├── experimental_dropship.png
+│   └── experimental_dropship_dead.png
+├── experimental_gunship
+│   ├── body.png
+│   ├── body_dead.png
+│   ├── door.png
+│   ├── experimental_gunship.ini
+│   ├── experimental_gunship_landed.ini
+│   └── turbine.png
+├── experimental_spider
+│   ├── body.png
+│   ├── body_dead.png
+│   ├── experimental_spider.ini
+│   ├── experimental_tank_turret2.png
+│   ├── foot.png
+│   ├── leg.png
+│   └── spider_turret_base.png
+├── experimental_tank
+│   ├── experimental_tank.ini
+│   ├── experimental_tank.png
+│   ├── experimental_tank_barrel.png
+│   ├── experimental_tank_dead.png
+│   └── experimental_tank_turret.png
+├── extractor
+│   ├── extractor.ini
+│   ├── extractor.png
+│   ├── extractorT2.ini
+│   ├── extractorT3.ini
+│   ├── extractorT3_overclocked.ini
+│   ├── extractorT3_reinforced.ini
+│   ├── extractor_back.png
+│   ├── extractor_common.ini
+│   ├── extractor_t2.png
+│   ├── extractor_t3.png
+│   ├── extractor_t3_overclocked.png
+│   └── extractor_t3_reinforced.png
+├── fabricator
+│   ├── fabricatorT1.ini
+│   ├── fabricatorT1.png
+│   ├── fabricatorT2.ini
+│   ├── fabricatorT2.png
+│   ├── fabricatorT3.ini
+│   ├── fabricatorT3.png
+│   └── fabricator_dead.png
+├── fire_bee
+│   ├── body.png
+│   ├── body_dead.png
+│   ├── fire_bee.ini
+│   └── small_laser_turret.png
+├── heavy_aa_ship
+│   ├── anti_air_top_flakgun.png
+│   ├── heavy_aa_ship.ini
+│   ├── heavy_aa_ship.png
+│   └── heavy_aa_ship_dead.png
+├── heavy_battleship
+│   ├── heavy_battleship.ini
+│   ├── heavy_battleship.png
+│   └── heavy_battleship_dead.png
+├── heavy_interceptor
+│   ├── base.png
+│   ├── base2.png
+│   ├── base_dead.png
+│   ├── base_shadow.png
+│   ├── heavyInterceptor.ini
+│   └── turret.png
+├── heavy_missile_ship
+│   ├── body.png
+│   ├── body_dead.png
+│   └── heavy_missile_ship.ini
+├── heavy_sub
+│   ├── base.png
+│   ├── base_dead.png
+│   └── heavy_sub.ini
+├── helicopter
+│   ├── helicopter.ini
+│   ├── helicopter.png
+│   ├── helicopter_blades.png
+│   └── helicopter_dead.png
+├── interceptor
+│   ├── interceptor.ini
+│   ├── interceptor.png
+│   ├── interceptor_dead.png
+│   ├── interceptor_shadow.png
+│   └── interceptor_turret.png
+├── laboratory
+│   ├── base.png
+│   ├── base_dead.png
+│   └── laboratory.ini
+├── laser_tank
+│   ├── laser_tank.ini
+│   ├── laser_tank.png
+│   ├── laser_tank_barrel.png
+│   ├── laser_tank_charge.png
+│   ├── laser_tank_dead.png
+│   └── laser_tank_turret.png
+├── light_gunship
+│   ├── base.png
+│   ├── base_dead.png
+│   └── light_gunship.ini
+├── light_sub
+│   ├── base.png
+│   ├── base_dead.png
+│   └── light_sub.ini
+├── mammoth_tank
+│   ├── mammoth_tank.ini
+│   ├── mammoth_tank.png
+│   ├── mammoth_tank_coil.png
+│   ├── mammoth_tank_dead.png
+│   └── mammoth_tank_turret.png
+├── mech_engineer
+│   ├── body.png
+│   ├── body_dead.png
+│   ├── cannon.png
+│   ├── foot.png
+│   ├── leg.png
+│   └── mech_engineer.ini
+├── mech_factory
+│   ├── mechFactory.ini
+│   ├── mechFactoryBottom.png
+│   ├── mechFactoryDead.png
+│   ├── mechFactoryDoor.png
+│   ├── mechFactoryT2.ini
+│   ├── mechFactoryTop.png
+│   ├── mechFactoryTopT2.png
+│   └── mechFactoryTopT3.png
+├── mechs_large
+│   ├── ArtilleryTurret.png
+│   ├── bunkerTurret.png
+│   ├── foot.png
+│   ├── foot_med.png
+│   ├── foot_small.png
+│   ├── foot_small2.png
+│   ├── heavyMisssileTurret.png
+│   ├── leg.png
+│   ├── legs.png
+│   ├── mech_artillery.ini
+│   ├── mech_bunker.ini
+│   ├── mech_bunker_deployed.ini
+│   ├── mech_flame.ini
+│   ├── mech_flying_landed.ini
+│   ├── mech_flying_takeoff.ini
+│   ├── mech_heavyMissile.ini
+│   ├── mech_large_common.ini
+│   ├── mech_laser.ini
+│   ├── mech_lightning.ini
+│   ├── mech_med_common.ini
+│   ├── mech_minigun.ini
+│   ├── smallTurret.png
+│   ├── smallTurret2.png
+│   ├── topArtillery.png
+│   ├── topBunker.png
+│   ├── topBunkerDead.png
+│   ├── topFlame.png
+│   ├── topFlying.png
+│   ├── topHeavyMissile.png
+│   ├── topLaser.png
+│   ├── topLightning.png
+│   └── topMinigun.png
+├── mechs_small
+│   ├── foot.png
+│   ├── leg.png
+│   ├── legs.png
+│   ├── legs_ld.png
+│   ├── mech_gun.ini
+│   ├── mech_missile.ini
+│   ├── mechs_small_common.ini
+│   ├── topGun.png
+│   └── topMissile.png
+├── miscellaneous
+│   ├── example_faction_picker.ini
+│   ├── flare_10s.ini
+│   └── picker.png
+├── missile_airship
+│   ├── body.png
+│   ├── body_dead.png
+│   └── missile_airship.ini
+├── missile_tank
+│   ├── missile_tank.ini
+│   ├── missile_tank.png
+│   ├── missile_tank_dead.png
+│   └── missile_tank_turret.png
+├── missing_unit
+│   ├── missing.ini
+│   └── missing.png
+├── modular_spider
+│   ├── antiair.ini
+│   ├── antiairFlak.ini
+│   ├── antiairT2.ini
+│   ├── antinuke.ini
+│   ├── antinuke.png
+│   ├── artillery.ini
+│   ├── baseSlot.ini
+│   ├── blink.ini
+│   ├── blink.png
+│   ├── body.png
+│   ├── body_dead.png
+│   ├── body_ui.png
+│   ├── common_slot.ini
+│   ├── common_weapon_slot.ini
+│   ├── emptySlot.ini
+│   ├── fabricator.ini
+│   ├── fabricatorT1.png
+│   ├── fabricatorT2.ini
+│   ├── fabricatorT2.png
+│   ├── gunturret.ini
+│   ├── gunturretT2.ini
+│   ├── icon_selected.png
+│   ├── laser_defense.ini
+│   ├── laser_defense.png
+│   ├── leg.png
+│   ├── lightning.ini
+│   ├── modular_spider.ini
+│   ├── modular_spider_nonEmpty.ini
+│   ├── shieldGen.ini
+│   ├── shieldGen.png
+│   ├── smallgun.ini
+│   ├── smallgunT2.ini
+│   ├── speed.ini
+│   ├── speed.png
+│   └── speed_incomplete.ini
+├── nautilus
+│   ├── body.png
+│   ├── body2.png
+│   ├── bodyShadow1.png
+│   ├── bodyShadow2.png
+│   ├── body_dead.png
+│   ├── foot.png
+│   ├── leg.png
+│   ├── nautilus.ini
+│   ├── nautilusLand.ini
+│   ├── nautilusSurface.ini
+│   ├── robotCrab
+│   │   ├── base.png
+│   │   ├── base_dead.png
+│   │   ├── leg.png
+│   │   ├── robotCrab.ini
+│   │   ├── robotCrabWater.ini
+│   │   └── turret.png
+│   ├── siloLeft.png
+│   └── siloRight.png
+├── nukes
+│   ├── antinuke_launcher.ini
+│   ├── antinuke_launcher_back.png
+│   ├── antinuke_launcher_dead.png
+│   ├── antinuke_launcher_door_l.png
+│   ├── antinuke_launcher_door_r.png
+│   ├── antinuke_launcher_front.png
+│   ├── nuke_launcher.ini
+│   ├── nuke_launcher_back.png
+│   ├── nuke_launcher_dead.png
+│   ├── nuke_launcher_door_l.png
+│   ├── nuke_launcher_door_r.png
+│   └── nuke_launcher_front.png
+├── outpost
+│   ├── outpost.ini
+│   ├── outpost.png
+│   └── outpostT2.ini
+├── plasma_tank
+│   ├── plasma_tank.ini
+│   ├── plasma_tank.png
+│   ├── plasma_tank_dead.png
+│   └── turret.png
+├── resource_deposits
+│   ├── creditsCrate.ini
+│   ├── creditsCrate.png
+│   ├── crystal.png
+│   └── crystal_mid.ini
+├── scout
+│   ├── base.png
+│   ├── base_dead.png
+│   └── scout.ini
+├── shared
+│   ├── area_guide.png
+│   ├── beam1.png
+│   ├── beam1_end.png
+│   ├── beam1_start.png
+│   ├── beam2.png
+│   ├── beam3.png
+│   ├── blank.png
+│   ├── cone_inverted_normal_128.png
+│   ├── debug_marker.png
+│   ├── experimental_tank_turret.png
+│   ├── experimental_tank_turret2.png
+│   ├── experimental_tank_turret3.png
+│   ├── foot.png
+│   ├── glow_green.png
+│   ├── glow_sharp.png
+│   ├── icon_attack_point.png
+│   ├── icon_build.png
+│   ├── icon_downgrade.png
+│   ├── icon_nuke_stockpile.png
+│   ├── icon_off.png
+│   ├── icon_on.png
+│   ├── icon_sell_top.png
+│   ├── icon_upgrade.png
+│   ├── icon_upgrade_top.png
+│   ├── large_turret.png
+│   ├── leg.png
+│   ├── light_25.png
+│   ├── light_50.png
+│   ├── lighting_charge.png
+│   ├── lighting_charge2.png
+│   ├── lightning_shock.png
+│   ├── mammoth_tank_turret.png
+│   ├── mega_tank_turret.png
+│   ├── mega_tank_turret2.png
+│   ├── nano_turret.png
+│   ├── no_icon.png
+│   ├── ripple.png
+│   ├── ripple_normal_128.png
+│   ├── shockwave_normal_128.png
+│   ├── small_laser_turret.png
+│   ├── small_laser_turretT2.png
+│   ├── spark.png
+│   ├── turret_artillery_large.png
+│   ├── turret_large_laser.png
+│   ├── turret_main.png
+│   ├── turret_missile.png
+│   ├── turret_small.png
+│   └── white_pixel.png
+├── spy_drone
+│   ├── base.png
+│   ├── base_dead.png
+│   └── spy_drone.ini
+├── tanks
+│   ├── artillery.ini
+│   ├── artillery.png
+│   ├── artillery_dead.png
+│   ├── heavy_artillery.ini
+│   ├── heavy_artillery.png
+│   ├── heavy_artillery_dead.png
+│   ├── heavy_artillery_turret.png
+│   ├── tank.ini
+│   ├── tank.png
+│   ├── tank_dead.png
+│   └── tank_turret.png
+├── test_tank
+│   ├── tank.ini
+│   ├── tank.png
+│   ├── tank_dead.png
+│   └── tank_turret.png
+└── turrets
+    ├── anti_air_top.png
+    ├── anti_air_top_flakgun.png
+    ├── anti_air_top_l2.png
+    ├── anti_air_top_l3.png
+    ├── radar.png
+    ├── turret_antiair.ini
+    ├── turret_antiair_flakgun.ini
+    ├── turret_antiair_t2.ini
+    ├── turret_antiair_t3.ini
+    ├── turret_base.png
+    ├── turret_base2.png
+    ├── turret_base2B.png
+    ├── turret_base_dead.png
+    ├── turret_common_land.ini
+    ├── turret_t1.ini
+    ├── turret_t1_artillery.ini
+    ├── turret_t1_lightning.ini
+    ├── turret_t2_artillery.ini
+    ├── turret_t2_flame.ini
+    ├── turret_t2_gun.ini
+    ├── turret_t2_lightning.ini
+    ├── turret_t3_gun.ini
+    ├── turret_top.png
+    ├── turret_top_artillery.png
+    ├── turret_top_artillery_l2.png
+    ├── turret_top_flame.png
+    ├── turret_top_l2.png
+    ├── turret_top_l3.png
+    ├── turret_top_lightning.png
+    └── turret_top_lightning_l2.png
+
+61 directories, 410 files

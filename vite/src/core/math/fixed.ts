@@ -1,64 +1,92 @@
-/**
- * src/core/math/fixed.ts
- * 核心定点数数学库 - 架构加固版
- * 变更：添加 sqrt，保持 strict math 逻辑
- */
+import { Constants } from './utils';
 
-export type FP = number;
+export class FixedMath {
+    private static sqrtLookup: Int8Array;
+    private static initialized = false;
 
-export class Fixed {
-    public static readonly SHIFT: number = 16;
-    public static readonly ONE: FP = 1 << 16;
-    public static readonly HALF: FP = 1 << 15;
-    public static readonly MAX: FP = 2147483647;
-    public static readonly MIN: FP = -2147483648;
-    public static readonly PI: FP = 205887; // PI * 65536
+    // [Match Java Source Line 728: unitLimit]
+    // 默认 Unit Limit 为 1000，这是随机数种子混合的一部分
+    private static readonly DEFAULT_UNIT_LIMIT = 1000;
 
-    public static fromFloat(val: number): FP {
-        return Math.round(val * Fixed.ONE) | 0;
+    static initialize(): void {
+        if (this.initialized) return;
+        this.sqrtLookup = new Int8Array(Constants.SQRT_TABLE_SIZE);
+        for (let i = 0; i < this.sqrtLookup.length; i++) {
+            this.sqrtLookup[i] = Math.round(Math.sqrt(i));
+        }
+        this.initialized = true;
     }
 
-    public static toFloat(val: FP): number {
-        return val / Fixed.ONE;
+    static sqrtInt(value: number): number {
+        if (value < 0) return 0;
+        if (value < Constants.SQRT_TABLE_SIZE) {
+            return this.sqrtLookup[value | 0];
+        }
+        return Math.round(Math.sqrt(value));
     }
 
-    public static add(a: FP, b: FP): FP {
-        return (a + b) | 0;
+    static clamp(value: number, minVal: number, maxVal: number): number {
+        if (value > maxVal) return maxVal;
+        if (value < minVal) return minVal;
+        return value;
     }
 
-    public static sub(a: FP, b: FP): FP {
-        return (a - b) | 0;
+    static lerp(from: number, to: number, t: number): number {
+        return from + (to - from) * t;
     }
 
-    public static mul(a: FP, b: FP): FP {
-        return Math.trunc((a * b) / Fixed.ONE) | 0;
-    }
-
-    public static div(a: FP, b: FP): FP {
-        if (b === 0) throw new Error("Division by zero");
-        return Math.trunc((a * Fixed.ONE) / b) | 0;
-    }
+    // ==================== 确定性随机数 ====================
 
     /**
-     * 开方运算
-     * 逻辑：sqrt(val_float) -> float -> fixed
-     * 使用 Math.trunc 保证向零取整
+     * 确定性随机整数 [min, max)
+     * [Match Java Source 'a(int i2, int i3, int i4)' Line 41]
+     * @param min 最小值 (包含)
+     * @param max 最大值 (不包含) - 注意与 JS 习惯不同，但匹配 Java 源码
+     * @param seed 种子 (i4)
+     * @param frame 帧数/Tick (lVarB.bx)
      */
-    public static sqrt(a: FP): FP {
-        if (a < 0) throw new Error("Sqrt of negative number");
-        // 先转为浮点数计算 sqrt，再转回定点数
-        // 注意：Math.sqrt(a / 65536) * 65536
-        return Math.trunc(Math.sqrt(a / Fixed.ONE) * Fixed.ONE) | 0;
+    static random(min: number, max: number, seed: number, frame: number = 0): number {
+        // [Match Java Line 42] min >= max check
+        if (min >= max) return min;
+
+        // [Match Java Line 45] int i5 = i3 - i2;
+        const range = max - min; 
+        
+        // [Match Java Line 46]
+        // 算法: ((((bJ + ((seed * 133333333) * range)) + (seed * 13131313)) + ...) % range
+        // 注意：Java 的 bJ 是 unitLimit，默认 1000
+        const bJ = this.DEFAULT_UNIT_LIMIT;
+
+        // 使用 Math.imul 强制模拟 Java int32 溢出
+        let acc = bJ;
+        
+        // term1: (seed * 133333333) * range
+        const t1 = Math.imul(Math.imul(seed, 133333333), range);
+        acc = (acc + t1) | 0;
+
+        // term2: seed * 13131313
+        const t2 = Math.imul(seed, 13131313);
+        acc = (acc + t2) | 0;
+
+        // term3: seed * (frame * 13131313)
+        const t3 = Math.imul(seed, Math.imul(frame, 13131313));
+        acc = (acc + t3) | 0;
+
+        // term4: (frame * 1313131313)
+        const t4 = Math.imul(frame, 1313131313);
+        acc = (acc + t4) | 0;
+
+        // term5: frame % 10
+        const t5 = frame % 10;
+        acc = (acc + t5) | 0;
+
+        let result = acc % range;
+        
+        // Java % operator preserves sign, handle negative results
+        if (result < 0) result = -result;
+
+        return result + min;
     }
-
-    public static eq(a: FP, b: FP): boolean { return a === b; }
-    public static ne(a: FP, b: FP): boolean { return a !== b; }
-    public static gt(a: FP, b: FP): boolean { return a > b; }
-    public static lt(a: FP, b: FP): boolean { return a < b; }
-    public static ge(a: FP, b: FP): boolean { return a >= b; }
-    public static le(a: FP, b: FP): boolean { return a <= b; }
-
-    public static max(a: FP, b: FP): FP { return a > b ? a : b; }
-    public static min(a: FP, b: FP): FP { return a < b ? a : b; }
-    public static abs(a: FP): FP { return a < 0 ? -a : a; }
 }
+
+FixedMath.initialize();

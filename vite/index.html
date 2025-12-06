@@ -1,13 +1,437 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>rts</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Iron Command - RTS UI</title>
+    <style>
+        /* ================= 基础重置 ================= */
+        :root {
+            --bg-glass: rgba(12, 20, 30, 0.85);
+            --bg-glass-light: rgba(30, 45, 60, 0.8);
+            --border-color: rgba(255, 255, 255, 0.15);
+            --accent-blue: #00d2ff;
+            --accent-green: #3cd070;
+            --accent-red: #ff4d4f;
+            --font-main: 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'Consolas', monospace;
+        }
+
+        * { box-sizing: border-box; user-select: none; -webkit-tap-highlight-color: transparent; }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; font-family: var(--font-main); color: #fff; }
+
+        /* 模拟游戏画面层 (最底层) */
+        #game-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            /* 这里模拟游戏画面，实际项目中这里是 Canvas */
+            background: radial-gradient(circle at center, #1a2a3a, #000);
+            z-index: 0;
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.05); font-size: 5rem; font-weight: bold;
+        }
+
+        /* 通用按钮样式 */
+        .btn {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            color: #ddd; padding: 10px 20px; cursor: pointer;
+            transition: 0.2s; text-align: center;
+            backdrop-filter: blur(5px);
+            font-size: 14px;
+        }
+        .btn:hover { background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.4); }
+        .btn:active { transform: scale(0.98); }
+        .btn-primary { background: rgba(0, 210, 255, 0.2); border-color: var(--accent-blue); color: var(--accent-blue); }
+
+        /* ================= 1. 主菜单层 (Main Menu) ================= */
+        #main-menu-layer {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 100;
+    
+            /* --- 科幻背景样式 (修复增强版) --- */
+            /* 1.底色：深蓝黑 */
+            background-color: #060b14;
+    
+            /* 2.多重背景叠加 */
+            background-image:
+                /* 层1: 右侧蓝色光晕 (高亮菜单区域) */
+                radial-gradient(circle at 90% 50%, rgba(0, 210, 255, 0.15) 0%, transparent 60%),
+                /* 层2: 垂直网格线 (透明度 0.05) */
+                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+                /* 层3: 水平网格线 (透明度 0.05) */
+                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+        
+            /* 网格大小 */
+            background-size: 100% 100%, 50px 50px, 50px 50px;
+    
+            /* 缓慢移动动画 */
+            animation: grid-pan 60s linear infinite;
+            
+            /* 【关键修复】这里必须是 display，之前误写成了 isplay */
+            display: flex;
+        }
+
+        @keyframes grid-pan {
+            0% { background-position: 0% 0%, 0 0, 0 0; }
+            100% { background-position: 0% 0%, -50px -50px, -50px -50px; }
+        }
+
+        /* 左下角：语言设置 */
+        .menu-lang-settings {
+            position: absolute; bottom: 20px; left: 20px;
+            display: flex; gap: 10px;
+        }
+
+        /* 右侧：导航菜单容器 */
+        .menu-right-panel {
+            position: absolute; top: 0; right: 0; bottom: 0;
+            width: 380px; /* 稍微加宽一点，更大气 */
+            background: linear-gradient(to left, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0) 100%);
+            display: flex; flex-direction: column; justify-content: center;
+            padding-right: 60px; align-items: flex-end;
+            gap: 20px;
+        }
+
+        .menu-title {
+            font-size: 48px; font-weight: 800; margin-bottom: 40px;
+            color: #fff;
+            text-shadow: 0 0 10px var(--accent-blue);
+            text-transform: uppercase; letter-spacing: 4px;
+            font-style: italic;
+        }
+
+        /* 菜单层级控制 */
+        .menu-group { display: flex; flex-direction: column; gap: 15px; width: 100%; align-items: flex-end; }
+        .hidden { display: none !important; }
+
+        /* 大菜单按钮 */
+        .menu-btn-lg {
+            width: 260px; padding: 18px 25px; font-size: 20px; text-align: right;
+            clip-path: polygon(15px 0, 100% 0, 100% 100%, 0% 100%); /* 切角设计 */
+            border-left: 3px solid transparent;
+        }
+        .menu-btn-lg:hover {
+            border-left: 3px solid var(--accent-blue);
+            padding-right: 35px; /* 悬停时向左伸出效果 */
+        }
+
+        /* 前哨战设置面板 */
+        .skirmish-setup {
+            background: var(--bg-glass); border: 1px solid var(--border-color);
+            padding: 25px; width: 320px; border-radius: 4px; margin-right: 0;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .setup-row { margin-bottom: 15px; }
+        .setup-row label { display: block; font-size: 13px; color: var(--accent-blue); margin-bottom: 6px; font-weight: bold;}
+        .setup-row select, .setup-row input {
+            width: 100%; padding: 10px; background: rgba(0,0,0,0.6);
+            border: 1px solid #555; color: #fff; border-radius: 2px;
+            outline: none;
+        }
+        .setup-row select:focus, .setup-row input:focus { border-color: var(--accent-blue); }
+
+        /* ================= 2. 游戏内 HUD 层 (In-Game) ================= */
+        #game-hud-layer {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 50; pointer-events: none; /* 允许点击穿透 */
+            display: none; /* 默认隐藏 */
+        }
+        
+        /* 交互元素允许点击 */
+        .hud-interactive { pointer-events: auto; }
+
+        /* 顶部居中：时间 */
+        .game-timer {
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
+            padding: 5px 30px 15px 30px;
+            font-family: var(--font-mono); font-size: 20px; letter-spacing: 1px;
+            border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1); border-top: none;
+        }
+
+        /* 右上角组合：小地图 + 资源 */
+        .top-right-group {
+            position: absolute; top: 0; right: 0;
+            display: flex; align-items: flex-start;
+        }
+
+        .resource-bar {
+            height: 40px;
+            background: linear-gradient(to bottom, var(--bg-glass), transparent);
+            display: flex; align-items: center; gap: 20px;
+            padding: 0 25px;
+            margin-right: -1px;
+            border-bottom-left-radius: 15px;
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+        .res-item { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: bold; text-shadow: 0 1px 2px #000; }
+        .icon-energy { color: #ffe600; }
+        .icon-power { color: #00d2ff; }
+
+        .minimap-box {
+            width: 220px; height: 220px;
+            background: #000; border-left: 2px solid #444; border-bottom: 2px solid #444;
+            position: relative;
+        }
+        /* 模拟小地图内容 */
+        .minimap-canvas {
+            width: 100%; height: 100%; opacity: 0.9;
+            background: radial-gradient(circle at 30% 30%, #2a3a4a, #050505);
+        }
+
+        /* --- 左侧栏 (垂直布局) --- */
+        .left-sidebar {
+            position: absolute; top: 0; left: 0; bottom: 0;
+            width: 90px;
+            display: flex; flex-direction: column;
+            padding: 10px;
+            gap: 15px;
+        }
+
+        /* 系统按钮 */
+        .system-btn {
+            width: 50px; height: 50px;
+            background: var(--bg-glass); border: 1px solid #555; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; color: #ccc; box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .system-btn:hover { color: #fff; border-color: var(--accent-blue); background: rgba(255,255,255,0.1); }
+
+        /* 队列设置 */
+        .queue-panel {
+            margin-top: auto; margin-bottom: auto;
+            display: flex; flex-direction: column; gap: 8px;
+        }
+        .queue-slot {
+            width: 44px; height: 44px; background: rgba(0,0,0,0.6); border: 1px solid #555;
+            position: relative; border-radius: 4px;
+        }
+        .queue-slot .count {
+            position: absolute; bottom: -2px; right: -2px;
+            font-size: 11px; background: #000; color: #fff;
+            padding: 1px 4px; border-radius: 2px; border: 1px solid #444;
+        }
+
+        /* 编队 */
+        .squad-panel {
+            margin-top: auto; margin-bottom: 20px;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .squad-btn {
+            width: 50px; height: 50px; background: rgba(10, 30, 50, 0.8);
+            border: 1px solid var(--accent-blue); color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-family: var(--font-mono); font-size: 18px;
+            position: relative; box-shadow: 0 0 10px rgba(0, 210, 255, 0.1);
+            cursor: pointer;
+        }
+        .squad-hp {
+            position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
+            width: 36px; height: 4px; background: #3cd070; border-radius: 2px;
+            border: 1px solid #000;
+        }
+
+        /* --- 右侧操作面板 --- */
+        .right-panel {
+            position: absolute; bottom: 20px; right: 20px;
+            width: 250px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 8px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        .op-btn {
+            aspect-ratio: 1;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            font-size: 12px; color: #aaa; cursor: pointer;
+            border-radius: 2px;
+        }
+        .op-btn:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.3); }
+        .op-btn:active { background: rgba(0, 210, 255, 0.15); border-color: var(--accent-blue); }
+        .op-icon { font-size: 24px; margin-bottom: 4px; }
+
+        /* ================= 3. 弹窗层 (Modals) ================= */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+            z-index: 200;
+            display: none; /* 默认隐藏 */
+            align-items: center; justify-content: center;
+        }
+        
+        .modal-box {
+            width: 320px; background: rgba(20, 25, 35, 0.95);
+            border: 1px solid var(--accent-blue);
+            padding: 0;
+            box-shadow: 0 0 40px rgba(0, 210, 255, 0.15);
+        }
+        .modal-header {
+            background: rgba(0, 210, 255, 0.1); padding: 15px; text-align: center;
+            font-weight: bold; letter-spacing: 2px; border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--accent-blue); text-transform: uppercase;
+        }
+        .modal-body { padding: 25px; display: flex; flex-direction: column; gap: 12px; }
+
+        .modal-btn {
+            padding: 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #ddd; cursor: pointer; text-align: center; transition: 0.2s;
+            font-size: 16px;
+        }
+        .modal-btn:hover { background: var(--accent-blue); color: #000; border-color: var(--accent-blue); font-weight: bold;}
+
+        /* 工具类 */
+        .hidden { display: none !important; }
+
+    </style>
+</head>
+<body>
+
+    <div id="game-bg">GAME WORLD 3D VIEW</div>
+
+    <div id="main-menu-layer">
+        
+        <div class="menu-lang-settings">
+            <button class="btn">🌐 简体中文</button>
+        </div>
+
+        <div class="menu-right-panel">
+            <div class="menu-title">IRON COMMAND</div>
+
+            <div id="menu-level-1" class="menu-group">
+                <button class="btn menu-btn-lg" onclick="showMenu('menu-level-single')">单人游戏 ▶</button>
+                <button class="btn menu-btn-lg">多人游戏</button>
+                <button class="btn menu-btn-lg">设置</button>
+                <button class="btn menu-btn-lg">帮助</button>
+            </div>
+
+            <div id="menu-level-single" class="menu-group hidden">
+                <button class="btn menu-btn-lg btn-primary" onclick="enterGame()">战役 (继续)</button>
+                <button class="btn menu-btn-lg" onclick="showMenu('menu-level-skirmish')">前哨战 ▶</button>
+                <button class="btn menu-btn-lg" onclick="showMenu('menu-level-1')">◀ 返回</button>
+            </div>
+
+            <div id="menu-level-skirmish" class="menu-group hidden">
+                <div class="skirmish-setup">
+                    <div class="setup-row">
+                        <label>地图选择</label>
+                        <select><option>失落神庙 (2v2)</option><option>极地冰原 (4v4)</option></select>
+                    </div>
+                    <div class="setup-row">
+                        <label>AI 难度</label>
+                        <select><option>简单</option><option selected>困难</option><option>疯狂</option></select>
+                    </div>
+                    <div class="setup-row">
+                        <label>玩家数</label>
+                        <input type="range" min="2" max="8" value="4">
+                    </div>
+                </div>
+                <button class="btn menu-btn-lg btn-primary" onclick="enterGame()">开始游戏</button>
+                <button class="btn menu-btn-lg">加载存档</button>
+                <button class="btn menu-btn-lg" onclick="showMenu('menu-level-single')">◀ 返回</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-hud-layer">
+        
+        <div class="game-timer">14:02</div>
+
+        <div class="top-right-group hud-interactive">
+            <div class="resource-bar">
+                <div class="res-item"><span class="icon-energy">⚡</span> 10,488</div>
+                <div class="res-item"><span class="icon-power">🔋</span> 700</div>
+            </div>
+            <div class="minimap-box">
+                <div class="minimap-canvas"></div>
+            </div>
+        </div>
+
+        <div class="left-sidebar">
+            <button class="system-btn hud-interactive" onclick="togglePause()">
+                ⏸
+            </button>
+            <button class="system-btn hud-interactive" title="全屏地图">
+                ⊞
+            </button>
+
+            <div class="queue-panel hud-interactive">
+                <div class="queue-slot">
+                    <img src="https://placehold.co/40/333/FFF?text=T" style="width:100%; height:100%">
+                    <span class="count">2</span>
+                </div>
+                <div class="queue-slot"></div>
+            </div>
+
+            <div class="squad-panel hud-interactive">
+                <div class="squad-btn">1 <div class="squad-hp" style="width:80%"></div></div>
+                <div class="squad-btn">2 <div class="squad-hp" style="width:40%; background:red"></div></div>
+                <div class="squad-btn" style="opacity:0.3; border:1px dashed #666; background:none;">3</div>
+            </div>
+        </div>
+
+        <div class="right-panel hud-interactive">
+            <button class="op-btn"><span class="op-icon">⚔️</span>攻击</button>
+            <button class="op-btn"><span class="op-icon">🛡️</span>坚守</button>
+            <button class="op-btn"><span class="op-icon">🛑</span>停止</button>
+            <button class="op-btn"><span class="op-icon">🔧</span>维修</button>
+            <button class="op-btn"><span class="op-icon">🏗️</span>建造</button>
+            <button class="op-btn"><span class="op-icon">⚠️</span>自爆</button>
+            <button class="op-btn"></button>
+            <button class="op-btn"></button>
+            <button class="op-btn" style="color:var(--accent-red); border-color:rgba(255, 80, 80, 0.3)"><span class="op-icon">❌</span>取消</button>
+        </div>
+
+    </div>
+
+    <div id="pause-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">系统暂停</div>
+            <div class="modal-body">
+                <div class="modal-btn" onclick="togglePause()">继续游戏</div>
+                <div class="modal-btn">保存游戏</div>
+                <div class="modal-btn">游戏设置</div>
+                <div class="modal-btn" style="border-color:var(--accent-red); color:var(--accent-red)" onclick="exitGame()">退出到主菜单</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 简单的菜单切换逻辑
+        function showMenu(menuId) {
+            // 隐藏所有菜单组
+            document.querySelectorAll('.menu-group').forEach(el => el.classList.add('hidden'));
+            // 显示目标菜单
+            document.getElementById(menuId).classList.remove('hidden');
+        }
+
+        // 进入游戏模拟
+        function enterGame() {
+            document.getElementById('main-menu-layer').style.display = 'none';
+            document.getElementById('game-hud-layer').style.display = 'block';
+            console.log("Game Started");
+        }
+
+        // 退出游戏模拟
+        function exitGame() {
+            togglePause(); // 关闭弹窗
+            document.getElementById('game-hud-layer').style.display = 'none';
+            document.getElementById('main-menu-layer').style.display = 'flex';
+            showMenu('menu-level-1'); // 重置回主菜单
+        }
+
+        // 暂停切换
+        function togglePause() {
+            const modal = document.getElementById('pause-modal');
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+        }
+    </script>
+</body>
 </html>

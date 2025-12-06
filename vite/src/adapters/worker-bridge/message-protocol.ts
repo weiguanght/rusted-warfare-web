@@ -2,19 +2,21 @@
  * src/adapters/worker-bridge/message-protocol.ts
  * Worker 通信协议定义
  */
-import { GameState } from "../../core/loop/game-state";
+import type { GameState } from "../../core/loop/game-state";
 
-// 消息类型枚举
-export enum WorkerMessageType {
-    INIT = 'INIT',
-    STOP = 'STOP',
-    SYNC_STATE = 'SYNC_STATE'
-}
+// 消息类型常量
+export const WorkerMessageType = {
+    INIT: 'INIT',
+    STOP: 'STOP',
+    SYNC_STATE: 'SYNC_STATE'
+} as const;
+
+export type WorkerMessageType = typeof WorkerMessageType[keyof typeof WorkerMessageType];
 
 // 主线程发送给 Worker 的消息结构
 export type WorkerMessage =
-    | { type: WorkerMessageType.INIT }
-    | { type: WorkerMessageType.STOP };
+    | { type: typeof WorkerMessageType.INIT }
+    | { type: typeof WorkerMessageType.STOP };
 
 // Worker 发送回主线程的状态快照
 export interface SyncStatePayload {
@@ -33,6 +35,6 @@ export interface SyncStatePayload {
 
 // Worker 发送的消息结构
 export type WorkerResponse = {
-    type: WorkerMessageType.SYNC_STATE;
+    type: typeof WorkerMessageType.SYNC_STATE;
     payload: SyncStatePayload;
 };

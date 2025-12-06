@@ -3,7 +3,8 @@
  * 三角函数查表法 - 架构加固版
  * 变更：Trig.atan2 使用 Math.fround 增加确定性
  */
-import { Fixed, FP } from './fixed';
+import { Fixed } from './fixed';
+import type { FP } from './fixed';
 
 const TABLE_SIZE = 4096;
 const TABLE_MASK = TABLE_SIZE - 1;

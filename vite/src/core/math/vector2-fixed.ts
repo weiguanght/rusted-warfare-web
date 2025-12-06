@@ -3,7 +3,8 @@
  * 2D 定点数向量 - 零内存分配版 (Zero-Allocation)
  * 警告：严禁在 GameLoop 中使用 new Vector2()，请复用对象池或组件数据
  */
-import { Fixed, FP } from './fixed';
+import { Fixed } from './fixed';
+import type { FP } from './fixed';
 
 export class Vector2 {
     public x: FP;

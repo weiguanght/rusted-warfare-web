@@ -2,7 +2,8 @@
  * src/main.ts
  * 应用入口
  */
-import { WorkerMessageType, WorkerResponse } from './adapters/worker-bridge/message-protocol';
+import { WorkerMessageType } from './adapters/worker-bridge/message-protocol';
+import type { WorkerResponse } from './adapters/worker-bridge/message-protocol';
 
 // 1. 初始化 Worker
 // Vite 特性: ?worker 后缀或 new Worker(..., {type: 'module'}) 均可

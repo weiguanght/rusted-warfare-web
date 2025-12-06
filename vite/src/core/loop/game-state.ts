@@ -3,12 +3,17 @@
  * 纯净的数据结构，不包含方法
  */
 
+export interface Entity {
+    id: number;
+    // 预留其他属性
+}
+
 export interface GameState {
     /** 当前逻辑帧号 (从 0 开始) */
     tick: number;
 
-    /** 实体列表 (预留，后续替换为 ECS 或 Entity数组) */
-    entities: any[];
+    /** 实体列表 */
+    entities: Entity[];
 }
 
 /** 创建初始状态 */

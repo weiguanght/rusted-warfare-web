@@ -3,15 +3,16 @@
  */
 import { Simulation } from '../core/loop/simulation';
 import { WORKER_HEARTBEAT_MS } from '../constants';
-import { WorkerMessageType, WorkerResponse } from '../adapters/worker-bridge/message-protocol';
+import { WorkerMessageType } from '../adapters/worker-bridge/message-protocol';
+import type { WorkerResponse } from '../adapters/worker-bridge/message-protocol';
 
 declare const self: DedicatedWorkerGlobalScope;
 
 let simulation: Simulation | null = null;
-let intervalId: any = null;
+let intervalId: ReturnType<typeof setInterval> | null = null;
 let lastTime: number = 0;
 
-const handlers: Record<string, (payload: any) => void> = {
+const handlers: Record<string, (payload: unknown) => void> = {
     [WorkerMessageType.INIT]: handleInit,
     [WorkerMessageType.STOP]: handleStop
 };
@@ -75,4 +76,4 @@ function sendSnapshot() {
 
     // postMessage 会自动序列化对象
     self.postMessage(response);
-}}
+}

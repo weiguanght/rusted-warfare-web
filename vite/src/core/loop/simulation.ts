@@ -2,7 +2,8 @@
  * src/core/loop/simulation.ts
  */
 import { STEP_TIME_MS, MAX_CATCHUP_TICKS } from '../../constants';
-import { GameState, createInitialState } from './game-state';
+import { createInitialState } from './game-state';
+import type { GameState } from './game-state';
 
 export class Simulation {
     public state: GameState;
